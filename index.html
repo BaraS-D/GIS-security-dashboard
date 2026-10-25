@@ -95,8 +95,10 @@
             <label class="layer-row"><input type="checkbox" data-layer="incidents" checked><span class="legend-dot incident-dot"></span><span data-i18n="incidents">Incidents</span></label>
             <label class="layer-row"><input type="checkbox" data-layer="districts" checked><span class="legend-square district-square"></span><span data-i18n="districtAreas">Illustrative district boundaries</span></label>
             <div class="legend-rule"></div>
-            <div class="legend-title" data-i18n="category">CATEGORY</div>
-            <div id="category-legend"></div>
+            <details class="category-legend-details">
+              <summary><span data-i18n="incidentCategories">Incident categories</span><span id="category-count" class="category-count">10</span></summary>
+              <div id="category-legend"></div>
+            </details>
             <div class="legend-rule"></div>
             <div class="legend-title" data-i18n="severity">SEVERITY</div>
             <div class="layer-row"><span class="legend-dot severity-high-dot"></span><span data-i18n="high">High</span></div>
