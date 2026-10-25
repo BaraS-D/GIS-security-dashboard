@@ -55,13 +55,15 @@ You can publish from the root of another branch if you prefer, but make sure tha
 
 ## Features
 
-- Leaflet map on OpenStreetMap with clustered, clickable, simulated incident markers and fictional district boundaries.
+- Leaflet maps with OpenStreetMap streets, Esri World Imagery satellite tiles, Esri World Topographic Map, generalized fictional density circles, and aggregate district coloring. Tile providers need an internet connection and their terms/attribution must be respected.
 - Marker fill shows severity; marker outline shows category.
 - District, category, severity, relative period, and start/end date filters.
 - English/Arabic translations and right-to-left layout.
 - Trend, category, and district charts; severity and status totals; district comparisons and category/severity breakdowns.
 - High/medium/routine flags explain the recorded evidence and are for further assessment only. Counts alone do not establish that a place is unsafe or justify action against individuals or groups.
-- CSV and GeoJSON imports with input validation. Imported records stay in browser memory for the current page session; they are not uploaded or saved to the website.
+- Add, edit, delete, search, and filter incident records in the dashboard. Records are saved in that browser's local storage; they are not uploaded or shared with other visitors.
+- Preview and validate Excel (`.xlsx`), CSV, and GeoJSON imports before confirming. Invalid rows are listed in the preview. Download an Excel template from the import panel.
+- Monthly, category, and district charts respond to the dashboard district, category, severity, and date filters.
 - Bilingual category names can be edited or extended. Those settings are stored in the current browser's local storage.
 
 The bundled sample contains fictional examples of theft and robbery, assault and violent crime, burglary and property crime, suspicious activity, public disturbances, vandalism and property damage, missing persons reports, traffic-related incidents, fire and emergency incidents, and other reported incidents. The sample has no service coverage data.
@@ -76,14 +78,35 @@ District outlines in `data/districts.geojson` are approximate fictional drawings
 
 ## Import formats
 
-CSV requires these exact headers. District and category values must match IDs in the dashboard. Severity must be `low`, `medium`, or `high`; status must be `open`, `investigating`, `resolved`, or `closed`. Dates use `YYYY-MM-DD`.
+CSV and Excel files require these headers: `id,date,district,category,severity,status`. `latitude`, `longitude`, and `description` are optional columns; if coordinates are supplied, provide both and use valid latitude/longitude numbers. If no coordinates are supplied, the map uses a generalized district-center marker, not an event location. District and category values must match IDs in the dashboard. Severity must be `low`, `medium`, or `high`; status must be `open`, `investigating`, `resolved`, or `closed`. Dates use `YYYY-MM-DD`. The downloadable workbook contains the full column list.
 
 ```csv
-id,date,district,category,severity,status,latitude,longitude
-EXAMPLE-001,2026-10-20,karkh,theft_robbery,medium,open,33.31,44.36
+id,date,district,category,severity,status,latitude,longitude,description
+SIMULATED-EXAMPLE-001,2026-10-20,karkh,theft_robbery,medium,open,33.31,44.36,Fictional training example
 ```
 
 GeoJSON must be a `FeatureCollection` of Point features, with incident fields in `properties`. GeoJSON coordinates use `[longitude, latitude]`.
+
+## إدارة السجلات والتخزين المحلي
+
+- تتيح اللوحة إضافة السجلات وتعديلها وحذفها والبحث فيها وتصفيتها. وتُحدّث الخريطة والجداول والإحصاءات والرسوم بعد التغيير.
+- تتم معاينة ملفات Excel (`.xlsx`) وCSV وGeoJSON والتحقق من الصفوف والتواريخ والإحداثيات قبل تأكيد الاستيراد. السجلات غير الصالحة تظهر مع رقم الصف والسبب.
+- تعمل هذه الوظائف على GitHub Pages لأن الصفحة ثابتة ولا تحتاج إلى خادم تطبيق. تحفظ التغييرات في التخزين المحلي للمتصفح وعلى نفس عنوان الموقع والجهاز فقط؛ لا تُرسل إلى GitHub ولا يراها زوار آخرون.
+- مسح بيانات المتصفح أو استخدام جهاز/متصفح مختلف قد يزيل هذه النسخة المحلية. لا تعتبر `localStorage` قاعدة بيانات احتياطية أو مكاناً آمناً أو مشتركاً.
+- بيانات العرض وحدود المناطق المضمّنة خيالية. لا تضع بيانات حقيقية أو شخصية أو تشغيلية في الموقع العام، ولا تُضفها إلى ملفات المشروع.
+- تتوفر طبقة صور الأقمار الصناعية وخريطة التضاريس من Esri World Imagery وEsri World Topographic Map، مع خرائط الشوارع من OpenStreetMap. تتطلب الطبقات اتصالاً بالإنترنت وقد تخضع لشروط الاستخدام والإسناد وحدود الخدمة لدى مزودي الخرائط.
+
+### اختبار إدارة الحوادث محلياً
+
+1. شغّل الخادم المحلي الموضح أعلاه وافتح <http://localhost:8000/>.
+2. أضف سجلاً خيالياً، واترك الإحداثيات فارغة للتحقق من ظهور علامة تقريبية عند مركز المنطقة.
+3. عدّل السجل ثم احذفه؛ جرّب البحث ومرشح الحالة والفلاتر العامة، ولاحظ تحديث الأعداد والرسوم.
+4. من أدوات البيانات نزّل قالب Excel، أو اختر ملف `.xlsx`/`.csv`/`.geojson`، راجع السجلات الصالحة والأخطاء، ثم أكّد الاستيراد.
+5. بدّل خيارات الخريطة واللغة. تعمل خرائط Leaflet وChart.js وSheetJS ومربعات الخرائط الخارجية عبر الإنترنت.
+
+### Browser-local data is not shared
+
+GitHub Pages serves the same static website to every visitor. Each browser keeps its own added, edited, deleted, and imported records in local storage. To share records between users or devices, a separately designed and secured backend would be required; this project does not implement one. Keep the public demonstration fictional.
 
 ## Files in the published website
 
@@ -95,4 +118,4 @@ GeoJSON must be a `FeatureCollection` of Point features, with incident fields in
 - `data/ministry-of-interior-iraq.png` — Ministry of Interior emblem downloaded from the official website's favicon (`https://moi.gov.iq/upload/1804816048.png`); the dashboard is an unofficial, simulated demonstration and does not imply government affiliation.
 - `.nojekyll` — tells GitHub Pages to serve the static files without Jekyll processing.
 
-All local links are relative, so they work both at `http://localhost:8000/` and at a GitHub Pages project URL. External Leaflet, marker-cluster, Chart.js, Google Fonts, and OpenStreetMap tile services require internet access and follow their respective usage terms.
+All local links are relative, so they work both at `http://localhost:8000/` and at a GitHub Pages project URL. External Leaflet, marker-cluster, Chart.js, SheetJS, Google Fonts, OpenStreetMap tiles, and Esri imagery/topographic tiles require internet access and follow their respective usage terms.

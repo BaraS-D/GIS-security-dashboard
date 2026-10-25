@@ -24,6 +24,7 @@
       <nav aria-label="التنقل الرئيسي">
         <a class="nav-link active" href="#overview"><span class="nav-icon">◫</span><span data-i18n="overview">نظرة عامة</span></a>
         <a class="nav-link" href="#map-section"><span class="nav-icon">⌖</span><span data-i18n="mapNav">خريطة الحوادث</span></a>
+        <a class="nav-link" href="#incident-management"><span class="nav-icon">＋</span><span data-i18n="incidentManagement">إدارة السجلات</span></a>
         <a class="nav-link" href="#district-section"><span class="nav-icon">▦</span><span data-i18n="districts">تحليل المناطق</span></a>
         <a class="nav-link" href="#data-tools"><span class="nav-icon">⇧</span><span data-i18n="dataNav">أدوات البيانات</span></a>
       </nav>
@@ -70,6 +71,14 @@
         <div class="panel-heading map-heading">
           <div><div class="section-kicker" data-i18n="geospatialView">عرض جغرافي مكاني</div><h2 data-i18n="cityActivity">خريطة الحوادث الأمنية</h2></div>
           <div class="map-toolbar">
+            <label class="filter-label" for="map-type-filter" data-i18n="mapType">نوع الخريطة</label>
+            <select id="map-type-filter" aria-label="نوع الخريطة">
+              <option value="street">خريطة الشوارع</option>
+              <option value="satellite">صور الأقمار الصناعية</option>
+              <option value="density">كثافة الحوادث حسب المنطقة</option>
+              <option value="stats">إحصاءات المناطق</option>
+              <option value="training">خريطة عسكرية تدريبية (خيالية)</option>
+            </select>
             <label class="filter-label" for="district-filter" data-i18n="district">المنطقة</label>
             <select id="district-filter" aria-label="تصفية حسب المنطقة"><option value="all">كل المناطق</option></select>
             <label class="filter-label" for="period-filter" data-i18n="period">الفترة</label>
@@ -88,7 +97,7 @@
           <div class="map-wrap">
             <div id="map" role="application" aria-label="خريطة تفاعلية توضيحية لحوادث بغداد الأمنية"></div>
             <div id="map-fallback" class="map-fallback" hidden><span>⌖</span><strong data-i18n="mapUnavailable">الخريطة التفاعلية غير متاحة</strong><p data-i18n="mapFallback">اتصل بالإنترنت لتحميل مكتبة الخريطة وخرائط OpenStreetMap. تبقى بيانات اللوحة محلية.</p></div>
-            <div class="map-status"><span class="pulse"></span><span data-i18n="sampleMap">خريطة حوادث محاكاة · بغداد</span></div>
+            <div class="map-status"><span class="pulse"></span><span id="map-status-label" data-i18n="sampleMap">خريطة حوادث محاكاة · بغداد</span></div>
           </div>
           <aside class="map-legend">
             <div class="legend-title" data-i18n="mapLegend">مفتاح الخريطة</div>
@@ -107,6 +116,8 @@
             <div class="legend-rule"></div>
             <div class="legend-disclaimer" data-i18n="markerKey">إطار العلامة يوضح الفئة؛ واللون يوضح الشدة.</div>
             <div class="legend-disclaimer" data-i18n="boundaryCaveat">رسوم تقريبية وخيالية للمناطق.</div>
+            <p id="map-mode-legend" class="legend-disclaimer" data-i18n="mapStatsLegend">يمثل لون المنطقة عدد السجلات المفلترة فقط.</p>
+            <p id="map-training-caveat" class="training-map-caveat" hidden data-i18n="trainingCaveat">تصميم تدريبي خيالي، ولا يمثل تضاريس أو معلومات تشغيلية حقيقية.</p>
           </aside>
         </div>
       </section>
@@ -130,6 +141,35 @@
         </section>
       </div>
 
+      <section class="panel incident-management-panel" id="incident-management">
+        <div class="panel-heading">
+          <div><div class="section-kicker" data-i18n="incidentManagement">إدارة السجلات</div><h2 data-i18n="addIncidentTitle">إضافة حادثة</h2></div>
+          <span class="unit-chip" data-i18n="localOnly">محلي في هذا المتصفح</span>
+        </div>
+        <div class="incident-form-wrap">
+          <p class="small-caveat" data-i18n="incidentPrivacy">استخدم بيانات خيالية فقط. لا تكتب أسماء أشخاص أو معلومات تعريفية أو تفاصيل تشغيلية.</p>
+          <form id="incident-form" class="incident-form">
+            <input id="incident-edit-id" type="hidden">
+            <label><span data-i18n="typeLabel">الفئة</span><select id="incident-category" required></select></label>
+            <label><span data-i18n="dateLabel">التاريخ</span><input id="incident-date" type="date" required></label>
+            <label><span data-i18n="districtLabel">المنطقة</span><select id="incident-district" required></select></label>
+            <label><span data-i18n="severityLabel">الشدة</span><select id="incident-severity" required><option value="low" data-i18n="low">منخفضة</option><option value="medium" data-i18n="medium">متوسطة</option><option value="high" data-i18n="high">مرتفعة</option></select></label>
+            <label><span data-i18n="statusLabel">الحالة</span><select id="incident-status" required><option value="open" data-i18n="statusOpen">مفتوحة</option><option value="investigating" data-i18n="statusInvestigating">قيد المراجعة</option><option value="resolved" data-i18n="statusResolved">تمت المعالجة</option><option value="closed" data-i18n="statusClosed">مغلقة</option></select></label>
+            <label><span data-i18n="latitudeLabel">خط العرض (اختياري)</span><input id="incident-latitude" type="number" step="any" inputmode="decimal"></label>
+            <label><span data-i18n="longitudeLabel">خط الطول (اختياري)</span><input id="incident-longitude" type="number" step="any" inputmode="decimal"></label>
+            <p class="coordinate-help" data-i18n="coordinateHelp">عند ترك الإحداثيات فارغة، تظهر العلامة في مركز المنطقة التقريبي.</p>
+            <label class="incident-description"><span data-i18n="descriptionLabel">وصف مختصر (اختياري)</span><textarea id="incident-description" maxlength="240" rows="2"></textarea></label>
+            <div class="incident-form-actions"><button class="action-button" type="submit" data-i18n="saveIncident">حفظ الحادثة</button><button id="cancel-edit" class="secondary-button" type="button" hidden data-i18n="cancelEdit">إلغاء التعديل</button></div>
+          </form>
+          <div class="incident-list-toolbar">
+            <label class="incident-search"><span data-i18n="searchIncidents">بحث في السجلات</span><input id="incident-search" type="search" placeholder="بحث..." data-i18n-placeholder="searchIncidents"></label>
+            <label><span data-i18n="statusLabel">الحالة</span><select id="incident-status-filter"><option value="all" data-i18n="allStatuses">كل الحالات</option><option value="open" data-i18n="statusOpen">مفتوحة</option><option value="investigating" data-i18n="statusInvestigating">قيد المراجعة</option><option value="resolved" data-i18n="statusResolved">تمت المعالجة</option><option value="closed" data-i18n="statusClosed">مغلقة</option></select></label>
+            <span id="incident-list-count" class="unit-chip">—</span>
+          </div>
+          <div class="table-scroll incident-table-scroll"><table class="incident-table"><thead><tr><th data-i18n="incident">الحادثة</th><th data-i18n="dateLabel">التاريخ</th><th data-i18n="districtLabel">المنطقة</th><th data-i18n="typeLabel">الفئة</th><th data-i18n="severityLabel">الشدة</th><th data-i18n="statusLabel">الحالة</th><th data-i18n="descriptionLabel">الوصف</th><th data-i18n="actions">الإجراءات</th></tr></thead><tbody id="incidents-table"></tbody></table></div>
+        </div>
+      </section>
+
       <section class="panel district-panel" id="district-section">
         <div class="panel-heading table-heading">
         <div><div class="section-kicker" data-i18n="districtSnapshot">تحليل المناطق</div><h2 data-i18n="districtComparison">مقارنة المناطق</h2></div>
@@ -151,11 +191,14 @@
         <div class="import-content">
           <p class="small-caveat" data-i18n="importHelp">استورد ملفات جداول أو بيانات جغرافية مصرحاً بها ومنزوعة الهوية. تبقى البيانات في جلسة المتصفح؛ استخدم إحداثيات عامة أو مجمعة قبل المشاركة.</p>
           <div class="import-controls">
-            <label class="file-picker"><span data-i18n="chooseFile">اختيار ملف جدولي أو جغرافي</span><input id="data-file" type="file" accept=".csv,.json,.geojson,text/csv,application/geo+json,application/json"></label>
+            <label class="file-picker"><span data-i18n="chooseFile">اختيار ملف جدول أو ملف جغرافي</span><input id="data-file" type="file" accept=".xlsx,.csv,.json,.geojson,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv,application/geo+json,application/json"></label>
             <select id="import-mode" aria-label="طريقة الاستيراد"><option value="append">إضافة إلى البيانات الحالية</option><option value="replace">استبدال الحوادث الحالية</option></select>
-            <button id="import-button" type="button" class="action-button" data-i18n="importButton">تحقق واستورد</button>
+            <button id="download-template" type="button" class="secondary-button" data-i18n="downloadTemplate">تنزيل قالب Excel</button>
+            <button id="import-button" type="button" class="action-button" data-i18n="previewImport">معاينة الملف والتحقق</button>
+            <button id="confirm-import" type="button" class="action-button" disabled data-i18n="confirmImport">تأكيد استيراد السجلات الصالحة</button>
             <button id="reset-data" type="button" class="secondary-button" data-i18n="resetDemo">إعادة بيانات المحاكاة</button>
           </div>
+          <div id="import-preview" class="import-preview" hidden></div>
           <div id="import-status" class="import-status" role="status" aria-live="polite" data-i18n="importSchema">الحقول المطلوبة: المعرّف، التاريخ، المنطقة، الفئة، الشدة، الحالة، خط العرض، خط الطول.</div>
           <div class="format-grid">
             <div><strong data-i18n="csvFormatTitle">أعمدة الملف الجدولي</strong><code dir="ltr">id,date,district,category,severity,status,latitude,longitude</code></div>
@@ -185,6 +228,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

@@ -33,16 +33,39 @@
   };
 
   const CATEGORY_COLORS = ["#72d7b0","#73aee6","#efb765","#f27d72","#c78ce3","#5bc0be","#e685b5","#9bad68","#d89562","#8fabe8"];
+  const managementTranslations = {
+    en: {
+      mapType:"Map type",streetMap:"Street map",satelliteMap:"Satellite imagery",densityMap:"Incident density by district",districtStatsMap:"District statistics",trainingMap:"Fictional military-style training map",trainingCaveat:"Fictional training visualization · contours and grid are illustrative, not real terrain or operational information.",trainingStatus:"FICTIONAL TRAINING MAP · ILLUSTRATIVE ONLY",
+      incidentManagement:"Incident management",addIncidentTitle:"Add incident",localOnly:"Stored in this browser",incidentPrivacy:"Use fictional data only. Do not enter names, personal identifiers, or operational details.",
+      latitudeLabel:"Latitude (optional)",longitudeLabel:"Longitude (optional)",coordinateHelp:"If coordinates are blank, the map shows a generalized district-center marker.",approxDistrictLocation:"Approximate district-center marker; no coordinates were provided.",descriptionLabel:"Short description (optional)",saveIncident:"Save incident",updateIncident:"Update incident",cancelEdit:"Cancel edit",
+      searchIncidents:"Search records",allStatuses:"All statuses",actions:"Actions",edit:"Edit",delete:"Delete",noIncidentRows:"No records match these filters.",incidentSaved:"Incident saved in this browser.",incidentUpdated:"Incident updated.",incidentDeleted:"Incident deleted.",confirmDelete:"Delete this incident record?",editMissing:"The incident being edited no longer exists.",
+      descriptionTooLong:"Keep the description under 240 characters.",coordinatePair:"Enter both coordinates or leave both blank.",coordinateInvalid:"Enter valid latitude and longitude values.",duplicateIncident:"An incident with this ID already exists.",templateError:"Excel template library is unavailable.",previewImport:"Preview and validate file",confirmImport:"Import valid preview rows",downloadTemplate:"Download Excel template",previewTitle:"Import preview",validRows:"Valid rows",invalidRows:"Invalid rows",previewNoValid:"No valid rows to import.",previewMore:"Additional rows are available in the file.",previewSuccess:"Imported {count} valid records; invalid rows were skipped.",fileTypeError:"Choose an .xlsx, .csv, or GeoJSON file.",invalidRowSummary:"Row {row}: {reason}",rowLabel:"Row",
+      weeklyTrend:"Monthly incident trends",trendNoChange:"No change from the previous month in these records.",trendNoBaseline:"Not enough records for a previous-month comparison.",trendUp:"Records are {pct}% higher than the previous month in this sample.",trendDown:"Records are {pct}% lower than the previous month in this sample.",chooseFile:"Choose XLSX / CSV / GeoJSON",importSchema:"Required: id, date, district, category, severity, status. Coordinates and description are optional.",
+      importHelp:"Import fictional, de-identified XLSX, CSV, or GeoJSON files. Records are stored only in this browser and are not uploaded or shared. Use generalized coordinates.",footerNote:"OpenStreetMap and Esri maps · fictional sample records",
+      uploaded:"Imported",simulated:"Simulated",mapDensityLegend:"Larger circles indicate more records in this simulated dataset.",mapStatsLegend:"Area color represents filtered record counts only.",mapTrainingLegend:"Decorative contours and coordinate grid are fictional, not real terrain or operational information.",mapStreetLegend:"Marker outline indicates category; fill indicates severity.",mapSatelliteAttribution:"Imagery © Esri and its contributors",statusFilter:"Status",localSaveError:"Could not save browser-local records: {reason}",localRestoreError:"Saved browser records could not be loaded; the fictional demo data remains available.",dateFuture:"Incident dates cannot be in the future.",memoryOnly:"Changed for this page only; browser storage was unavailable."
+    },
+    ar: {
+      mapType:"نوع الخريطة",streetMap:"خريطة الشوارع",satelliteMap:"صور الأقمار الصناعية",densityMap:"كثافة السجلات حسب المنطقة",districtStatsMap:"إحصاءات المناطق",trainingMap:"خريطة عسكرية تدريبية (خيالية)",trainingCaveat:"تصميم تدريبي خيالي · الخطوط والشبكة توضيحية ولا تمثل تضاريس أو معلومات تشغيلية حقيقية.",trainingStatus:"خريطة تدريبية خيالية · عناصر توضيحية فقط",
+      incidentManagement:"إدارة السجلات",addIncidentTitle:"إضافة حادثة",localOnly:"محفوظ في هذا المتصفح",incidentPrivacy:"استخدم بيانات خيالية فقط. لا تدخل أسماء أو معرّفات شخصية أو تفاصيل تشغيلية.",
+      latitudeLabel:"خط العرض (اختياري)",longitudeLabel:"خط الطول (اختياري)",coordinateHelp:"إذا تُركت الإحداثيات فارغة، تظهر علامة تقريبية في مركز المنطقة.",approxDistrictLocation:"علامة تقريبية لمركز المنطقة؛ لم تُدخل إحداثيات.",descriptionLabel:"وصف مختصر (اختياري)",saveIncident:"حفظ الحادثة",updateIncident:"تحديث الحادثة",cancelEdit:"إلغاء التعديل",
+      searchIncidents:"بحث في السجلات",allStatuses:"كل الحالات",actions:"الإجراءات",edit:"تعديل",delete:"حذف",noIncidentRows:"لا توجد سجلات مطابقة لهذه المرشحات.",incidentSaved:"حُفظت الحادثة في هذا المتصفح.",incidentUpdated:"تم تحديث الحادثة.",incidentDeleted:"تم حذف الحادثة.",confirmDelete:"هل تريد حذف سجل هذه الحادثة؟",editMissing:"لم يعد سجل الحادثة قيد التعديل موجوداً.",
+      descriptionTooLong:"اجعل الوصف أقصر من ٢٤٠ حرفاً.",coordinatePair:"أدخل الإحداثيين معاً أو اتركهما فارغين.",coordinateInvalid:"أدخل خط عرض وخط طول صالحين.",duplicateIncident:"يوجد سجل آخر بهذا المعرّف.",templateError:"مكتبة قالب Excel غير متاحة.",previewImport:"معاينة الملف والتحقق",confirmImport:"استيراد السجلات الصالحة",downloadTemplate:"تنزيل قالب Excel",previewTitle:"معاينة الاستيراد",validRows:"السجلات الصالحة",invalidRows:"السجلات غير الصالحة",previewNoValid:"لا توجد سجلات صالحة للاستيراد.",previewMore:"توجد سجلات إضافية في الملف.",previewSuccess:"تم استيراد {count} سجل صالح وتجاوز السجلات غير الصالحة.",fileTypeError:"اختر ملف Excel أو CSV أو GeoJSON.",invalidRowSummary:"السطر {row}: {reason}",rowLabel:"السطر",
+      weeklyTrend:"اتجاه الحوادث شهرياً",trendNoChange:"لم يتغير عدد السجلات مقارنة بالشهر السابق.",trendNoBaseline:"لا توجد سجلات كافية للمقارنة بالشهر السابق.",trendUp:"زادت السجلات بنسبة {pct}% مقارنة بالشهر السابق في هذه العينة.",trendDown:"انخفضت السجلات بنسبة {pct}% مقارنة بالشهر السابق في هذه العينة.",chooseFile:"اختيار ملف Excel أو CSV أو GeoJSON",importSchema:"الحقول المطلوبة: المعرّف والتاريخ والمنطقة والفئة والشدة والحالة. الإحداثيات والوصف اختياريان.",
+      importHelp:"استورد ملفات Excel أو CSV أو GeoJSON خيالية ومنزوعة الهوية. تُحفظ السجلات في هذا المتصفح فقط ولا تُرفع أو تُشارك. استخدم إحداثيات عامة.",footerNote:"خرائط OpenStreetMap وEsri · سجلات خيالية",
+      uploaded:"مستوردة",simulated:"محاكاة",mapDensityLegend:"حجم الدائرة يوضح عدد السجلات في مجموعة البيانات الخيالية.",mapStatsLegend:"لون المنطقة يمثل عدد السجلات المفلترة فقط.",mapTrainingLegend:"الخطوط والشبكة زخرفية وخيالية، ولا تمثل تضاريس أو معلومات تشغيلية حقيقية.",mapStreetLegend:"إطار العلامة يوضح الفئة؛ واللون يوضح الشدة.",mapSatelliteAttribution:"صور الأقمار الصناعية © Esri والمساهمون",statusFilter:"الحالة",localSaveError:"تعذر حفظ السجلات محلياً: {reason}",localRestoreError:"تعذر تحميل السجلات المحفوظة؛ ستبقى بيانات العرض الخيالية متاحة.",dateFuture:"لا يمكن أن يكون تاريخ الحادثة في المستقبل.",memoryOnly:"تغييرات هذه الصفحة فقط؛ تعذر استخدام التخزين المحلي في المتصفح."
+    }
+  };
   const SEVERITY_COLORS = {low:"#72d7b0",medium:"#efb765",high:"#f27d72"};
   const VALID_STATUSES = new Set(["open","investigating","resolved","closed"]);
-  const REQUIRED_FIELDS = ["id","date","district","category","severity","status","latitude","longitude"];
+  const REQUIRED_FIELDS = ["id","date","district","category","severity","status"];
+  const IMPORT_FIELDS = [...REQUIRED_FIELDS,"latitude","longitude","description"];
   const state = {
-    lang:"ar", data:null, defaultData:null, geojson:null, map:null, layers:{}, charts:{},
+    lang:"ar", data:null, defaultData:null, geojson:null, map:null, layers:{}, charts:{}, importPreview:null,
     selectedDistrict:"all", lastMapDistrict:null, period:"all", category:"all", severity:"all", from:"", to:"",
-    query:"", sort:"name", loadedSource:"simulated", importMode:"append"
+    query:"", sort:"name", loadedSource:"simulated", importMode:"append", incidentQuery:"", incidentStatus:"all", mapType:"street"
   };
   const el = (id) => document.getElementById(id);
-  const tr = (key) => translations[state.lang][key] || translations.en[key] || key;
+  const tr = (key) => managementTranslations[state.lang]?.[key] || managementTranslations.en[key] || translations[state.lang][key] || translations.en[key] || key;
   const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (ch) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
   const localized = (value) => value && (value[state.lang] || value.en) || "";
   const districtById = (id) => state.data.districts.find((district) => district.id === id);
@@ -70,6 +93,8 @@
       else node.textContent=value;
     });
     document.querySelectorAll("[data-i18n-placeholder]").forEach((node)=>node.placeholder=tr(node.dataset.i18nPlaceholder));
+    const mapTypes={street:tr("streetMap"),satellite:tr("satelliteMap"),density:tr("densityMap"),stats:tr("districtStatsMap"),training:tr("trainingMap")};
+    Object.entries(mapTypes).forEach(([value,label])=>{const option=el("map-type-filter").querySelector(`option[value="${value}"]`);if(option)option.textContent=label;});
     el("language-toggle").innerHTML=state.lang==="en"?'العربية <span>↗</span>':'الإنجليزية <span>↗</span>';
     el("language-toggle").setAttribute("aria-label",state.lang==="en"?"التبديل إلى العربية":"التبديل إلى الإنجليزية");
     document.querySelector("nav").setAttribute("aria-label",state.lang==="en"?"Main navigation":"التنقل الرئيسي");
@@ -81,6 +106,10 @@
     el("date-to").setAttribute("aria-label",tr("toDate"));
     el("sort-select").setAttribute("aria-label",tr("districtComparison"));
     el("district-search").setAttribute("aria-label",tr("searchPlaceholder"));
+    el("map-type-filter").setAttribute("aria-label",tr("mapType"));
+    el("incident-search").setAttribute("aria-label",tr("searchIncidents"));
+    el("incident-status-filter").setAttribute("aria-label",tr("statusFilter"));
+    el("incident-form").querySelector('[type="submit"]').textContent=tr(el("incident-edit-id").value?"updateIncident":"saveIncident");
     el("map").setAttribute("aria-label",tr("sampleMap"));
     el("notice").querySelector(".notice-close").setAttribute("aria-label",tr("dismiss"));
     setText("today-label",new Intl.DateTimeFormat(state.lang==="ar"?"ar-IQ":"en-GB",{dateStyle:"full",timeZone:"Asia/Baghdad"}).format(new Date()));
@@ -99,7 +128,9 @@
       "category-filter":{"all":tr("allTypes")},
       "severity-filter":{"all":tr("allLevels"),"low":tr("low"),"medium":tr("medium"),"high":tr("high")},
       "sort-select":{"name":tr("sortName"),"incidents":tr("sortCount"),"lowest":tr("sortLowest"),"trend":tr("sortTrend")},
-      "import-mode":{"append":tr("appendMode"),"replace":tr("replaceMode")}
+      "import-mode":{"append":tr("appendMode"),"replace":tr("replaceMode")},
+      "incident-status-filter":{"all":tr("allStatuses"),"open":tr("statusOpen"),"investigating":tr("statusInvestigating"),"resolved":tr("statusResolved"),"closed":tr("statusClosed")},
+      "incident-severity":{"low":tr("low"),"medium":tr("medium"),"high":tr("high")}
     };
     Object.entries(options).forEach(([id,labels])=>Object.entries(labels).forEach(([value,label])=>{
       const option=el(id)?.querySelector(`option[value="${value}"]`);
@@ -116,25 +147,33 @@
   function validateIncident(raw,index,existingIds) {
     const missing=REQUIRED_FIELDS.filter((field)=>raw[field]===undefined||String(raw[field]).trim()==="");
     if(missing.length) throw new Error(interpolate(tr("missingFields"),{fields:missing.join(", ")}));
+    const latitudeEmpty=raw.latitude===undefined||String(raw.latitude).trim()==="";
+    const longitudeEmpty=raw.longitude===undefined||String(raw.longitude).trim()==="";
+    if(latitudeEmpty!==longitudeEmpty) throw new Error(tr("coordinatePair"));
+    const latitude=latitudeEmpty?null:Number(raw.latitude),longitude=longitudeEmpty?null:Number(raw.longitude);
+    const description=String(raw.description??"").trim();
+    if(description.length>240) throw new Error(tr("descriptionTooLong"));
     const incident={
       id:String(raw.id).trim(),date:String(raw.date).trim(),district:String(raw.district).trim(),
       category:String(raw.category).trim(),severity:String(raw.severity).trim().toLowerCase(),
-      status:String(raw.status).trim().toLowerCase(),latitude:Number(raw.latitude),longitude:Number(raw.longitude),
+      status:String(raw.status).trim().toLowerCase(),latitude,longitude,description,
       simulated:raw.simulated===true
     };
     if(!incident.id||incident.id.length>80) throw new Error(tr("incidentIdInvalid"));
     if(existingIds.has(incident.id)) throw new Error(interpolate(tr("duplicateId"),{id:incident.id}));
     if(!validDate(incident.date)) throw new Error(tr("dateInvalid"));
+    if(incident.date>todayISO()) throw new Error(tr("dateFuture"));
     if(!districtById(incident.district)) throw new Error(interpolate(tr("districtInvalid"),{district:incident.district}));
     if(!Object.hasOwn(state.data.categories,incident.category)) throw new Error(interpolate(tr("categoryInvalid"),{category:incident.category}));
     if(!["low","medium","high"].includes(incident.severity)) throw new Error(tr("severityInvalid"));
     if(!VALID_STATUSES.has(incident.status)) throw new Error(tr("statusInvalid"));
-    if(!Number.isFinite(incident.latitude)||!Number.isFinite(incident.longitude)||incident.latitude < -90||incident.latitude > 90||incident.longitude < -180||incident.longitude > 180) throw new Error(tr("coordinatesInvalid"));
+    if((incident.latitude!==null||incident.longitude!==null)&&(!Number.isFinite(incident.latitude)||!Number.isFinite(incident.longitude)||incident.latitude < -90||incident.latitude > 90||incident.longitude < -180||incident.longitude > 180)) throw new Error(tr("coordinatesInvalid"));
     existingIds.add(incident.id);
     return incident;
   }
 
   function activeIncidents() {
+    if(!state.data) return [];
     const today=todayISO();
     const limit=state.period==="all"?null:Number(state.period);
     const cutoffDate=limit===null?null:new Date(`${today}T00:00:00Z`);
@@ -156,9 +195,20 @@
     el("district-filter").value=state.data.districts.some((item)=>item.id===selectedDistrict)?selectedDistrict:"all";
     el("category-filter").innerHTML=`<option value="all">${esc(tr("allTypes"))}</option>`+Object.entries(state.data.categories).map(([id,name])=>`<option value="${esc(id)}">${esc(localized(name))}</option>`).join("");
     el("category-filter").value=Object.hasOwn(state.data.categories,selectedCategory)?selectedCategory:"all";
+    el("incident-category").innerHTML=Object.entries(state.data.categories).map(([id,name])=>`<option value="${esc(id)}">${esc(localized(name))}</option>`).join("");
+    el("incident-district").innerHTML=state.data.districts.map((item)=>`<option value="${esc(item.id)}">${esc(localized(item.name))}</option>`).join("");
     el("period-filter").value=state.period;
     el("severity-filter").value=state.severity;
     renderCategoryLegend();
+    el("incident-date").max=todayISO();
+    updateMapModeLegend();
+  }
+
+  function updateMapModeLegend() {
+    const key=state.mapType==="density"?"mapDensityLegend":state.mapType==="training"?"mapTrainingLegend":state.mapType==="stats"?"mapStatsLegend":"mapStreetLegend";
+    setText("map-mode-legend",tr(key));
+    el("map-training-caveat").hidden=state.mapType!=="training";
+    setText("map-status-label",state.mapType==="training"?tr("trainingStatus"):tr("sampleMap"));
   }
 
   function renderCategoryLegend() {
@@ -210,6 +260,7 @@
   }
 
   function renderDistrictTable(incidents) {
+    if(!state.data) return;
     const query=state.query.trim().toLocaleLowerCase(state.lang);
     const rows=getDistrictStats(incidents).filter((item)=>`${item.district.name.en} ${item.district.name.ar}`.toLocaleLowerCase(state.lang).includes(query));
     rows.sort((a,b)=>state.sort==="incidents"?b.count-a.count:state.sort==="lowest"?a.count-b.count:state.sort==="trend"?(b.delta??-Infinity)-(a.delta??-Infinity):localized(a.district.name).localeCompare(localized(b.district.name),state.lang));
@@ -282,16 +333,16 @@
     const chartText=state.lang==="ar";
     const axisColor="#829294";
     const baseOptions={locale:state.lang==="ar"?"ar-IQ":"en-GB",responsive:true,maintainAspectRatio:false,animation:{duration:180},plugins:{legend:{display:false},tooltip:{backgroundColor:"#10191d",titleColor:"#e7eeee",bodyColor:"#bdc9c7",borderColor:"#425457",borderWidth:1}},scales:{x:{grid:{display:false},ticks:{color:axisColor,font:{size:9}},border:{color:"#344347"}},y:{beginAtZero:true,ticks:{precision:0,color:axisColor,font:{size:9}},grid:{color:"#2b393d"},border:{display:false}}}};
-    const byDate=new Map();
-    incidents.forEach((item)=>byDate.set(item.date,(byDate.get(item.date)||0)+1));
-    const trendLabels=Array.from({length:8},(_,index)=>{
-      const date=new Date(`${todayISO()}T12:00:00Z`);date.setUTCDate(date.getUTCDate()-(7-index)*7+1);
-      const start=date.toISOString().slice(0,10);
-      const end=new Date(date);end.setUTCDate(end.getUTCDate()+7);
-      const value=[...byDate.entries()].filter(([day])=>day>=start&&day<end.toISOString().slice(0,10)).reduce((sum,[,count])=>sum+count,0);
-      return {label:new Intl.DateTimeFormat(chartText?"ar-IQ":"en-GB",{month:"short",day:"numeric",timeZone:"UTC"}).format(date),value};
+    const byMonth=new Map();
+    incidents.forEach((item)=>{const key=item.date.slice(0,7);byMonth.set(key,(byMonth.get(key)||0)+1);});
+    const currentMonth=new Date(`${todayISO().slice(0,7)}-01T12:00:00Z`);
+    const monthFormatter=new Intl.DateTimeFormat(chartText?"ar-IQ":"en-GB",{month:"short",year:"2-digit",timeZone:"UTC"});
+    const trendLabels=Array.from({length:12},(_,index)=>{
+      const date=new Date(currentMonth);date.setUTCMonth(date.getUTCMonth()-(11-index));
+      const key=date.toISOString().slice(0,7);
+      return {label:monthFormatter.format(date),value:byMonth.get(key)||0};
     });
-    const recent=trendLabels[7].value,previous=trendLabels[6].value;
+    const recent=trendLabels[11].value,previous=trendLabels[10].value;
     const trendKey=previous===0?"trendNoBaseline":recent===previous?"trendNoChange":recent>previous?"trendUp":"trendDown";
     setText("trend-summary",interpolate(tr(trendKey),{pct:previous?Math.round(Math.abs((recent-previous)/previous)*100):0}));
     state.charts.trend=new Chart(el("trend-chart"),{type:"line",data:{labels:trendLabels.map((item)=>item.label),datasets:[{data:trendLabels.map((item)=>item.value),borderColor:"#72d7b0",backgroundColor:"rgba(114,215,176,.12)",fill:true,tension:.3,pointRadius:2.5,pointBackgroundColor:"#72d7b0",borderWidth:2}]},options:baseOptions});
@@ -307,23 +358,52 @@
     if(!state.map) return;
     const showDistricts=el("map-section").querySelector('[data-layer="districts"]').checked;
     const showIncidents=el("map-section").querySelector('[data-layer="incidents"]').checked;
+    const counts=new Map(state.data.districts.map((district)=>[district.id,incidents.filter((item)=>item.district===district.id).length]));
+    const maxCount=Math.max(1,...counts.values());
     if(state.layers.districts) {
       if(showDistricts) state.layers.districts.addTo(state.map); else state.map.removeLayer(state.layers.districts);
       state.layers.districts.eachLayer((layer)=>{
         const selected=layer.feature.properties.id===state.selectedDistrict;
-        layer.setStyle({color:selected?"#f2c877":"#90b9a7",weight:selected?2.5:1.3,fillColor:selected?"#e8b85b":"#72d7b0",fillOpacity:selected ? .19 : .075,dashArray:"4 4"});
+        const count=counts.get(layer.feature.properties.id)||0;
+        const fill=state.mapType==="stats"?(count===0?"#263538":count/maxCount>.66?"#e87668":count/maxCount>.33?"#e8ae5c":"#75c6a2"):"#72d7b0";
+        layer.setStyle({color:selected?"#f2c877":"#90b9a7",weight:selected?2.5:1.3,fillColor:selected?"#e8b85b":fill,fillOpacity:state.mapType==="stats"?.62:selected ? .19 : .075,dashArray:"4 4"});
         layer.setTooltipContent(state.lang==="ar"?layer.feature.properties.name_ar:layer.feature.properties.name_en);
       });
     }
+    if(state.layers.density) {
+      state.layers.density.clearLayers();
+      state.map.removeLayer(state.layers.density);
+      if(state.mapType==="density"&&showDistricts) state.data.districts.forEach((district)=>{
+        const feature=state.geojson.features.find((item)=>item.properties.id===district.id);
+        const count=counts.get(district.id)||0;
+        if(!feature||!count) return;
+        const center=L.geoJSON(feature).getBounds().getCenter();
+        const circle=L.circleMarker(center,{radius:7+Math.min(count,16),color:"#ffc46b",weight:1,fillColor:"#ed765f",fillOpacity:.62});
+        circle.bindPopup(`<strong>${esc(districtName(district.id))}</strong><br>${esc(tr("incidents"))}: ${count}`);
+        state.layers.density.addLayer(circle);
+      });
+      if(state.mapType==="density"&&showDistricts) state.layers.density.addTo(state.map);
+    }
+    if(state.layers.grid) {
+      if(state.mapType==="training"&&showDistricts) state.layers.grid.addTo(state.map); else state.map.removeLayer(state.layers.grid);
+    }
+    if(state.layers.contours) {
+      if(state.mapType==="training"&&showDistricts) state.layers.contours.addTo(state.map); else state.map.removeLayer(state.layers.contours);
+    }
+    el("map").classList.toggle("training-map-mode",state.mapType==="training");
     if(state.layers.incidents) {
       state.map.removeLayer(state.layers.incidents);
       state.layers.incidents.clearLayers();
-      if(showIncidents) {
+      if(showIncidents&&state.mapType!=="density") {
         incidents.forEach((item)=>{
+          const feature=state.geojson.features.find((entry)=>entry.properties.id===item.district);
+          const center=feature?L.geoJSON(feature).getBounds().getCenter():null;
+          const latitude=item.latitude??center?.lat,longitude=item.longitude??center?.lng;
+          if(!Number.isFinite(latitude)||!Number.isFinite(longitude)) return;
           const category=state.data.categories[item.category];
-          const marker=L.circleMarker([item.latitude,item.longitude],{radius:item.severity==="high"?7:item.severity==="medium"?6:5,weight:2,color:category?.color||"#d5e0dd",fillColor:SEVERITY_COLORS[item.severity],fillOpacity:.92});
+          const marker=L.circleMarker([latitude,longitude],{radius:item.severity==="high"?7:item.severity==="medium"?6:5,weight:2,color:category?.color||"#d5e0dd",fillColor:SEVERITY_COLORS[item.severity],fillOpacity:.92});
           const statusKey=`status${item.status[0].toUpperCase()}${item.status.slice(1)}`;
-          marker.bindPopup(`<div class="popup-title">${esc(tr("incident"))} ${esc(item.id)} · ${esc(categoryName(item.category))}</div><div class="popup-meta">${esc(tr("districtLabel"))}: ${esc(districtName(item.district))}<br>${esc(tr("typeLabel"))}: ${esc(categoryName(item.category))}<br>${esc(tr("severityLabel"))}: ${esc(tr(item.severity))}<br>${esc(tr("statusLabel"))}: ${esc(tr(statusKey))}<br>${esc(tr("dateLabel"))}: ${esc(formatDate(item.date))}<br>${esc(item.simulated?tr("simulatedRecord"):tr("importedRecord"))}</div>`);
+          marker.bindPopup(`<div class="popup-title">${esc(tr("incident"))} ${esc(item.id)} · ${esc(categoryName(item.category))}</div><div class="popup-meta">${esc(tr("districtLabel"))}: ${esc(districtName(item.district))}<br>${esc(tr("typeLabel"))}: ${esc(categoryName(item.category))}<br>${esc(tr("severityLabel"))}: ${esc(tr(item.severity))}<br>${esc(tr("statusLabel"))}: ${esc(tr(statusKey))}<br>${esc(tr("dateLabel"))}: ${esc(formatDate(item.date))}<br>${esc(item.simulated?tr("simulatedRecord"):tr("importedRecord"))}${item.latitude===null?`<br>${esc(tr("approxDistrictLocation"))}`:""}${item.description?`<br>${esc(item.description)}`:""}</div>`);
           state.layers.incidents.addLayer(marker);
         });
         state.layers.incidents.addTo(state.map);
@@ -343,8 +423,10 @@
   }
 
   function render() {
+    if(!state.data) return;
     const incidents=activeIncidents();
     updateSummary(incidents);
+    renderIncidentsTable(incidents);
     renderDistrictTable(incidents);
     renderCharts(incidents);
     renderAssessment(incidents);
@@ -358,13 +440,41 @@
     try {
       state.map=L.map("map",{zoomControl:true,scrollWheelZoom:false,attributionControl:false}).setView([33.35,44.39],11);
       L.control.attribution({prefix:"خرائط تفاعلية بواسطة ليفليت"}).addTo(state.map);
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">خريطة الشارع المفتوحة</a>'}).addTo(state.map);
+      state.layers.base={
+        street:L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}),
+        satellite:L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:tr("mapSatelliteAttribution")}),
+        training:L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:tr("mapSatelliteAttribution")})
+      };
+      state.layers.base.street.addTo(state.map);
       state.layers.districts=L.geoJSON(state.geojson,{filter:(feature)=>!!feature.properties.illustrative,style:{color:"#90b9a7",weight:1.3,fillColor:"#72d7b0",fillOpacity:.075,dashArray:"4 4"},onEachFeature:(feature,layer)=>{
         layer.bindTooltip(state.lang==="ar"?feature.properties.name_ar:feature.properties.name_en,{permanent:true,direction:"center",className:"district-label"});
         layer.on("click",()=>{state.selectedDistrict=feature.properties.id;fillFilters();render();});
       }});
       state.layers.incidents=window.L.markerClusterGroup?L.markerClusterGroup({showCoverageOnHover:false,spiderfyOnMaxZoom:true,iconCreateFunction:(cluster)=>L.divIcon({html:`<div>${cluster.getChildCount()}</div>`,className:"marker-cluster",iconSize:[34,34]})}):L.layerGroup();
+      state.layers.density=L.layerGroup();
+      const bounds=state.layers.districts.getBounds();
+      const grid=[];const step=.025;
+      const minLat=Math.floor(bounds.getSouth()/step)*step,maxLat=Math.ceil(bounds.getNorth()/step)*step;
+      const minLng=Math.floor(bounds.getWest()/step)*step,maxLng=Math.ceil(bounds.getEast()/step)*step;
+      for(let lat=minLat;lat<=maxLat;lat+=step) grid.push(L.polyline([[lat,minLng],[lat,maxLng]],{color:"#d8c78d",weight:.55,opacity:.35,dashArray:"3 5",interactive:false}));
+      for(let lng=minLng;lng<=maxLng;lng+=step) grid.push(L.polyline([[minLat,lng],[maxLat,lng]],{color:"#d8c78d",weight:.55,opacity:.35,dashArray:"3 5",interactive:false}));
+      state.layers.grid=L.layerGroup(grid);
+      const center=bounds.getCenter(),contours=[];
+      for(let ring=1;ring<=5;ring++) {
+        const radiusLat=(bounds.getNorth()-bounds.getSouth())*.075*ring;
+        const radiusLng=(bounds.getEast()-bounds.getWest())*.075*ring;
+        const points=[];
+        for(let index=0;index<=120;index++) {
+          const angle=index/120*Math.PI*2;
+          const variation=1+Math.sin(angle*3+ring)*.07+Math.cos(angle*5-ring)*.035;
+          points.push([center.lat+Math.sin(angle)*radiusLat*variation,center.lng+Math.cos(angle)*radiusLng*variation]);
+        }
+        contours.push(L.polyline(points,{color:ring%2?"#c9bb82":"#83a58b",weight:.9,opacity:.48,dashArray:ring%2?"5 5":null,interactive:false}));
+      }
+      state.layers.contours=L.layerGroup(contours);
       document.querySelectorAll("[data-layer]").forEach((input)=>input.addEventListener("change",()=>renderMap(activeIncidents())));
+      state.mapType=el("map-type-filter").value;
+      renderMap(activeIncidents());
       window.setTimeout(()=>state.map.invalidateSize(),120);
     } catch(error) {
       console.error("Map initialization failed",error);
@@ -411,6 +521,117 @@
     }
   }
 
+  function persistIncidents() {
+    try {
+      localStorage.setItem("baghdad-gis-incidents",JSON.stringify(state.data.incidents));
+      return true;
+    } catch(error) {
+      console.error("Could not save browser-local incident records",error);
+      showToast(interpolate(tr("localSaveError"),{reason:error.message}));
+      return false;
+    }
+  }
+
+  function restoreLocalIncidents() {
+    try {
+      const saved=localStorage.getItem("baghdad-gis-incidents");
+      if(!saved) return;
+      const records=JSON.parse(saved);
+      if(!Array.isArray(records)) throw new Error("Saved incident records are not a list.");
+      const ids=new Set();
+      state.data.incidents=records.map((record,index)=>validateIncident(record,index,ids));
+      state.loadedSource=state.data.incidents.some((record)=>!record.simulated)?"imported":"simulated";
+    } catch(error) {
+      console.error("Could not restore browser-local incident records",error);
+      showToast(tr("localRestoreError"));
+    }
+  }
+
+  function nextIncidentId() {
+    let id;
+    do { id=`LOCAL-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2,7).toUpperCase()}`; }
+    while(state.data.incidents.some((record)=>record.id===id));
+    return id;
+  }
+
+  function populateIncidentForm(record=null) {
+    const form=el("incident-form");
+    form.reset();
+    el("incident-edit-id").value=record?.id||"";
+    el("incident-date").value=record?.date||todayISO();
+    el("incident-category").value=record?.category||Object.keys(state.data.categories)[0];
+    el("incident-district").value=record?.district||state.data.districts[0].id;
+    el("incident-severity").value=record?.severity||"low";
+    el("incident-status").value=record?.status||"open";
+    el("incident-latitude").value=record?.latitude??"";
+    el("incident-longitude").value=record?.longitude??"";
+    el("incident-description").value=record?.description||"";
+    form.querySelector('[type="submit"]').textContent=tr(record?"updateIncident":"saveIncident");
+    el("cancel-edit").hidden=!record;
+    form.scrollIntoView({behavior:"smooth",block:"center"});
+  }
+
+  function saveIncident(event) {
+    event.preventDefault();
+    const editingId=el("incident-edit-id").value;
+    const raw={
+      id:editingId||nextIncidentId(),date:el("incident-date").value,district:el("incident-district").value,
+      category:el("incident-category").value,severity:el("incident-severity").value,status:el("incident-status").value,
+      latitude:el("incident-latitude").value,longitude:el("incident-longitude").value,description:el("incident-description").value
+    };
+    try {
+      const index=editingId?state.data.incidents.findIndex((record)=>record.id===editingId):-1;
+      if(editingId&&index<0) throw new Error(tr("editMissing"));
+      const otherIds=new Set(state.data.incidents.filter((record)=>record.id!==editingId).map((record)=>record.id));
+      const incident=validateIncident(raw,0,otherIds);
+      incident.simulated=false;
+      if(index<0) state.data.incidents.unshift(incident);
+      else state.data.incidents[index]=incident;
+      state.loadedSource="imported";
+      const stored=persistIncidents();
+      populateIncidentForm();
+      render();
+      if(stored) showToast(tr(index<0?"incidentSaved":"incidentUpdated"));
+    } catch(error) {
+      console.error("Incident record was not saved",error);
+      showToast(error.message);
+    }
+  }
+
+  function renderIncidentsTable(incidents) {
+    const query=state.incidentQuery.trim().toLocaleLowerCase(state.lang);
+    const records=incidents.filter((record)=>
+      (state.incidentStatus==="all"||record.status===state.incidentStatus)&&
+      (!query||`${record.id} ${record.description} ${districtName(record.district)} ${categoryName(record.category)}`.toLocaleLowerCase(state.lang).includes(query))
+    );
+    el("incident-list-count").textContent=records.length.toLocaleString(state.lang);
+    const body=el("incidents-table");
+    if(!records.length) {
+      body.innerHTML=`<tr><td colspan="8" class="empty-state">${esc(tr("noIncidentRows"))}</td></tr>`;
+      return;
+    }
+    body.innerHTML=records.map((record)=>`<tr>
+      <td><code>${esc(record.id)}</code><small>${esc(record.simulated?tr("simulated"):tr("uploaded"))}</small></td>
+      <td>${esc(formatDate(record.date))}</td><td>${esc(districtName(record.district))}</td><td>${esc(categoryName(record.category))}</td>
+      <td><span class="severity-pill severity-${esc(record.severity)}">${esc(tr(record.severity))}</span></td>
+      <td>${esc(tr(`status${record.status[0].toUpperCase()}${record.status.slice(1)}`))}</td>
+      <td class="incident-description-cell">${esc(record.description||"—")}</td>
+      <td class="incident-actions"><button type="button" class="secondary-button" data-edit-incident="${esc(record.id)}">${esc(tr("edit"))}</button><button type="button" class="secondary-button danger-button" data-delete-incident="${esc(record.id)}">${esc(tr("delete"))}</button></td>
+    </tr>`).join("");
+    body.querySelectorAll("[data-edit-incident]").forEach((button)=>button.addEventListener("click",()=>{
+      const record=state.data.incidents.find((item)=>item.id===button.dataset.editIncident);
+      if(record) populateIncidentForm(record);
+    }));
+    body.querySelectorAll("[data-delete-incident]").forEach((button)=>button.addEventListener("click",()=>{
+      if(!window.confirm(tr("confirmDelete"))) return;
+      state.data.incidents=state.data.incidents.filter((record)=>record.id!==button.dataset.deleteIncident);
+      const stored=persistIncidents();
+      if(el("incident-edit-id").value===button.dataset.deleteIncident) populateIncidentForm();
+      render();
+      if(stored) showToast(tr("incidentDeleted"));
+    }));
+  }
+
   function parseCsv(text) {
     const rows=[];let row=[],field="",quoted=false;
     for(let index=0;index<text.length;index++){
@@ -428,7 +649,7 @@
     if(field.length||row.length){row.push(field);if(row.some((cell)=>cell.trim()))rows.push(row);}
     if(rows.length<2) throw new Error(tr("badCsv"));
     const headers=rows.shift().map((header)=>header.trim().replace(/^\uFEFF/,""));
-    if(new Set(headers).size!==headers.length||headers.some((header)=>!REQUIRED_FIELDS.includes(header))||REQUIRED_FIELDS.some((header)=>!headers.includes(header))) throw new Error(`${tr("badCsv")} ${tr("importSchema")}`);
+    if(new Set(headers).size!==headers.length||headers.some((header)=>!IMPORT_FIELDS.includes(header))||REQUIRED_FIELDS.some((header)=>!headers.includes(header))) throw new Error(`${tr("badCsv")} ${tr("importSchema")}`);
     return rows.map((cells,index)=>{
       if(cells.length!==headers.length) throw new Error(interpolate(tr("rowInvalid"),{row:index+2,reason:tr("badCsv")}));
       return Object.fromEntries(headers.map((header,column)=>[header,cells[column].trim()]));
@@ -452,28 +673,91 @@
       : `تم التحقق واستيراد ${count} سجل حادثة.`;
   }
 
+  function renderImportPreview() {
+    const preview=state.importPreview;
+    const host=el("import-preview");
+    if(!preview) {host.hidden=true;host.innerHTML="";el("confirm-import").disabled=true;return;}
+    host.hidden=false;
+    el("confirm-import").disabled=preview.valid.length===0;
+    const validRows=preview.valid.slice(0,5).map((item)=>`<li>${esc(item.id)} · ${esc(item.date)} · ${esc(districtName(item.district))}</li>`).join("");
+    const invalidRows=preview.invalid.map((item)=>`<li>${esc(interpolate(tr("invalidRowSummary"),{row:item.row,reason:item.reason}))}</li>`).join("");
+    host.innerHTML=`<strong>${esc(tr("previewTitle"))}</strong><p>${esc(tr("validRows"))}: ${preview.valid.length.toLocaleString(state.lang)} · ${esc(tr("invalidRows"))}: ${preview.invalid.length.toLocaleString(state.lang)}</p>
+      ${validRows?`<ul>${validRows}</ul>`:`<p>${esc(tr("previewNoValid"))}</p>`}
+      ${preview.valid.length>5?`<p>${esc(tr("previewMore"))}</p>`:""}
+      ${invalidRows?`<details open><summary>${esc(tr("invalidRows"))}</summary><ul>${invalidRows}</ul></details>`:""}`;
+  }
+
   async function importFile() {
     const file=el("data-file").files[0];
     if(!file){setImportStatus(tr("chooseFileError"),true);return;}
+    state.importPreview=null;
+    renderImportPreview();
     try {
-      const text=await file.text();
-      const records=/\.csv$/i.test(file.name)||file.type==="text/csv"?parseCsv(text):parseGeoJson(text);
-      const base=el("import-mode").value==="replace"?[]:state.data.incidents;
+      const extension=file.name.split(".").pop().toLowerCase();
+      let records;
+      if(extension==="csv") records=parseCsv(await file.text());
+      else if(extension==="json"||extension==="geojson") records=parseGeoJson(await file.text());
+      else if(extension==="xlsx") {
+        if(!window.XLSX) throw new Error(tr("templateError"));
+        const workbook=XLSX.read(await file.arrayBuffer(),{type:"array",cellDates:false});
+        const firstSheet=workbook.Sheets[workbook.SheetNames[0]];
+        if(!firstSheet) throw new Error(tr("badCsv"));
+        records=XLSX.utils.sheet_to_json(firstSheet,{defval:"",raw:false});
+      } else throw new Error(tr("fileTypeError"));
+      if(!records.length) throw new Error(tr("badCsv"));
+      const mode=el("import-mode").value;
+      const base=mode==="replace"?[]:state.data.incidents;
       const ids=new Set(base.map((item)=>item.id));
-      const validated=records.map((record,index)=>{
-        try { return validateIncident(record,index,ids); }
-        catch(error) { throw new Error(interpolate(tr("rowInvalid"),{row:index+1,reason:error.message})); }
+      const valid=[],invalid=[];
+      records.forEach((record,index)=>{
+        try { valid.push(validateIncident(record,index,ids)); }
+        catch(error) { invalid.push({row:index+2,reason:error.message}); }
       });
-      if(!validated.length) throw new Error(tr("emptyImport"));
-      state.data.incidents=[...base,...validated];
-      state.loadedSource="imported";
-      el("data-file").value="";
-      setImportStatus(importSuccessMessage(validated.length),false);
-      fillFilters();render();showToast(importSuccessMessage(validated.length));
+      state.importPreview={valid,invalid,mode};
+      renderImportPreview();
+      setImportStatus(`${tr("validRows")}: ${valid.length} · ${tr("invalidRows")}: ${invalid.length}`,valid.length===0);
     } catch(error) {
       console.error("Incident import rejected",error);
       setImportStatus(interpolate(tr("importError"),{reason:error.message}),true);
     }
+  }
+
+  function confirmImport() {
+    if(!state.importPreview?.valid.length) return;
+    const base=state.importPreview.mode==="replace"?[]:state.data.incidents;
+    const ids=new Set(base.map((item)=>item.id)),validated=[];
+    const invalid=[...state.importPreview.invalid];
+    state.importPreview.valid.forEach((record,index)=>{
+      try {validated.push(validateIncident(record,index,ids));}
+      catch(error) {invalid.push({row:index+2,reason:error.message});}
+    });
+    if(!validated.length) {
+      state.importPreview={...state.importPreview,valid:[],invalid};
+      renderImportPreview();
+      setImportStatus(tr("previewNoValid"),true);
+      return;
+    }
+    state.data.incidents=[...base,...validated];
+    state.loadedSource="imported";
+    const stored=persistIncidents();
+    state.importPreview=null;
+    renderImportPreview();
+    el("data-file").value="";
+    const message=stored?interpolate(tr("previewSuccess"),{count:validated.length}):tr("memoryOnly");
+    setImportStatus(message,!stored);
+    fillFilters();render();if(stored)showToast(message);
+  }
+
+  function downloadTemplate() {
+    if(!window.XLSX) {showToast(tr("templateError"));return;}
+    const sheet=XLSX.utils.aoa_to_sheet([
+      IMPORT_FIELDS,
+      ["SIMULATED-EXAMPLE-001","2026-10-25","karkh","traffic_related","low","open","33.310","44.365","Fictional example only"]
+    ]);
+    sheet["!cols"]=IMPORT_FIELDS.map((field)=>({wch:Math.max(14,field.length+3)}));
+    const workbook=XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook,sheet,"Incidents");
+    XLSX.writeFile(workbook,"baghdad-incident-template.xlsx");
   }
 
   function setImportStatus(message,isError) {
@@ -495,7 +779,18 @@
   }
 
   function bindControls() {
+    setDataControlsEnabled(false);
     el("language-toggle").addEventListener("click",()=>{state.lang=state.lang==="en"?"ar":"en";applyLanguage();});
+    el("map-type-filter").addEventListener("change",(event)=>{
+      state.mapType=event.target.value;
+      if(state.map) {
+        Object.values(state.layers.base).forEach((layer)=>state.map.removeLayer(layer));
+        const base=state.mapType==="satellite"?"satellite":state.mapType==="training"?"training":"street";
+        state.layers.base[base].addTo(state.map);
+        state.map.invalidateSize();
+      }
+      updateMapModeLegend();renderMap(activeIncidents());
+    });
     el("district-filter").addEventListener("change",(event)=>{state.selectedDistrict=event.target.value;render();});
     el("period-filter").addEventListener("change",(event)=>{state.period=event.target.value;render();});
     el("category-filter").addEventListener("change",(event)=>{state.category=event.target.value;render();});
@@ -512,10 +807,19 @@
     });
     el("district-search").addEventListener("input",(event)=>{state.query=event.target.value;renderDistrictTable(activeIncidents());});
     el("sort-select").addEventListener("change",(event)=>{state.sort=event.target.value;renderDistrictTable(activeIncidents());});
+    el("incident-form").addEventListener("submit",saveIncident);
+    el("cancel-edit").addEventListener("click",()=>populateIncidentForm());
+    el("incident-search").addEventListener("input",(event)=>{state.incidentQuery=event.target.value;renderIncidentsTable(activeIncidents());});
+    el("incident-status-filter").addEventListener("change",(event)=>{state.incidentStatus=event.target.value;renderIncidentsTable(activeIncidents());});
     el("import-button").addEventListener("click",importFile);
+    el("confirm-import").addEventListener("click",confirmImport);
+    el("download-template").addEventListener("click",downloadTemplate);
+    el("import-mode").addEventListener("change",()=>{state.importPreview=null;renderImportPreview();});
     el("reset-data").addEventListener("click",()=>{
       state.data=structuredClone(state.defaultData);restoreCategories();state.loadedSource="simulated";state.selectedDistrict="all";state.period="all";state.category="all";state.severity="all";state.from="";state.to="";
-      el("date-from").value="";el("date-to").value="";el("period-filter").value="all";el("severity-filter").value="all";
+      state.incidentStatus="all";state.incidentQuery="";state.importPreview=null;
+      try {localStorage.removeItem("baghdad-gis-incidents");}catch(error){console.error("Could not clear browser-local incidents",error);showToast(error.message);}
+      el("incident-search").value="";el("incident-status-filter").value="all";el("date-from").value="";el("date-to").value="";el("period-filter").value="all";el("severity-filter").value="all";renderImportPreview();populateIncidentForm();
       setImportStatus(interpolate(tr("dataLoaded"),{count:state.data.incidents.length}),false);fillFilters();renderCategoryEditor();render();showToast(tr("simulatedBadge"));
     });
     el("add-category-form").addEventListener("submit",addCategory);
@@ -531,11 +835,13 @@
       if(!Array.isArray(data.districts)||!data.categories||!Array.isArray(data.incidents)||geojson?.type!=="FeatureCollection"||!Array.isArray(geojson.features)) throw new Error(tr("dataInvalid"));
       state.data=data;state.defaultData=structuredClone(data);state.geojson=geojson;
       restoreCategories();
+      restoreLocalIncidents();
       const ids=new Set();
       state.data.incidents=state.data.incidents.map((record,index)=>validateIncident(record,index,ids));
-      fillFilters();renderCategoryEditor();initMap();render();applyLanguage();
+      fillFilters();populateIncidentForm();renderCategoryEditor();initMap();render();applyLanguage();
       setText("copyright-year",String(new Date().getFullYear()));
       setImportStatus(interpolate(tr("dataLoaded"),{count:state.data.incidents.length}),false);
+      setDataControlsEnabled(true);
     } catch(error) {
       console.error("Dashboard initialization failed",error);
       setImportStatus(error.message,true);
@@ -543,6 +849,16 @@
       el("map-fallback").hidden=false;el("map").hidden=true;
       el("map-fallback").querySelector("p").textContent=tr("dataLoadError");
     }
+  }
+
+  function setDataControlsEnabled(enabled) {
+    const selectors=[
+      "#district-filter","#period-filter","#category-filter","#severity-filter","#date-from","#date-to","#district-search","#sort-select",
+      "#incident-form input","#incident-form select","#incident-form textarea","#incident-form button","#incident-search","#incident-status-filter",
+      "#data-file","#import-mode","#import-button","#confirm-import","#download-template","#reset-data",
+      "#add-category-form input","#add-category-form button"
+    ];
+    document.querySelectorAll(selectors.join(",")).forEach((control)=>{control.disabled=!enabled;});
   }
 
   document.addEventListener("DOMContentLoaded",start);
