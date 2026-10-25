@@ -3,7 +3,7 @@
 
   const translations = {
     en: {
-      brandSub:"جمهورية العراق · بغداد",unofficialBrand:"لوحة توضيحية غير رسمية",workspace:"WORKSPACE",overview:"Overview",mapNav:"Incident map",districts:"District analysis",dataNav:"Data tools",
+      brandSub:"Republic of Iraq · Baghdad",unofficialBrand:"Unofficial illustrative dashboard",workspace:"WORKSPACE",overview:"Overview",mapNav:"Incident map",districts:"District analysis",dataNav:"Data tools",
       demoMode:"SIMULATED DATA",demoNoteSide:"Fictional records only · not an operational feed",illustrative:"SIMULATED DATA",cityBriefing:"SECURITY INTELLIGENCE",title:"Baghdad incident analysis",subtitle:"A bilingual GIS view of fictional, simulated incident records.",
       localTime:"BAGHDAD LOCAL",notice:"<strong>SIMULATED DATA ONLY.</strong> Incidents and district boundaries are fictional illustrations, not verified Baghdad information. Counts are not crime rates or proof that a district is unsafe.",
       sampleIncidents:"RECORDED INCIDENTS",filteredRecords:"In selected filters",highSeverity:"HIGH SEVERITY",mediumSeverity:"MEDIUM SEVERITY",lowSeverity:"LOW SEVERITY",filteredSeverity:"Selected records",highestDistrict:"MOST SAMPLE RECORDS",lowestDistrict:"FEWEST SAMPLE RECORDS",sampleOnly:"Within this dataset only",openRecords:"OPEN / REVIEW",resolvedRecords:"RESOLVED / CLOSED",statusNote:"Status when supplied",
@@ -23,12 +23,12 @@
       sampleIncidents:"الحوادث المسجلة",filteredRecords:"ضمن عوامل التصفية",highSeverity:"شدة مرتفعة",mediumSeverity:"شدة متوسطة",lowSeverity:"شدة منخفضة",filteredSeverity:"السجلات المحددة",highestDistrict:"أعلى سجلات افتراضية",lowestDistrict:"أقل سجلات افتراضية",sampleOnly:"ضمن هذه البيانات فقط",openRecords:"مفتوحة / قيد المراجعة",resolvedRecords:"تمت المعالجة / مغلقة",statusNote:"الحالة عند توفرها",
       geospatialView:"عرض جغرافي مكاني",cityActivity:"خريطة الحوادث الأمنية",district:"المنطقة",period:"الفترة",fromDate:"من",toDate:"إلى",category:"نوع الحادث",severity:"الشدة",allDistricts:"كل المناطق",allDates:"كل التواريخ",last7:"آخر ٧ أيام",last30:"آخر ٣٠ يوماً",last90:"آخر ٩٠ يوماً",allTypes:"كل أنواع الحوادث",allLevels:"كل المستويات",low:"منخفضة",medium:"متوسطة",high:"مرتفعة",
       mapUnavailable:"الخريطة التفاعلية غير متاحة",mapFallback:"اتصل بالإنترنت لتحميل Leaflet وخرائط OpenStreetMap. تبقى بيانات لوحة المعلومات محلية.",sampleMap:"خريطة حوادث محاكاة · بغداد",mapLegend:"مفتاح الخريطة",incidents:"الحوادث",incidentCategories:"فئات الحوادث",districtAreas:"حدود توضيحية للمناطق",markerKey:"إطار العلامة يوضح الفئة؛ واللون يوضح الشدة.",boundaryCaveat:"رسوم تقريبية وخيالية للمناطق.",
-      patternWatch:"تحليل الأنماط",weeklyTrend:"اتجاه الحوادث بمرور الوقت",simulatedCount:"عدد محاكاة",chartUnavailable:"مكتبة الرسوم غير متاحة؛ ما زالت السجلات معروضة.",trendCaveat:"عينة خيالية صغيرة فقط؛ لا تشير إلى خطر فعلي أو مستوى السلامة.",distribution:"توزيع الفئات",incidentsByCategory:"الحوادث حسب الفئة",categoryCaveat:"تعرض الأعداد السجلات المحملة فقط.",districtComparison:"مقارنة المناطق",incidentsByDistrict:"الحوادث حسب المنطقة",districtChartCaveat:"اختر منطقة لتصفية الخريطة والرسوم الأخرى.",
-      searchPlaceholder:"ابحث عن منطقة…",sortName:"ترتيب: الاسم",sortCount:"ترتيب: الأكثر حوادث",sortLowest:"ترتيب: الأقل حوادث",sortTrend:"ترتيب: الاتجاه الحديث",thDistrict:"المنطقة",thSampleCount:"السجلات",thHigh:"مرتفعة",thMedium:"متوسطة",thLow:"منخفضة",thTrend:"تغير ٧ أيام",thPriority:"التقييم",relativeOnly:"المقارنات النسبية ضمن بيانات المحاكاة وليست معدلات أو درجات سلامة.",none:"لا توجد مناطق مطابقة.",up:"ارتفاع",down:"انخفاض",flat:"مستقر",insufficient:"سجل غير كافٍ",trendNoChange:"لا يوجد تغير ملحوظ ضمن هذه العينة.",trendNoBaseline:"لا توجد سجلات كافية لمقارنة ٧ أيام.",trendUp:"السجلات الافتراضية أعلى بنسبة {pct}٪ من الأيام السبعة السابقة.",trendDown:"السجلات الافتراضية أقل بنسبة {pct}٪ من الأيام السبعة السابقة.",
+      patternWatch:"تحليل الأنماط",weeklyTrend:"اتجاه الحوادث بمرور الوقت",simulatedCount:"أعداد افتراضية",chartUnavailable:"مكتبة الرسوم غير متاحة؛ ما زالت السجلات معروضة.",trendCaveat:"عينة خيالية صغيرة فقط؛ لا تشير إلى خطر فعلي أو مستوى السلامة.",distribution:"توزيع الفئات",incidentsByCategory:"الحوادث حسب الفئة",categoryCaveat:"تعرض الأعداد السجلات المحملة فقط.",districtComparison:"مقارنة المناطق",incidentsByDistrict:"الحوادث حسب المنطقة",districtChartCaveat:"اختر منطقة لتصفية الخريطة والرسوم الأخرى.",
+      searchPlaceholder:"ابحث عن منطقة…",sortName:"ترتيب: الاسم",sortCount:"ترتيب: الأكثر حوادث",sortLowest:"ترتيب: الأقل حوادث",sortTrend:"ترتيب: الاتجاه الحديث",districtSnapshot:"تحليل المناطق",thDistrict:"المنطقة",thSampleCount:"السجلات",thHigh:"مرتفعة",thMedium:"متوسطة",thLow:"منخفضة",thTrend:"تغير ٧ أيام",thPriority:"التقييم",relativeOnly:"المقارنات النسبية ضمن بيانات المحاكاة وليست معدلات أو درجات سلامة.",none:"لا توجد مناطق مطابقة.",up:"ارتفاع",down:"انخفاض",flat:"مستقر",insufficient:"سجل غير كافٍ",trendNoChange:"لا يوجد تغير ملحوظ ضمن هذه العينة.",trendNoBaseline:"لا توجد سجلات كافية لمقارنة ٧ أيام.",trendUp:"السجلات الافتراضية أعلى بنسبة {pct}٪ من الأيام السبعة السابقة.",trendDown:"السجلات الافتراضية أقل بنسبة {pct}٪ من الأيام السبعة السابقة.",
       planningContext:"دعم القرار",assessmentTitle:"أولويات التقييم",notOperational:"غير تشغيلي",priorityHigh:"مرتفع · تقييم إضافي",priorityMedium:"متوسط · مراجعة الأنماط",priorityRoutine:"متابعة اعتيادية",priorityHighReason:"سجلات متعددة عالية الشدة واتجاه حديث متزايد؛ تحقق من المصدر والسياق. الأعداد وحدها لا تدل على ظروف غير آمنة.",priorityMediumReason:"يستدعي مزيج الشدة أو الزيادة الحديثة مراجعة جودة البيانات وسياق الخدمات.",priorityRoutineReason:"لا توجد إشارة مركبة في هذه البيانات المحدودة. وهذا لا يثبت السلامة.",noCoverage:"لم تتوفر بيانات مجمعة عن تغطية الخدمات؛ لا يمكن مقارنة توفر الموارد.",coverageProvided:"تتوفر بيانات مجمعة عن تغطية الخدمات للمقارنة.",coverageUnknown:"لم يتوفر عدد تغطية خاص بهذه المنطقة.",coverageForDistrict:"العدد المجمع المبلغ عنه: {count}. لا يقيس ذلك التوفر أو الكفاية.",recommendationDisclaimer:"المؤشرات للتقييم الإضافي فقط بناءً على السجلات المحملة. لا تثبت أعداد الحوادث وحدها أن المنطقة غير آمنة ولا تبرر إجراءً ضد أشخاص.",loadingRecommendations:"جارٍ تحميل سياق التقييم…",
-      dataTools:"حوكمة البيانات",importTitle:"استيراد بيانات الحوادث محلياً",importHelp:"استورد ملفات CSV أو GeoJSON مصرحاً بها ومنزوعة الهوية. تبقى البيانات في جلسة المتصفح؛ استخدم إحداثيات عامة أو مجمعة قبل المشاركة.",chooseFile:"اختيار CSV / GeoJSON",importButton:"تحقق واستورد",resetDemo:"إعادة بيانات المحاكاة",importSchema:"المطلوب: id وdate (YYYY-MM-DD) وdistrict وcategory وseverity وstatus وlatitude وlongitude.",csvFormatTitle:"أعمدة CSV",geojsonFormatTitle:"GeoJSON",privacyNote:"لا تستورد معرّفات شخصية أو تفاصيل تشغيلية حساسة أو مواقع انتشار دقيقة أو سجلات سرية. لا يحتوي هذا التطبيق الثابت على مصادقة أو سجل تدقيق أو تخزين آمن.",appendMode:"إضافة إلى البيانات الحالية",replaceMode:"استبدال الحوادث الحالية",importSuccess:"تم التحقق واستيراد {count} سجل حادثة.",importError:"فشل الاستيراد: {reason}",chooseFileError:"اختر ملف CSV أو GeoJSON أولاً.",duplicateId:"معرّف حادثة مكرر: {id}",dateInvalid:"استخدم تاريخاً صالحاً بالتنسيق YYYY-MM-DD.",districtInvalid:"منطقة غير معروفة: {district}",categoryInvalid:"فئة غير معروفة: {category}",severityInvalid:"يجب أن تكون الشدة low أو medium أو high.",statusInvalid:"يجب أن تكون الحالة open أو investigating أو resolved أو closed.",coordinatesInvalid:"الإحداثيات خارج حدود خطوط العرض والطول.",missingFields:"حقول مطلوبة مفقودة: {fields}.",rowInvalid:"سجل غير صالح في الصف/المعلم {row}: {reason}",badCsv:"يجب أن يحتوي CSV على صف عناوين واقتباسات صالحة.",geojsonInvalid:"يجب أن يكون GeoJSON مجموعة معالم من نوع Point.",dataLoaded:"تم تحميل {count} سجلاً افتراضياً للمحاكاة.",importedBadge:"بيانات مستوردة",simulatedBadge:"بيانات محاكاة",mixedBadge:"محاكاة + مستورد",statusOpen:"مفتوح",statusInvestigating:"قيد المراجعة",statusResolved:"تمت المعالجة",statusClosed:"مغلق",simulatedRecord:"سجل محاكاة",importedRecord:"سجل مستورد",incident:"حادثة",districtLabel:"المنطقة",typeLabel:"الفئة",severityLabel:"الشدة",statusLabel:"الحالة",dateLabel:"التاريخ",
-      categorySettings:"الإعدادات",manageCategories:"إدارة فئات الحوادث",categoryAdminHelp:"عدّل التسميات أو أضف فئة. تستخدم المعرّفات في الملفات المستوردة؛ تحفظ الفئات المخصصة في هذا المتصفح.",categoryEnglishPlaceholder:"اسم الفئة بالإنجليزية",categoryArabicPlaceholder:"اسم الفئة بالعربية",addCategory:"إضافة فئة",saveCategory:"حفظ",categorySaved:"تم حفظ تسميات الفئة.",categoryAdded:"تمت إضافة الفئة.",categoryExists:"معرّف الفئة موجود بالفعل.",categoryRequired:"أدخل اسمي الفئة بالإنجليزية والعربية.",categoryFallback:"حوادث أخرى مبلغ عنها",categoryNameEn:"الاسم بالإنجليزية",categoryNameAr:"الاسم بالعربية",
-      demoFooter:"عرض محاكاة توضيحي",footerNote:"خريطة OpenStreetMap · سجلات افتراضية",dismiss:"إخفاء التنبيه",districtDetail:"تفصيل الفئات",severityBreakdown:"تفصيل الشدة",noRecords:"لا توجد سجلات تطابق عوامل التصفية الحالية.",categoryCount:"{count} سجلاً",selectDistrictTip:"اختر منطقة لعرض تفصيل الفئات والشدة."
+      dataTools:"حوكمة البيانات",importTitle:"استيراد بيانات الحوادث محلياً",importHelp:"استورد ملفات جداول أو بيانات جغرافية مصرحاً بها ومنزوعة الهوية. تبقى البيانات في جلسة المتصفح؛ استخدم إحداثيات عامة أو مجمعة قبل المشاركة.",chooseFile:"اختيار ملف للاستيراد",importButton:"تحقق واستورد",resetDemo:"إعادة بيانات المحاكاة",importSchema:"الحقول المطلوبة: المعرّف والتاريخ والمنطقة والفئة والشدة والحالة وخط العرض وخط الطول. يجب أن تتطابق أسماء الأعمدة البرمجية مع النموذج أدناه.",csvFormatTitle:"أعمدة الملف الجدولي",geojsonFormatTitle:"بيانات جغرافية بصيغة جيوجيسون",privacyNote:"لا تستورد معرّفات شخصية أو تفاصيل تشغيلية حساسة أو مواقع انتشار دقيقة أو سجلات سرية. لا يحتوي هذا التطبيق الثابت على مصادقة أو سجل تدقيق أو تخزين آمن.",appendMode:"إضافة إلى البيانات الحالية",replaceMode:"استبدال الحوادث الحالية",importSuccess:"تم التحقق واستيراد {count} سجل حادثة.",importError:"تعذر الاستيراد: {reason}",chooseFileError:"اختر ملفاً للاستيراد أولاً.",emptyImport:"الملف لا يحتوي على سجلات حوادث.",duplicateId:"معرّف حادثة مكرر: {id}",dateInvalid:"أدخل تاريخاً صحيحاً بالتنسيق سنة-شهر-يوم.",districtInvalid:"المنطقة غير معروفة: {district}",categoryInvalid:"الفئة غير معروفة: {category}",severityInvalid:"يجب أن تكون الشدة منخفضة أو متوسطة أو مرتفعة.",statusInvalid:"الحالة يجب أن تكون مفتوحة أو قيد المراجعة أو تمت المعالجة أو مغلقة.",coordinatesInvalid:"الإحداثيات خارج النطاق الصحيح لخطوط العرض والطول.",missingFields:"حقول مطلوبة مفقودة: {fields}.",rowInvalid:"سجل غير صالح في الصف أو المعلم رقم {row}: {reason}",badCsv:"يجب أن يحتوي الملف الجدولي على صف عناوين وحقول مقتبسة بشكل صحيح.",geojsonInvalid:"يجب أن تكون البيانات الجغرافية مجموعة معالم من نوع نقطة.",dataLoaded:"تم تحميل {count} سجلاً افتراضياً للمحاكاة.",dataLoadError:"تعذر تحميل ملفات البيانات المحلية. تحقق من تشغيل الخادم ووجود ملفات البيانات.",dataInvalid:"تنسيق ملفات البيانات المحلية غير صالح.",incidentIdInvalid:"يجب أن يتكون معرّف الحادثة من حرف واحد إلى ٨٠ حرفاً.",importedBadge:"بيانات مستوردة",simulatedBadge:"بيانات محاكاة",mixedBadge:"بيانات محاكاة ومستورد",statusOpen:"مفتوح",statusInvestigating:"قيد المراجعة",statusResolved:"تمت المعالجة",statusClosed:"مغلق",simulatedRecord:"سجل محاكاة",importedRecord:"سجل مستورد",incident:"حادثة",districtLabel:"المنطقة",typeLabel:"الفئة",severityLabel:"الشدة",statusLabel:"الحالة",dateLabel:"التاريخ",
+      categorySettings:"الإعدادات",manageCategories:"إدارة فئات الحوادث",categoryAdminHelp:"عدّل التسميات أو أضف فئة. تُستخدم المعرّفات البرمجية في الملفات المستوردة، وتُحفظ الفئات المخصصة في هذا المتصفح.",categoryEnglishPlaceholder:"اسم الفئة باللغة الإنجليزية",categoryArabicPlaceholder:"اسم الفئة باللغة العربية",addCategory:"إضافة فئة",saveCategory:"حفظ",categorySaved:"تم حفظ تسميات الفئة.",categoryAdded:"تمت إضافة الفئة.",categoryExists:"معرّف الفئة موجود بالفعل.",categoryRequired:"أدخل اسمي الفئة بالإنجليزية والعربية.",categoryFallback:"حوادث أخرى مبلغ عنها",categoryNameEn:"الاسم باللغة الإنجليزية",categoryNameAr:"الاسم باللغة العربية",
+      demoFooter:"عرض توضيحي ببيانات محاكاة",footerNote:"خريطة الشارع المفتوحة · سجلات افتراضية",dismiss:"إخفاء التنبيه",districtDetail:"تفصيل الفئات",severityBreakdown:"تفصيل الشدة",noRecords:"لا توجد سجلات تطابق عوامل التصفية الحالية.",categoryCount:"{count} سجلاً",selectDistrictTip:"اختر منطقة لعرض تفصيل الفئات والشدة."
     }
   };
 
@@ -37,7 +37,7 @@
   const VALID_STATUSES = new Set(["open","investigating","resolved","closed"]);
   const REQUIRED_FIELDS = ["id","date","district","category","severity","status","latitude","longitude"];
   const state = {
-    lang:"en", data:null, defaultData:null, geojson:null, map:null, layers:{}, charts:{},
+    lang:"ar", data:null, defaultData:null, geojson:null, map:null, layers:{}, charts:{},
     selectedDistrict:"all", lastMapDistrict:null, period:"all", category:"all", severity:"all", from:"", to:"",
     query:"", sort:"name", loadedSource:"simulated", importMode:"append"
   };
@@ -48,6 +48,7 @@
   const districtById = (id) => state.data.districts.find((district) => district.id === id);
   const districtName = (id) => localized(districtById(id)?.name) || id;
   const categoryName = (id) => localized(state.data.categories[id]) || id;
+  const secondaryName = (names) => state.lang==="ar"?"":names?.ar || "";
   const todayISO = () => new Date(Date.now()+3*60*60*1000).toISOString().slice(0,10);
   const formatDate = (date) => new Intl.DateTimeFormat(state.lang === "ar" ? "ar-IQ" : "en-GB",{dateStyle:"medium",timeZone:"UTC"}).format(new Date(`${date}T12:00:00Z`));
   const interpolate = (text, values) => Object.entries(values).reduce((result,[key,value]) => result.replaceAll(`{${key}}`,String(value)),text);
@@ -62,14 +63,15 @@
   function applyLanguage() {
     document.documentElement.lang=state.lang;
     document.documentElement.dir=state.lang==="ar"?"rtl":"ltr";
+    document.title=state.lang==="ar"?"بغداد | لوحة تحليل الحوادث الأمنية":"Baghdad | Security Intelligence Dashboard";
     document.querySelectorAll("[data-i18n]").forEach((node)=>{
       const value=tr(node.dataset.i18n);
-      if(node.id==="notice") node.querySelector("p").innerHTML=value;
+      if(node.dataset.i18n==="notice") node.innerHTML=value;
       else node.textContent=value;
     });
     document.querySelectorAll("[data-i18n-placeholder]").forEach((node)=>node.placeholder=tr(node.dataset.i18nPlaceholder));
-    el("language-toggle").innerHTML=state.lang==="en"?'عربي <span>↗</span>':'English <span>↗</span>';
-    el("language-toggle").setAttribute("aria-label",state.lang==="en"?"Switch to Arabic":"Switch to English");
+    el("language-toggle").innerHTML=state.lang==="en"?'العربية <span>↗</span>':'الإنجليزية <span>↗</span>';
+    el("language-toggle").setAttribute("aria-label",state.lang==="en"?"التبديل إلى العربية":"التبديل إلى الإنجليزية");
     document.querySelector("nav").setAttribute("aria-label",state.lang==="en"?"Main navigation":"التنقل الرئيسي");
     el("district-filter").setAttribute("aria-label",tr("district"));
     el("period-filter").setAttribute("aria-label",tr("period"));
@@ -120,7 +122,7 @@
       status:String(raw.status).trim().toLowerCase(),latitude:Number(raw.latitude),longitude:Number(raw.longitude),
       simulated:raw.simulated===true
     };
-    if(!incident.id||incident.id.length>80) throw new Error("Incident ID must be 1–80 characters.");
+    if(!incident.id||incident.id.length>80) throw new Error(tr("incidentIdInvalid"));
     if(existingIds.has(incident.id)) throw new Error(interpolate(tr("duplicateId"),{id:incident.id}));
     if(!validDate(incident.date)) throw new Error(tr("dateInvalid"));
     if(!districtById(incident.district)) throw new Error(interpolate(tr("districtInvalid"),{district:incident.district}));
@@ -219,8 +221,10 @@
       const priorityKey=item.priority==="high"?"priorityHigh":item.priority==="medium"?"priorityMedium":"priorityRoutine";
       const title=item.priority==="high"?"priorityHighReason":item.priority==="medium"?"priorityMediumReason":"priorityRoutineReason";
       const active=state.selectedDistrict===item.district.id?" selected-district":"";
-      return `<tr class="district-row${active}" data-district-row="${esc(item.district.id)}" tabindex="0" aria-label="${esc(item.district.name.en)} ${esc(item.district.name.ar)}">
-        <td><span class="district-name"><i class="district-marker"></i><span><strong>${esc(item.district.name.en)}</strong><small lang="ar" dir="rtl">${esc(item.district.name.ar)}</small></span></span></td>
+      const primaryName=localized(item.district.name);
+      const alternateName=secondaryName(item.district.name);
+      return `<tr class="district-row${active}" data-district-row="${esc(item.district.id)}" tabindex="0" aria-label="${esc(primaryName)}">
+        <td><span class="district-name"><i class="district-marker"></i><span><strong>${esc(primaryName)}</strong>${alternateName?`<small lang="ar" dir="rtl">${esc(alternateName)}</small>`:""}</span></span></td>
         <td><span class="count-pill">${item.count.toLocaleString(state.lang)}</span></td>
         <td>${item.high.toLocaleString(state.lang)}</td><td>${item.medium.toLocaleString(state.lang)}</td><td>${item.low.toLocaleString(state.lang)}</td>
         <td class="trend-label ${trendClass}">${esc(trend)}</td>
@@ -237,7 +241,9 @@
       row.addEventListener("click",selectDistrict);
       row.addEventListener("keydown",(event)=>{if(event.key==="Enter"||event.key===" "){event.preventDefault();selectDistrict();}});
     });
-    setText("table-count",`${rows.length} / ${state.data.districts.length}`);
+    setText("table-count",state.lang==="ar"
+      ? `${rows.length.toLocaleString(state.lang)} من ${state.data.districts.length.toLocaleString(state.lang)}`
+      : `${rows.length.toLocaleString(state.lang)} / ${state.data.districts.length.toLocaleString(state.lang)}`);
     renderDistrictDetail(incidents);
   }
 
@@ -275,7 +281,7 @@
     Object.values(state.charts).forEach((chart)=>chart?.destroy());
     const chartText=state.lang==="ar";
     const axisColor="#829294";
-    const baseOptions={responsive:true,maintainAspectRatio:false,animation:{duration:180},plugins:{legend:{display:false},tooltip:{backgroundColor:"#10191d",titleColor:"#e7eeee",bodyColor:"#bdc9c7",borderColor:"#425457",borderWidth:1}},scales:{x:{grid:{display:false},ticks:{color:axisColor,font:{size:9}},border:{color:"#344347"}},y:{beginAtZero:true,ticks:{precision:0,color:axisColor,font:{size:9}},grid:{color:"#2b393d"},border:{display:false}}}};
+    const baseOptions={locale:state.lang==="ar"?"ar-IQ":"en-GB",responsive:true,maintainAspectRatio:false,animation:{duration:180},plugins:{legend:{display:false},tooltip:{backgroundColor:"#10191d",titleColor:"#e7eeee",bodyColor:"#bdc9c7",borderColor:"#425457",borderWidth:1}},scales:{x:{grid:{display:false},ticks:{color:axisColor,font:{size:9}},border:{color:"#344347"}},y:{beginAtZero:true,ticks:{precision:0,color:axisColor,font:{size:9}},grid:{color:"#2b393d"},border:{display:false}}}};
     const byDate=new Map();
     incidents.forEach((item)=>byDate.set(item.date,(byDate.get(item.date)||0)+1));
     const trendLabels=Array.from({length:8},(_,index)=>{
@@ -350,8 +356,9 @@
       el("map-fallback").hidden=false;el("map").hidden=true;return;
     }
     try {
-      state.map=L.map("map",{zoomControl:true,scrollWheelZoom:false}).setView([33.35,44.39],11);
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(state.map);
+      state.map=L.map("map",{zoomControl:true,scrollWheelZoom:false,attributionControl:false}).setView([33.35,44.39],11);
+      L.control.attribution({prefix:"خرائط تفاعلية بواسطة ليفليت"}).addTo(state.map);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">خريطة الشارع المفتوحة</a>'}).addTo(state.map);
       state.layers.districts=L.geoJSON(state.geojson,{filter:(feature)=>!!feature.properties.illustrative,style:{color:"#90b9a7",weight:1.3,fillColor:"#72d7b0",fillOpacity:.075,dashArray:"4 4"},onEachFeature:(feature,layer)=>{
         layer.bindTooltip(state.lang==="ar"?feature.properties.name_ar:feature.properties.name_en,{permanent:true,direction:"center",className:"district-label"});
         layer.on("click",()=>{state.selectedDistrict=feature.properties.id;fillFilters();render();});
@@ -457,7 +464,7 @@
         try { return validateIncident(record,index,ids); }
         catch(error) { throw new Error(interpolate(tr("rowInvalid"),{row:index+1,reason:error.message})); }
       });
-      if(!validated.length) throw new Error("The file has no incident records.");
+      if(!validated.length) throw new Error(tr("emptyImport"));
       state.data.incidents=[...base,...validated];
       state.loadedSource="imported";
       el("data-file").value="";
@@ -519,9 +526,9 @@
     bindControls();applyLanguage();
     try {
       const [dataResponse,geoResponse]=await Promise.all([fetch("data/demo-data.json"),fetch("data/districts.geojson")]);
-      if(!dataResponse.ok||!geoResponse.ok) throw new Error("Could not load data/demo-data.json or data/districts.geojson.");
+      if(!dataResponse.ok||!geoResponse.ok) throw new Error(tr("dataLoadError"));
       const [data,geojson]=await Promise.all([dataResponse.json(),geoResponse.json()]);
-      if(!Array.isArray(data.districts)||!data.categories||!Array.isArray(data.incidents)||geojson?.type!=="FeatureCollection"||!Array.isArray(geojson.features)) throw new Error("Local demo data has an invalid format.");
+      if(!Array.isArray(data.districts)||!data.categories||!Array.isArray(data.incidents)||geojson?.type!=="FeatureCollection"||!Array.isArray(geojson.features)) throw new Error(tr("dataInvalid"));
       state.data=data;state.defaultData=structuredClone(data);state.geojson=geojson;
       restoreCategories();
       const ids=new Set();
@@ -534,7 +541,7 @@
       setImportStatus(error.message,true);
       el("district-table").innerHTML=`<tr><td colspan="7" class="empty-state">${esc(error.message)}</td></tr>`;
       el("map-fallback").hidden=false;el("map").hidden=true;
-      el("map-fallback").querySelector("p").textContent="Start the local server with python -m http.server 8000 and confirm the data files are present.";
+      el("map-fallback").querySelector("p").textContent=tr("dataLoadError");
     }
   }
 
