@@ -1,0 +1,8 @@
+# VS Code and Copilot workspace-only configuration; not part of the public website.
+.vscode/
+.azure/
+.github/agents/
+
+# Local operating-system files.
+Thumbs.db
+.DS_Store
