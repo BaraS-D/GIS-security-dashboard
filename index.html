@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#10191d">
-  <meta name="description" content="لوحة بغداد التوضيحية لتحليل الحوادث الأمنية على الخريطة.">
+  <meta name="description" content="لوحة لإدارة وتحليل سجلات الحوادث المحلية.">
   <title>بغداد | لوحة تحليل الحوادث الأمنية</title>
   <link rel="preconnect" href="https://unpkg.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -29,8 +29,8 @@
         <a class="nav-link" href="#data-tools"><span class="nav-icon">⇧</span><span data-i18n="dataNav">أدوات البيانات</span></a>
       </nav>
       <div class="sidebar-bottom">
-        <div class="sidebar-note"><span class="pulse"></span><span data-i18n="demoMode">بيانات محاكاة</span></div>
-        <p data-i18n="demoNoteSide">سجلات افتراضية فقط · ليست بيانات تشغيلية</p>
+        <div class="sidebar-note"><span class="pulse"></span><span data-i18n="localOnly">تخزين محلي</span></div>
+        <p data-i18n="localStorageNote">البيانات تبقى على هذا المتصفح فقط.</p>
         <div class="side-foot">لوحة بغداد <span>الإصدار ٢٫٠</span></div>
       </div>
     </aside>
@@ -39,7 +39,7 @@
       <header class="topbar">
         <div class="breadcrumb"><span data-i18n="workspace">مساحة العمل</span><b>/</b><strong data-i18n="overview">نظرة عامة</strong></div>
         <div class="top-actions">
-          <span class="demo-chip"><span class="pulse"></span><span data-i18n="illustrative">بيانات محاكاة</span></span>
+          <span class="demo-chip"><span class="pulse"></span><span data-i18n="localOnly">تخزين محلي</span></span>
           <button id="language-toggle" class="language-toggle" type="button" aria-label="التبديل إلى الإنجليزية">اللغة الإنجليزية <span>↗</span></button>
           <span class="avatar" aria-hidden="true">ب</span>
         </div>
@@ -49,12 +49,12 @@
         <div>
           <div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="cityBriefing">تحليل المعلومات الأمنية</span></div>
           <h1 data-i18n="title">تحليل الحوادث في بغداد</h1>
-          <p data-i18n="subtitle">عرض جغرافي لسجلات حوادث افتراضية ومحاكاة.</p>
+          <p data-i18n="subtitle">سجلاتك المحلية وتحليلاتها، دون بيانات جاهزة.</p>
         </div>
         <div class="date-display"><span class="date-icon">◷</span><span id="today-label">—</span><span class="date-divider"></span><span data-i18n="localTime">التوقيت المحلي في بغداد</span></div>
       </section>
 
-      <div id="notice" class="notice" role="note"><span class="notice-icon">ⓘ</span><p data-i18n="notice"><strong>بيانات محاكاة فقط.</strong> الحوادث وحدود المناطق افتراضية وتوضيحية وليست معلومات موثقة عن بغداد. الأعداد ليست معدلات للجريمة ولا دليلاً على أن منطقة ما غير آمنة.</p><button class="notice-close" aria-label="إخفاء التنبيه" type="button">×</button></div>
+      <div id="notice" class="notice" role="note"><span class="notice-icon">ⓘ</span><p data-i18n="privacyNote">تُخزّن السجلات والمرفقات محلياً على هذا الجهاز فقط ولا تتم مزامنتها تلقائياً. لا تُدخل بيانات شخصية أو معلومات سرية.</p></div>
 
       <section class="kpi-grid" aria-label="ملخص الحوادث">
         <article class="kpi-card"><div class="kpi-head"><span data-i18n="sampleIncidents">RECORDED INCIDENTS</span><span class="kpi-symbol coral">⌁</span></div><div class="kpi-value" id="kpi-incidents">—</div><div class="kpi-foot"><span class="dot coral-dot"></span><span data-i18n="filteredRecords">In selected filters</span></div></article>
@@ -73,11 +73,8 @@
           <div class="map-toolbar">
             <label class="filter-label" for="map-type-filter" data-i18n="mapType">نوع الخريطة</label>
             <select id="map-type-filter" aria-label="نوع الخريطة">
-              <option value="street">خريطة الشوارع</option>
-              <option value="satellite">صور الأقمار الصناعية</option>
-              <option value="density">كثافة الحوادث حسب المنطقة</option>
-              <option value="stats">إحصاءات المناطق</option>
-              <option value="training">خريطة عسكرية تدريبية (خيالية)</option>
+              <option value="street">خريطة الشوارع (OpenStreetMap)</option>
+              <option value="humanitarian">خريطة إنسانية (OpenStreetMap)</option>
             </select>
             <label class="filter-label" for="district-filter" data-i18n="district">المنطقة</label>
             <select id="district-filter" aria-label="تصفية حسب المنطقة"><option value="all">كل المناطق</option></select>
@@ -95,49 +92,54 @@
         </div>
         <div class="map-content">
           <div class="map-wrap">
-            <div id="map" role="application" aria-label="خريطة تفاعلية توضيحية لحوادث بغداد الأمنية"></div>
+            <div id="map" role="application" aria-label="خريطة تفاعلية لسجلات الحوادث"></div>
             <div id="map-fallback" class="map-fallback" hidden><span>⌖</span><strong data-i18n="mapUnavailable">الخريطة التفاعلية غير متاحة</strong><p data-i18n="mapFallback">اتصل بالإنترنت لتحميل مكتبة الخريطة وخرائط OpenStreetMap. تبقى بيانات اللوحة محلية.</p></div>
             <div class="map-status"><span class="pulse"></span><span id="map-status-label" data-i18n="sampleMap">خريطة حوادث محاكاة · بغداد</span></div>
           </div>
           <aside class="map-legend">
             <div class="legend-title" data-i18n="mapLegend">مفتاح الخريطة</div>
             <label class="layer-row"><input type="checkbox" data-layer="incidents" checked><span class="legend-dot incident-dot"></span><span data-i18n="incidents">الحوادث</span></label>
-            <label class="layer-row"><input type="checkbox" data-layer="districts" checked><span class="legend-square district-square"></span><span data-i18n="districtAreas">حدود توضيحية للمناطق</span></label>
             <div class="legend-rule"></div>
             <details class="category-legend-details">
               <summary><span data-i18n="incidentCategories">فئات الحوادث</span><span id="category-count" class="category-count">١٠</span></summary>
               <div id="category-legend"></div>
             </details>
             <div class="legend-rule"></div>
-            <div class="legend-title" data-i18n="severity">الشدة</div>
+            <div class="legend-title" data-i18n="severity">الأهمية</div>
             <div class="layer-row"><span class="legend-dot severity-high-dot"></span><span data-i18n="high">مرتفعة</span></div>
             <div class="layer-row"><span class="legend-dot severity-medium-dot"></span><span data-i18n="medium">متوسطة</span></div>
             <div class="layer-row"><span class="legend-dot severity-low-dot"></span><span data-i18n="low">منخفضة</span></div>
             <div class="legend-rule"></div>
             <div class="legend-disclaimer" data-i18n="markerKey">إطار العلامة يوضح الفئة؛ واللون يوضح الشدة.</div>
-            <div class="legend-disclaimer" data-i18n="boundaryCaveat">رسوم تقريبية وخيالية للمناطق.</div>
-            <p id="map-mode-legend" class="legend-disclaimer" data-i18n="mapStatsLegend">يمثل لون المنطقة عدد السجلات المفلترة فقط.</p>
-            <p id="map-training-caveat" class="training-map-caveat" hidden data-i18n="trainingCaveat">تصميم تدريبي خيالي، ولا يمثل تضاريس أو معلومات تشغيلية حقيقية.</p>
+            <p id="map-mode-legend" class="legend-disclaimer" data-i18n="mapStreetLegend">تظهر العلامات عند إدخال إحداثيات للحادث.</p>
           </aside>
         </div>
       </section>
 
       <div class="content-grid analytics-grid">
         <section class="panel analytics-panel">
-          <div class="panel-heading"><div><div class="section-kicker" data-i18n="patternWatch">تحليل الأنماط</div><h2 data-i18n="weeklyTrend">اتجاه الحوادث بمرور الوقت</h2></div><span class="unit-chip" data-i18n="simulatedCount">أعداد افتراضية</span></div>
+          <div class="panel-heading"><div><div class="section-kicker" data-i18n="patternWatch">تحليل الأنماط</div><h2 data-i18n="weeklyTrend">الحوادث حسب الشهر</h2></div><span class="unit-chip" data-i18n="storedData">من السجلات المحفوظة</span></div>
           <div class="chart-wrap"><canvas id="trend-chart" aria-label="الرسم البياني لاتجاه الحوادث الأسبوعي"></canvas><div id="trend-fallback" class="chart-fallback" hidden data-i18n="chartUnavailable">مكتبة الرسوم غير متاحة؛ ما زالت السجلات معروضة.</div></div>
           <div class="trend-caption"><span class="trend-icon">↗</span><span id="trend-summary">—</span></div>
-          <p class="small-caveat" data-i18n="trendCaveat">عينة خيالية صغيرة فقط؛ لا تشير إلى خطر فعلي أو مستوى السلامة.</p>
+          <p class="small-caveat" data-i18n="chartEmptyNote">تظهر الإحصاءات بعد إدخال الحوادث.</p>
         </section>
         <section class="panel analytics-panel">
-          <div class="panel-heading"><div><div class="section-kicker" data-i18n="distribution">توزيع الفئات</div><h2 data-i18n="incidentsByCategory">الحوادث حسب الفئة</h2></div><span class="unit-chip" data-i18n="simulatedCount">أعداد افتراضية</span></div>
+          <div class="panel-heading"><div><div class="section-kicker" data-i18n="distribution">توزيع الفئات</div><h2 data-i18n="incidentsByCategory">الحوادث حسب الفئة</h2></div><span class="unit-chip" data-i18n="storedData">من السجلات المحفوظة</span></div>
           <div class="chart-wrap"><canvas id="category-chart" aria-label="الرسم البياني للحوادث حسب الفئة"></canvas><div id="category-fallback" class="chart-fallback" hidden data-i18n="chartUnavailable">مكتبة الرسوم غير متاحة؛ ما زالت السجلات معروضة.</div></div>
-          <p class="small-caveat" data-i18n="categoryCaveat">تعرض الأعداد السجلات المحملة فقط.</p>
+          <p class="small-caveat" data-i18n="chartEmptyNote">تظهر الإحصاءات بعد إدخال الحوادث.</p>
         </section>
         <section class="panel analytics-panel district-chart-panel">
-          <div class="panel-heading"><div><div class="section-kicker" data-i18n="districtComparison">مقارنة المناطق</div><h2 data-i18n="incidentsByDistrict">الحوادث حسب المنطقة</h2></div><span class="unit-chip" data-i18n="simulatedCount">أعداد افتراضية</span></div>
+          <div class="panel-heading"><div><div class="section-kicker" data-i18n="districtComparison">مقارنة المناطق</div><h2 data-i18n="incidentsByDistrict">الحوادث حسب المنطقة</h2></div><span class="unit-chip" data-i18n="storedData">من السجلات المحفوظة</span></div>
           <div class="chart-wrap"><canvas id="district-chart" aria-label="الرسم البياني للحوادث حسب المنطقة"></canvas><div id="district-fallback" class="chart-fallback" hidden data-i18n="chartUnavailable">مكتبة الرسوم غير متاحة؛ ما زالت السجلات معروضة.</div></div>
-          <p class="small-caveat" data-i18n="districtChartCaveat">اختر منطقة لتصفية الخريطة والرسوم الأخرى.</p>
+          <p class="small-caveat" data-i18n="chartEmptyNote">تظهر الإحصاءات بعد إدخال الحوادث.</p>
+        </section>
+        <section class="panel analytics-panel">
+          <div class="panel-heading"><div><div class="section-kicker" data-i18n="importanceStats">حسب الأهمية</div><h2 data-i18n="importanceStats">الحوادث حسب الأهمية</h2></div></div>
+          <div class="chart-wrap"><canvas id="importance-chart"></canvas><div id="importance-fallback" class="chart-fallback" hidden data-i18n="chartUnavailable">مكتبة الرسوم غير متاحة.</div></div>
+        </section>
+        <section class="panel analytics-panel">
+          <div class="panel-heading"><div><div class="section-kicker" data-i18n="statusStats">حسب الحالة</div><h2 data-i18n="statusStats">الحوادث حسب الحالة</h2></div></div>
+          <div class="chart-wrap"><canvas id="status-chart"></canvas><div id="status-fallback" class="chart-fallback" hidden data-i18n="chartUnavailable">مكتبة الرسوم غير متاحة.</div></div>
         </section>
       </div>
 
@@ -147,26 +149,38 @@
           <span class="unit-chip" data-i18n="localOnly">محلي في هذا المتصفح</span>
         </div>
         <div class="incident-form-wrap">
-          <p class="small-caveat" data-i18n="incidentPrivacy">استخدم بيانات خيالية فقط. لا تكتب أسماء أشخاص أو معلومات تعريفية أو تفاصيل تشغيلية.</p>
+          <p class="small-caveat" data-i18n="incidentPrivacy">تُحفظ البيانات محلياً على هذا الجهاز والمتصفح، ولا تتم مزامنتها تلقائياً.</p>
           <form id="incident-form" class="incident-form">
             <input id="incident-edit-id" type="hidden">
-            <label><span data-i18n="typeLabel">الفئة</span><select id="incident-category" required></select></label>
-            <label><span data-i18n="dateLabel">التاريخ</span><input id="incident-date" type="date" required></label>
-            <label><span data-i18n="districtLabel">المنطقة</span><select id="incident-district" required></select></label>
-            <label><span data-i18n="severityLabel">الشدة</span><select id="incident-severity" required><option value="low" data-i18n="low">منخفضة</option><option value="medium" data-i18n="medium">متوسطة</option><option value="high" data-i18n="high">مرتفعة</option></select></label>
-            <label><span data-i18n="statusLabel">الحالة</span><select id="incident-status" required><option value="open" data-i18n="statusOpen">مفتوحة</option><option value="investigating" data-i18n="statusInvestigating">قيد المراجعة</option><option value="resolved" data-i18n="statusResolved">تمت المعالجة</option><option value="closed" data-i18n="statusClosed">مغلقة</option></select></label>
-            <label><span data-i18n="latitudeLabel">خط العرض (اختياري)</span><input id="incident-latitude" type="number" step="any" inputmode="decimal"></label>
-            <label><span data-i18n="longitudeLabel">خط الطول (اختياري)</span><input id="incident-longitude" type="number" step="any" inputmode="decimal"></label>
-            <p class="coordinate-help" data-i18n="coordinateHelp">عند ترك الإحداثيات فارغة، تظهر العلامة في مركز المنطقة التقريبي.</p>
-            <label class="incident-description"><span data-i18n="descriptionLabel">وصف مختصر (اختياري)</span><textarea id="incident-description" maxlength="240" rows="2"></textarea></label>
-            <div class="incident-form-actions"><button class="action-button" type="submit" data-i18n="saveIncident">حفظ الحادثة</button><button id="cancel-edit" class="secondary-button" type="button" hidden data-i18n="cancelEdit">إلغاء التعديل</button></div>
+            <label><span data-i18n="incidentIdLabel">رقم الحادث</span><input id="incident-id-display" type="text" readonly></label>
+            <label><span data-i18n="titleLabel">عنوان الحادث</span><input id="incident-title" type="text" maxlength="120" required></label>
+            <label><span data-i18n="typeLabel">نوع الحادث</span><select id="incident-category" required></select></label>
+            <label><span data-i18n="provinceLabel">المحافظة</span><select id="incident-province" required></select></label>
+            <label><span data-i18n="districtLabel">المنطقة أو القضاء</span><input id="incident-district" type="text" maxlength="100" required></label>
+            <label><span data-i18n="addressLabel">العنوان أو الموقع النصي</span><input id="incident-address" type="text" maxlength="200"></label>
+            <label><span data-i18n="dateLabel">تاريخ الحادث</span><input id="incident-date" type="date" required></label>
+            <label><span data-i18n="timeLabel">وقت الحادث</span><input id="incident-time" type="time" required></label>
+            <label><span data-i18n="severityLabel">الأهمية</span><select id="incident-severity" required><option value="" disabled selected data-i18n="chooseLevel">اختر الأهمية</option><option value="low" data-i18n="low">منخفضة</option><option value="medium" data-i18n="medium">متوسطة</option><option value="high" data-i18n="high">مرتفعة</option></select></label>
+            <label><span data-i18n="statusLabel">الحالة</span><select id="incident-status" required><option value="" disabled selected data-i18n="chooseStatus">اختر الحالة</option><option value="open" data-i18n="statusOpen">مفتوحة</option><option value="investigating" data-i18n="statusInvestigating">قيد المراجعة</option><option value="resolved" data-i18n="statusResolved">تمت المعالجة</option><option value="closed" data-i18n="statusClosed">مغلقة</option></select></label>
+            <label><span data-i18n="latitudeLabel">خط العرض</span><input id="incident-latitude" type="number" min="-90" max="90" step="any" inputmode="decimal"></label>
+            <label><span data-i18n="longitudeLabel">خط الطول</span><input id="incident-longitude" type="number" min="-180" max="180" step="any" inputmode="decimal"></label>
+            <label class="incident-description"><span data-i18n="descriptionLabel">وصف الحادث</span><textarea id="incident-description" maxlength="2000" rows="3" required></textarea></label>
+            <label class="incident-description"><span data-i18n="notesLabel">ملاحظات إضافية</span><textarea id="incident-notes" maxlength="2000" rows="2"></textarea></label>
+            <label class="incident-photo-label"><span data-i18n="photoLabel">صورة مرفقة (حتى ٢ ميغابايت)</span><input id="incident-photo" type="file" accept="image/*"><img id="incident-photo-preview" class="incident-photo-preview" alt="" hidden></label>
+            <div class="incident-form-actions"><button class="action-button" type="submit" data-i18n="saveIncident">إضافة الحادث</button><button id="cancel-edit" class="secondary-button" type="button" hidden data-i18n="cancelEdit">إلغاء</button><button id="clear-form" class="secondary-button" type="button" data-i18n="clearForm">مسح النموذج</button></div>
           </form>
           <div class="incident-list-toolbar">
             <label class="incident-search"><span data-i18n="searchIncidents">بحث في السجلات</span><input id="incident-search" type="search" placeholder="بحث..." data-i18n-placeholder="searchIncidents"></label>
+            <label><span data-i18n="typeLabel">النوع</span><select id="incident-category-filter"></select></label>
+            <label><span data-i18n="districtLabel">المنطقة</span><input id="incident-district-filter" type="search"></label>
+            <label><span data-i18n="fromDate">من التاريخ</span><input id="incident-from-filter" type="date"></label>
+            <label><span data-i18n="toDate">إلى التاريخ</span><input id="incident-to-filter" type="date"></label>
             <label><span data-i18n="statusLabel">الحالة</span><select id="incident-status-filter"><option value="all" data-i18n="allStatuses">كل الحالات</option><option value="open" data-i18n="statusOpen">مفتوحة</option><option value="investigating" data-i18n="statusInvestigating">قيد المراجعة</option><option value="resolved" data-i18n="statusResolved">تمت المعالجة</option><option value="closed" data-i18n="statusClosed">مغلقة</option></select></label>
+            <label><span data-i18n="severityLabel">الأهمية</span><select id="incident-severity-filter"><option value="all" data-i18n="allLevels">كل المستويات</option><option value="low" data-i18n="low">منخفضة</option><option value="medium" data-i18n="medium">متوسطة</option><option value="high" data-i18n="high">مرتفعة</option></select></label>
             <span id="incident-list-count" class="unit-chip">—</span>
           </div>
-          <div class="table-scroll incident-table-scroll"><table class="incident-table"><thead><tr><th data-i18n="incident">الحادثة</th><th data-i18n="dateLabel">التاريخ</th><th data-i18n="districtLabel">المنطقة</th><th data-i18n="typeLabel">الفئة</th><th data-i18n="severityLabel">الشدة</th><th data-i18n="statusLabel">الحالة</th><th data-i18n="descriptionLabel">الوصف</th><th data-i18n="actions">الإجراءات</th></tr></thead><tbody id="incidents-table"></tbody></table></div>
+          <div class="table-scroll incident-table-scroll"><table class="incident-table"><thead><tr><th data-i18n="incident">الحادث</th><th data-i18n="dateLabel">التاريخ والوقت</th><th data-i18n="provinceLabel">المحافظة</th><th data-i18n="districtLabel">المنطقة</th><th data-i18n="typeLabel">النوع</th><th data-i18n="severityLabel">الأهمية</th><th data-i18n="statusLabel">الحالة</th><th data-i18n="actions">الإجراءات</th></tr></thead><tbody id="incidents-table"></tbody></table></div>
+          <section id="incident-details" class="incident-details" hidden aria-live="polite"></section>
         </div>
       </section>
 
@@ -175,7 +189,7 @@
         <div><div class="section-kicker" data-i18n="districtSnapshot">تحليل المناطق</div><h2 data-i18n="districtComparison">مقارنة المناطق</h2></div>
         <div class="table-tools"><div class="search-box"><span>⌕</span><input id="district-search" type="search" placeholder="ابحث عن منطقة…" data-i18n-placeholder="searchPlaceholder" aria-label="البحث عن المناطق"></div><select id="sort-select" aria-label="ترتيب المناطق"><option value="name">ترتيب: الاسم</option><option value="incidents">ترتيب: الأكثر حوادث</option><option value="lowest">ترتيب: الأقل حوادث</option><option value="trend">ترتيب: الاتجاه الحديث</option></select></div>
         </div>
-        <div class="table-scroll"><table><thead><tr><th data-i18n="thDistrict">المنطقة</th><th data-i18n="thSampleCount">السجلات</th><th data-i18n="thHigh">مرتفعة</th><th data-i18n="thMedium">متوسطة</th><th data-i18n="thLow">منخفضة</th><th data-i18n="thTrend">تغير ٧ أيام</th><th data-i18n="thPriority">التقييم</th></tr></thead><tbody id="district-table"><tr><td colspan="7" class="empty-state">جارٍ تحميل سجلات المحاكاة…</td></tr></tbody></table></div>
+        <div class="table-scroll"><table><thead><tr><th data-i18n="thDistrict">المنطقة</th><th data-i18n="thSampleCount">السجلات</th><th data-i18n="thHigh">مرتفعة</th><th data-i18n="thMedium">متوسطة</th><th data-i18n="thLow">منخفضة</th><th data-i18n="thTrend">تغير ٧ أيام</th><th data-i18n="thPriority">التقييم</th></tr></thead><tbody id="district-table"><tr><td colspan="7" class="empty-state">لا توجد سجلات.</td></tr></tbody></table></div>
         <div class="table-foot"><span data-i18n="relativeOnly">المقارنات النسبية ضمن بيانات المحاكاة وليست معدلات أو درجات سلامة.</span><span id="table-count">—</span></div>
         <div class="district-detail" id="district-detail" aria-live="polite"></div>
       </section>
@@ -191,19 +205,12 @@
         <div class="import-content">
           <p class="small-caveat" data-i18n="importHelp">استورد ملفات جداول أو بيانات جغرافية مصرحاً بها ومنزوعة الهوية. تبقى البيانات في جلسة المتصفح؛ استخدم إحداثيات عامة أو مجمعة قبل المشاركة.</p>
           <div class="import-controls">
-            <label class="file-picker"><span data-i18n="chooseFile">اختيار ملف جدول أو ملف جغرافي</span><input id="data-file" type="file" accept=".xlsx,.csv,.json,.geojson,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv,application/geo+json,application/json"></label>
-            <select id="import-mode" aria-label="طريقة الاستيراد"><option value="append">إضافة إلى البيانات الحالية</option><option value="replace">استبدال الحوادث الحالية</option></select>
-            <button id="download-template" type="button" class="secondary-button" data-i18n="downloadTemplate">تنزيل قالب Excel</button>
-            <button id="import-button" type="button" class="action-button" data-i18n="previewImport">معاينة الملف والتحقق</button>
-            <button id="confirm-import" type="button" class="action-button" disabled data-i18n="confirmImport">تأكيد استيراد السجلات الصالحة</button>
-            <button id="reset-data" type="button" class="secondary-button" data-i18n="resetDemo">إعادة بيانات المحاكاة</button>
+            <button id="export-json" type="button" class="secondary-button" data-i18n="exportJson">تنزيل نسخة JSON</button>
+            <button id="export-csv" type="button" class="secondary-button" data-i18n="exportCsv">تصدير CSV</button>
+            <label class="file-picker"><span data-i18n="importJson">استيراد نسخة JSON</span><input id="import-json" type="file" accept=".json,application/json"></label>
           </div>
           <div id="import-preview" class="import-preview" hidden></div>
-          <div id="import-status" class="import-status" role="status" aria-live="polite" data-i18n="importSchema">الحقول المطلوبة: المعرّف، التاريخ، المنطقة، الفئة، الشدة، الحالة، خط العرض، خط الطول.</div>
-          <div class="format-grid">
-            <div><strong data-i18n="csvFormatTitle">أعمدة الملف الجدولي</strong><code dir="ltr">id,date,district,category,severity,status,latitude,longitude</code></div>
-            <div><strong data-i18n="geojsonFormatTitle">بيانات جغرافية بصيغة جيوجيسون</strong><code dir="ltr">FeatureCollection → Point; [longitude, latitude]</code></div>
-          </div>
+          <div id="import-status" class="import-status" role="status" aria-live="polite">تأكد من حفظ نسخة احتياطية في مكان آمن. البيانات محلية لهذا المتصفح.</div>
           <p class="privacy-note" data-i18n="privacyNote">لا تستورد معرّفات شخصية أو تفاصيل تشغيلية حساسة أو مواقع انتشار دقيقة أو سجلات سرية. لا يحتوي هذا التطبيق الثابت على مصادقة أو سجل تدقيق أو تخزين آمن.</p>
         </div>
       </section>
@@ -221,14 +228,13 @@
         </div>
       </section>
 
-      <footer class="page-footer"><span><span id="copyright-year">٢٠٢٦</span> · لوحة بغداد · <span data-i18n="demoFooter">عرض توضيحي ببيانات محاكاة</span></span><span data-i18n="footerNote">خريطة الشارع المفتوحة · سجلات افتراضية</span></footer>
+      <footer class="page-footer"><span><span id="copyright-year">٢٠٢٦</span> · لوحة بغداد · <span data-i18n="localOnly">تخزين محلي</span></span><span>OpenStreetMap · <span data-i18n="localStorageNote">البيانات تبقى على هذا المتصفح فقط.</span></span></footer>
     </main>
   </div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-  <script src="app.js"></script>
+  <script src="app-local.js"></script>
 </body>
 </html>
