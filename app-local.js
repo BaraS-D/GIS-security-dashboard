@@ -10,48 +10,76 @@
     ["fire", "حريق وطوارئ", "Fire and emergency"], ["other", "بلاغ آخر", "Other reported incident"]
   ];
   const words = {
-    ar: {all:"الكل", noData:"لا توجد سجلات بعد. أضف حادثاً من النموذج للبدء.", noMatches:"لا توجد سجلات تطابق عوامل التصفية.", add:"إضافة حادث", update:"حفظ التعديلات", view:"عرض", edit:"تعديل", remove:"حذف", confirmDelete:"هل تريد حذف هذا الحادث؟", saved:"تم حفظ الحادث محلياً.", deleted:"تم حذف الحادث.", fail:"تعذر إكمال العملية: ", invalid:"تحقق من الحقول المطلوبة والإحداثيات.", photoLimit:"حجم الصورة يتجاوز ٢ ميغابايت.", coords:"إحداثيات غير مكتملة أو خارج النطاق.", mapError:"تعذر تحميل الخريطة. تحقق من اتصال الإنترنت ومكتبة Leaflet.", noChart:"لا توجد بيانات كافية للتحليل.", local:"بيانات محفوظة محلياً", none:"بدون سجلات", export:"تنزيل النسخة الاحتياطية", import:"استيراد JSON", details:"تفاصيل الحادث", noPhoto:"لا توجد صورة مرفقة", csvDone:"تم تصدير CSV.", jsonDone:"تم استيراد النسخة الاحتياطية.", badJson:"ملف JSON غير صالح أو يحتوي سجلات مكررة.", noRecords:"لا توجد سجلات.", id:"رقم", title:"العنوان", date:"التاريخ", province:"المحافظة", district:"المنطقة", type:"النوع", severity:"الأهمية", status:"الحالة", description:"الوصف", address:"العنوان النصي", time:"الوقت", notes:"ملاحظات", lat:"خط العرض", lon:"خط الطول", photo:"المرفق", actions:"إجراءات", open:"مفتوحة", investigating:"قيد المراجعة", resolved:"تمت المعالجة", closed:"مغلقة", high:"مرتفعة", medium:"متوسطة", low:"منخفضة", total:"إجمالي الحوادث", highest:"الأكثر تسجيلاً", routine:"اعتيادي", priorityHigh:"أولوية مراجعة عالية", priorityMedium:"أولوية مراجعة متوسطة", priorityRoutine:"مراجعة اعتيادية", safeNote:"الأعداد لا تثبت مستوى السلامة ولا تكفي وحدها لتوصية تشغيلية.", noCoverage:"لم تُقدّم بيانات مجمعة عن تغطية الخدمات.", assessmentHigh:"ثلاثة سجلات أو أكثر، بينها سجلان مرتفعا الأهمية على الأقل؛ تحقّق من جودة البيانات والسياق.", assessmentMedium:"وجود سجل مرتفع الأهمية أو ثلاثة سجلات فأكثر؛ راجع السياق وجودة البيانات.", assessmentRoutine:"لا تتحقق عتبات المراجعة الوصفية المحددة؛ هذا لا يثبت السلامة.", chartUnavailable:"مكتبة الرسوم غير متاحة.", byCategory:"حسب النوع", byDistrict:"حسب المنطقة", byMonth:"حسب الشهر", bySeverity:"حسب الأهمية", byStatus:"حسب الحالة", statusEmpty:"لا توجد بيانات كافية للتحليل.", provinceRequired:"اختر المحافظة." },
+    ar: {all:"الكل", noData:"لا توجد سجلات بعد. أضف حادثاً من النموذج للبدء.", noMatches:"لا توجد سجلات تطابق عوامل التصفية.", add:"إضافة حادث", update:"حفظ التعديلات", view:"عرض", locate:"تحديد الموقع على الخريطة", edit:"تعديل", remove:"حذف", confirmDelete:"هل تريد حذف هذا الحادث؟", saved:"تم حفظ الحادث محلياً.", deleted:"تم حذف الحادث.", fail:"تعذر إكمال العملية: ", invalid:"تحقق من الحقول المطلوبة والإحداثيات.", photoLimit:"حجم الصورة يتجاوز ٢ ميغابايت.", coords:"إحداثيات غير مكتملة أو خارج النطاق.", mapError:"تعذر تحميل الخريطة. تحقق من اتصال الإنترنت ومكتبة Leaflet.", noChart:"لا توجد بيانات كافية للتحليل.", local:"بيانات محفوظة محلياً", none:"بدون سجلات", export:"تنزيل النسخة الاحتياطية", import:"استيراد JSON", details:"تفاصيل الحادث", noPhoto:"لا توجد صورة مرفقة", csvDone:"تم تصدير CSV.", jsonDone:"تم استيراد النسخة الاحتياطية.", badJson:"ملف JSON غير صالح أو يحتوي سجلات مكررة.", noRecords:"لا توجد سجلات.", id:"رقم", title:"العنوان", date:"التاريخ", province:"المحافظة", district:"المنطقة", type:"النوع", severity:"الأهمية", status:"الحالة", description:"الوصف", address:"العنوان النصي", time:"الوقت", notes:"ملاحظات", lat:"خط العرض", lon:"خط الطول", photo:"المرفق", actions:"إجراءات", open:"مفتوحة", investigating:"قيد المراجعة", resolved:"تمت المعالجة", closed:"مغلقة", high:"مرتفعة", medium:"متوسطة", low:"منخفضة", total:"إجمالي الحوادث", highest:"الأكثر تسجيلاً", routine:"اعتيادي", priorityHigh:"أولوية مراجعة عالية", priorityMedium:"أولوية مراجعة متوسطة", priorityRoutine:"مراجعة اعتيادية", safeNote:"الأعداد لا تثبت مستوى السلامة ولا تكفي وحدها لتوصية تشغيلية.", noCoverage:"لم تُقدّم بيانات مجمعة عن تغطية الخدمات.", assessmentHigh:"ثلاثة سجلات أو أكثر، بينها سجلان مرتفعا الأهمية على الأقل؛ تحقّق من جودة البيانات والسياق.", assessmentMedium:"وجود سجل مرتفع الأهمية أو ثلاثة سجلات فأكثر؛ راجع السياق وجودة البيانات.", assessmentRoutine:"لا تتحقق عتبات المراجعة الوصفية المحددة؛ هذا لا يثبت السلامة.", chartUnavailable:"مكتبة الرسوم غير متاحة.", byCategory:"حسب النوع", byDistrict:"حسب المنطقة", byMonth:"حسب الشهر", bySeverity:"حسب الأهمية", byStatus:"حسب الحالة", statusEmpty:"لا توجد بيانات كافية للتحليل.", provinceRequired:"اختر المحافظة.", pickMapLocation:"اختيار الموقع على الخريطة",cancelMapPick:"إلغاء اختيار الموقع",mapPickActive:"اضغط على الخريطة لإدخال خط العرض والطول.",coordinatesMissing:"أدخل خط العرض والطول بشكل صحيح.",titleRequired:"أدخل عنوان الحادث.",categoryRequired:"اختر نوع الحادث." },
     en: {all:"All", noData:"No records yet. Add an incident to begin.", noMatches:"No records match these filters.", add:"Add incident", update:"Save changes", view:"View", edit:"Edit", remove:"Delete", confirmDelete:"Delete this incident?", saved:"Incident saved locally.", deleted:"Incident deleted.", fail:"Could not complete operation: ", invalid:"Check required fields and coordinates.", photoLimit:"Image exceeds 2 MB.", coords:"Coordinates are incomplete or out of range.", mapError:"Map unavailable. Check your internet connection and Leaflet library.", noChart:"Not enough data for analysis.", local:"Stored locally", none:"No records", export:"Download backup", import:"Import JSON", details:"Incident details", noPhoto:"No image attached", csvDone:"CSV exported.", jsonDone:"Backup imported.", badJson:"Invalid JSON backup or duplicate incident IDs.", noRecords:"No records.", id:"ID", title:"Title", date:"Date", province:"Province", district:"District", type:"Type", severity:"Severity", status:"Status", description:"Description", address:"Text location", time:"Time", notes:"Notes", lat:"Latitude", lon:"Longitude", photo:"Attachment", actions:"Actions", open:"Open", investigating:"Reviewing", resolved:"Resolved", closed:"Closed", high:"High", medium:"Medium", low:"Low", total:"Total incidents", highest:"Most records", routine:"Descriptive indicator only", safeNote:"Counts do not prove safety levels and are not sufficient for operational recommendations.", chartUnavailable:"Chart library is unavailable.", byCategory:"By category", byDistrict:"By district", byMonth:"By month", bySeverity:"By severity", byStatus:"By status", statusEmpty:"Not enough data for analysis.", provinceRequired:"Select a province." }
   };
   Object.assign(words.en, {
+    xyCoordinates:"Geographic coordinates (X, Y)",mgrsCoordinates:"Military grid reference (MGRS)",
     priorityHigh:"High review priority", priorityMedium:"Medium review priority", priorityRoutine:"Routine review",
     noCoverage:"No aggregated service coverage data was provided.",
     assessmentHigh:"Three or more records, including at least two high-importance records; verify data quality and context.",
     assessmentMedium:"At least one high-importance record or three records; review context and data quality.",
-    assessmentRoutine:"The descriptive review thresholds are not met; this does not prove safety."
+    assessmentRoutine:"The descriptive review thresholds are not met; this does not prove safety.",
+    coordinatesMissing:"Enter X,Y coordinates or an MGRS reference.",
+    chooseOneCoordinates:"Enter either X,Y or MGRS, not both.",
+    invalidXY:"Enter X,Y as longitude, latitude; for example 44.3661, 33.3152.",
+    invalidMGRS:"Enter a valid MGRS reference.",mgrsUnavailable:"MGRS conversion could not load. Enter X,Y coordinates instead.",
+    mapMoveHint:"Move the pointer over the map to view coordinates.",mapXY:"X (longitude)",mapY:"Y (latitude)",mapMgrs:"MGRS",
+    titleRequired:"Enter an incident title.",
+    categoryRequired:"Choose an incident type.",locate:"Locate on map",noCoordinates:"This incident has no valid coordinates."
+  });
+  Object.assign(words.ar, {
+    xyCoordinates:"الإحداثيات الجغرافية (X, Y)",mgrsCoordinates:"الإحداثيات العسكرية (MGRS)",
+    locate:"تحديد الموقع على الخريطة",noCoordinates:"لا توجد إحداثيات صحيحة لهذا الحادث.",
+    coordinatesMissing:"أدخل إحداثيات X,Y أو مرجع MGRS.",
+    chooseOneCoordinates:"أدخل XY أو MGRS فقط، وليس الاثنين معاً.",
+    invalidXY:"أدخل X,Y بهذا الترتيب: خط الطول ثم خط العرض، مثال: 44.3661, 33.3152.",
+    invalidMGRS:"أدخل مرجع MGRS صحيحاً.",mgrsUnavailable:"تعذر تحميل تحويل MGRS. أدخل X,Y بدلاً منه.",
+    mapMoveHint:"حرّك المؤشر فوق الخريطة لعرض الإحداثيات.",mapXY:"X (خط الطول)",mapY:"Y (خط العرض)",mapMgrs:"MGRS"
   });
   const labels = {
     en: {workspace:"Workspace",overview:"Overview",mapNav:"Incident map",districts:"District analysis",dataNav:"Data tools",cityBriefing:"INCIDENT ANALYSIS",title:"Baghdad incident dashboard",localTime:"BAGHDAD LOCAL",sampleIncidents:"TOTAL INCIDENTS",filteredRecords:"Within selected filters",highSeverity:"HIGH IMPORTANCE",mediumSeverity:"MEDIUM IMPORTANCE",lowSeverity:"LOW IMPORTANCE",filteredSeverity:"Selected records",highestDistrict:"MOST RECORDED",lowestDistrict:"LEAST RECORDED",sampleOnly:"Among filtered records",openRecords:"OPEN / REVIEW",resolvedRecords:"RESOLVED / CLOSED",statusNote:"From saved records",geospatialView:"GEOSPATIAL VIEW",cityActivity:"Incident map",district:"District",period:"Period",fromDate:"From date",toDate:"To date",category:"Category",severity:"Importance",allDistricts:"All districts",allDates:"All dates",allTypes:"All categories",allLevels:"All levels",mapLegend:"MAP LEGEND",incidents:"Incidents",incidentCategories:"Incident categories",patternWatch:"ANALYTICS",weeklyTrend:"Incidents by month",distribution:"CATEGORY DISTRIBUTION",incidentsByCategory:"Incidents by category",districtComparison:"DISTRICT COMPARISON",incidentsByDistrict:"Incidents by district",importanceStats:"By importance",statusStats:"By status",incidentManagement:"Incident records",addIncidentTitle:"Add an incident",incidentIdLabel:"Incident ID",titleLabel:"Incident title",typeLabel:"Category",provinceLabel:"Governorate",districtLabel:"District",addressLabel:"Text address or location",dateLabel:"Date",timeLabel:"Time",severityLabel:"Importance",statusLabel:"Status",descriptionLabel:"Description",notesLabel:"Additional notes",photoLabel:"Optional image (max 2 MB)",latitudeLabel:"Latitude (optional)",longitudeLabel:"Longitude (optional)",searchIncidents:"Search records",incident:"Incident",actions:"Actions",cancelEdit:"Cancel",saveIncident:"Add incident",clearForm:"Clear form",searchPlaceholder:"Search districts…",thDistrict:"DISTRICT",thSampleCount:"RECORDS",thHigh:"HIGH",thMedium:"MEDIUM",thLow:"LOW",thTrend:"CHANGE",thPriority:"ASSESSMENT",planningContext:"DECISION SUPPORT",assessmentTitle:"Assessment context",notOperational:"NON-OPERATIONAL",dataTools:"DATA GOVERNANCE",importTitle:"Local data and backups",importHelp:"Records remain in this browser. Keep backups safe and never add personal or confidential data.",exportJson:"Download JSON backup",exportCsv:"Export CSV",importJson:"Import JSON backup",noCoverage:"No aggregated service coverage was provided.",relativeOnly:"Comparisons describe entered records only; they are not rates or safety measures.",demoFooter:"Locally stored records",footerNote:"OpenStreetMap · locally stored data",noRecords:"No matching records.",statusOpen:"Open",statusInvestigating:"Under review",statusResolved:"Resolved",statusClosed:"Closed",allStatuses:"All statuses",mapType:"Map layer",mapUnavailable:"Map unavailable",mapFallback:"Check your internet connection and reload the page.",mapStreetLegend:"Markers appear only when coordinates are entered.",privacyNote:"Records and attachments are stored only in this browser on this device. They are not synced. Do not enter personal or confidential information.",sampleMap:"Local incident records",chooseLevel:"Select importance",chooseStatus:"Select status"},
     ar: {workspace:"مساحة العمل",overview:"نظرة عامة",mapNav:"خريطة الحوادث",districts:"تحليل المناطق",dataNav:"أدوات البيانات",cityBriefing:"تحليل السجلات",title:"لوحة الحوادث في بغداد",localTime:"التوقيت المحلي في بغداد",sampleIncidents:"إجمالي الحوادث",filteredRecords:"ضمن عوامل التصفية",highSeverity:"أهمية مرتفعة",mediumSeverity:"أهمية متوسطة",lowSeverity:"أهمية منخفضة",filteredSeverity:"السجلات المحددة",highestDistrict:"الأكثر تسجيلاً",lowestDistrict:"الأقل تسجيلاً",sampleOnly:"ضمن السجلات المحددة",openRecords:"مفتوحة أو قيد المراجعة",resolvedRecords:"تمت المعالجة أو الإغلاق",statusNote:"من السجلات المحفوظة",geospatialView:"عرض جغرافي",cityActivity:"خريطة الحوادث",district:"المنطقة",period:"الفترة",fromDate:"من التاريخ",toDate:"إلى التاريخ",category:"النوع",severity:"الأهمية",allDistricts:"كل المناطق",allDates:"كل التواريخ",allTypes:"كل الأنواع",allLevels:"كل المستويات",mapLegend:"مفتاح الخريطة",incidents:"الحوادث",incidentCategories:"فئات الحوادث",patternWatch:"التحليلات",weeklyTrend:"الحوادث حسب الشهر",distribution:"توزيع الأنواع",incidentsByCategory:"الحوادث حسب النوع",districtComparison:"مقارنة المناطق",incidentsByDistrict:"الحوادث حسب المنطقة",importanceStats:"حسب الأهمية",statusStats:"حسب الحالة",incidentManagement:"سجل الحوادث",addIncidentTitle:"إضافة حادث",incidentIdLabel:"رقم الحادث",titleLabel:"عنوان الحادث",typeLabel:"نوع الحادث",provinceLabel:"المحافظة",districtLabel:"المنطقة أو القضاء",addressLabel:"العنوان أو الموقع النصي",dateLabel:"تاريخ الحادث",timeLabel:"وقت الحادث",severityLabel:"الأهمية",statusLabel:"الحالة",descriptionLabel:"وصف الحادث",notesLabel:"ملاحظات إضافية",photoLabel:"صورة اختيارية (حد ٢ ميغابايت)",latitudeLabel:"خط العرض (اختياري)",longitudeLabel:"خط الطول (اختياري)",searchIncidents:"بحث في السجلات",incident:"الحادث",actions:"الإجراءات",cancelEdit:"إلغاء",saveIncident:"إضافة الحادث",clearForm:"مسح النموذج",searchPlaceholder:"ابحث عن منطقة…",thDistrict:"المنطقة",thSampleCount:"السجلات",thHigh:"مرتفعة",thMedium:"متوسطة",thLow:"منخفضة",thTrend:"التغير",thPriority:"التقييم",planningContext:"دعم القرار",assessmentTitle:"سياق التقييم",notOperational:"غير تشغيلي",dataTools:"حوكمة البيانات",importTitle:"البيانات والنسخ الاحتياطي",importHelp:"تبقى السجلات في هذا المتصفح. احفظ نسخة احتياطية ولا تُدخل بيانات شخصية أو سرية.",exportJson:"تنزيل نسخة JSON",exportCsv:"تصدير CSV",importJson:"استيراد نسخة JSON",noCoverage:"لم تُقدّم بيانات مجمعة عن تغطية الخدمات.",relativeOnly:"تعكس المقارنات السجلات المدخلة فقط، وليست معدلات أو مقياساً للسلامة.",demoFooter:"سجلات محفوظة محلياً",footerNote:"OpenStreetMap · بيانات محفوظة محلياً",noRecords:"لا توجد سجلات مطابقة.",statusOpen:"مفتوحة",statusInvestigating:"قيد المراجعة",statusResolved:"تمت المعالجة",statusClosed:"مغلقة",allStatuses:"كل الحالات",mapType:"طبقة الخريطة",mapUnavailable:"الخريطة غير متاحة",mapFallback:"تحقق من الاتصال بالإنترنت ثم أعد تحميل الصفحة.",mapStreetLegend:"تظهر العلامات عند إدخال إحداثيات.",privacyNote:"تُخزن السجلات والمرفقات في هذا المتصفح على هذا الجهاز فقط ولا تتم مزامنتها. لا تُدخل بيانات شخصية أو سرية.",sampleMap:"سجلات محلية",chooseLevel:"اختر الأهمية",chooseStatus:"اختر الحالة"}
   };
   Object.assign(labels.en, {
+    xyCoordinates:"Geographic coordinates (X, Y)",mgrsCoordinates:"Military grid reference (MGRS)",
+    coordinateHint:"Enter X,Y with X as longitude and Y as latitude, or enter an MGRS reference. Either format is enough.",
+    mapMoveHint:"Move the pointer over the map to view coordinates.",
     storedData:"From saved records",chartEmptyNote:"Charts are calculated from stored incident records.",districtSnapshot:"District analysis",
     high:"High",medium:"Medium",low:"Low",statusOpen:"Open",statusInvestigating:"Under review",statusResolved:"Resolved",statusClosed:"Closed",
     allStatuses:"All statuses",categorySettings:"SETTINGS",manageCategories:"Manage incident categories",
     categoryAdminHelp:"Edit labels or add a category. Category IDs remain stable for saved records.",
     recommendationDisclaimer:"Assessment flags are for review only. Counts alone do not prove a district is unsafe and never justify action against people.",
     markerKey:"Marker outline indicates category; fill indicates importance.",severityBreakdown:"Importance breakdown",
-    selectCategory:"Select category",allLevels:"All levels",districtChartCaveat:"Select a district to filter the dashboard."
+    selectCategory:"Select category",allLevels:"All levels",districtChartCaveat:"Select a district to filter the dashboard.",
+    clearForm:"Clear fields",locate:"Locate on map",
+    titleRequired:"Enter an incident title.",categoryRequired:"Choose an incident type.",coordinatesMissing:"Enter valid latitude and longitude.",
+    optionalDetails:"Optional details",addressLabel:"Text address",timeLabel:"Time",descriptionLabel:"Description",notesLabel:"Notes",photoLabel:"Optional image (max 2 MB)"
   });
   Object.assign(labels.ar, {
+    xyCoordinates:"الإحداثيات الجغرافية (X, Y)",mgrsCoordinates:"الإحداثيات العسكرية (MGRS)",
+    coordinateHint:"أدخل X, Y بحيث X هو خط الطول وY خط العرض، أو أدخل إحداثيات MGRS. يكفي إدخال أحد الخيارين.",
+    mapMoveHint:"حرّك المؤشر فوق الخريطة لعرض الإحداثيات.",
     storedData:"من السجلات المحفوظة",chartEmptyNote:"تُحسب الرسوم من سجلات الحوادث المحفوظة.",districtSnapshot:"تحليل المناطق",
     high:"مرتفعة",medium:"متوسطة",low:"منخفضة",statusOpen:"مفتوحة",statusInvestigating:"قيد المراجعة",statusResolved:"تمت المعالجة",statusClosed:"مغلقة",
     allStatuses:"كل الحالات",categorySettings:"الإعدادات",manageCategories:"إدارة فئات الحوادث",
     categoryAdminHelp:"عدّل التسميات أو أضف فئة. تبقى معرفات الفئات ثابتة للسجلات المحفوظة.",
     recommendationDisclaimer:"مؤشرات التقييم للمراجعة فقط. لا تثبت الأعداد وحدها أن المنطقة غير آمنة ولا تبرر إجراءً ضد الأشخاص.",
     markerKey:"إطار العلامة يوضح النوع؛ واللون الداخلي يوضح الأهمية.",severityBreakdown:"التوزيع حسب الأهمية",
-    allLevels:"كل المستويات"
+    allLevels:"كل المستويات",clearForm:"مسح الحقول",locate:"تحديد الموقع على الخريطة",
+    titleRequired:"أدخل عنوان الحادث.",categoryRequired:"اختر نوع الحادث.",coordinatesMissing:"أدخل خط العرض والطول بشكل صحيح.",
+    optionalDetails:"تفاصيل إضافية اختيارية",addressLabel:"العنوان النصي",timeLabel:"الوقت",descriptionLabel:"الوصف",notesLabel:"ملاحظات",photoLabel:"صورة اختيارية (حتى ٢ ميغابايت)"
   });
   let lang = "ar";
-  let db, map, markers, charts = {}, incidents = [], selectedId = null, photoBlob = null, mapLayers = {};
+  let db, map, markers, charts = {}, incidents = [], photoBlob = null, mapLayers = {}, markersById = new Map();
   const t = (key) => words[lang][key] || words.ar[key] || key;
   const text = (value) => String(value ?? "").replace(/[&<>"']/g, (ch) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
   const categoryName = (id) => { const c = categories.find((item) => item[0] === id); return c ? c[lang === "ar" ? 1 : 2] : id; };
   const provinceName = (value) => {
     if(lang==="ar")return value;
-    const province=Array.from($("incident-province")?.options||[]).find(option=>option.value===value);
-    return province?.textContent||value;
+    return ({ "بغداد":"Baghdad", "الأنبار":"Al Anbar", "بابل":"Babylon", "البصرة":"Basra", "القادسية":"Al-Qadisiyyah", "ديالى":"Diyala", "ذي قار":"Dhi Qar", "دهوك":"Duhok", "أربيل":"Erbil", "كربلاء":"Karbala", "كركوك":"Kirkuk", "ميسان":"Maysan", "المثنى":"Muthanna", "النجف":"Najaf", "نينوى":"Nineveh", "صلاح الدين":"Saladin", "السليمانية":"Sulaymaniyah", "واسط":"Wasit" })[value] || value;
   };
+  const createIncidentId = () => `INC-${new Date().getFullYear()}-${crypto.randomUUID ? crypto.randomUUID().slice(0,8).toUpperCase() : Date.now().toString(36).toUpperCase()}`;
   const categoryColor = (id) => ["#73aee6","#a78bfa","#72d7b0","#efb765","#f27d72","#58c4c0","#d881b8","#b8cc68","#e58d60","#8babc4"][Math.max(0,categories.findIndex(c=>c[0]===id))%10];
   const statusName = (id) => t(id);
   function toast(message) { const node = $("toast"); if (!node) return; node.textContent = message; node.classList.add("show"); setTimeout(() => node.classList.remove("show"), 3500); }
@@ -95,6 +123,7 @@
     if ($("dataset-badge")) $("dataset-badge").textContent=t("local");
     $("map-type-filter").innerHTML=`<option value="street">OpenStreetMap</option><option value="humanitarian">${lang==="ar"?"خريطة إنسانية":"Humanitarian map"}</option>`;
     $("map-status-label").textContent=lang==="ar"?"سجلات الحوادث المحلية":"Local incident records";
+    resetMapPointerReadout();
     const sortValue=$("sort-select").value;
     $("sort-select").innerHTML=`<option value="name">${lang==="ar"?"ترتيب: الاسم":"Sort: name"}</option><option value="incidents">${lang==="ar"?"الأكثر حوادث":"Most records"}</option><option value="lowest">${lang==="ar"?"الأقل حوادث":"Fewest records"}</option><option value="trend">${lang==="ar"?"الاتجاه الحديث":"Recent change"}</option>`;
     $("sort-select").value=sortValue;
@@ -107,13 +136,11 @@
     $("incident-category").innerHTML = `<option value="">${lang==="ar"?"اختر نوع الحادث":"Select category"}</option>` + categories.map((c) => `<option value="${c[0]}">${text(c[lang === "ar" ? 1 : 2])}</option>`).join("");
     if(categories.some(c=>c[0]===selectedCategory))$("incident-category").value=selectedCategory;
     $("incident-category-filter").innerHTML = `<option value="all">${t("all")}</option>` + categories.map((c) => `<option value="${c[0]}">${text(c[lang === "ar" ? 1 : 2])}</option>`).join("");
-    const provinces = [["بغداد","Baghdad"],["الأنبار","Al Anbar"],["بابل","Babylon"],["البصرة","Basra"],["القادسية","Al-Qadisiyyah"],["ديالى","Diyala"],["ذي قار","Dhi Qar"],["دهوك","Duhok"],["أربيل","Erbil"],["كربلاء","Karbala"],["كركوك","Kirkuk"],["ميسان","Maysan"],["المثنى","Muthanna"],["النجف","Najaf"],["نينوى","Nineveh"],["صلاح الدين","Saladin"],["السليمانية","Sulaymaniyah"],["واسط","Wasit"]];
-    const selectedProvince=$("incident-province").value;
-    $("incident-province").innerHTML = `<option value="">${lang === "ar" ? "اختر المحافظة" : "Select governorate"}</option>` + provinces.map(([ar,en])=>`<option value="${text(ar)}">${text(lang==="ar"?ar:en)}</option>`).join("");
-    if(provinces.some(([ar])=>ar===selectedProvince))$("incident-province").value=selectedProvince;
+    const severity=$("incident-severity").value;
+    $("incident-severity").innerHTML=`<option value="">${lang==="ar"?"اختر الأهمية":"Select importance"}</option><option value="low">${t("low")}</option><option value="medium">${t("medium")}</option><option value="high">${t("high")}</option>`;
+    if(["low","medium","high"].includes(severity))$("incident-severity").value=severity;
     $("category-legend").innerHTML = categories.map(c=>`<div class="layer-row"><span class="legend-dot" style="background:${categoryColor(c[0])}"></span><span>${text(c[lang==="ar"?1:2])}</span></div>`).join("");
     $("category-count").textContent=categories.length.toLocaleString(lang==="ar"?"ar-IQ":"en");
-    $("incident-id-display").value = `INC-${new Date().getFullYear()}-${String(Date.now()).slice(-6)}`;
   }
   async function renderCategoryEditor() {
     const editor=$("category-editor"); if(!editor)return;
@@ -162,7 +189,7 @@
     const body = $("incidents-table");
     if (!rows.length) { body.innerHTML = `<tr><td colspan="8" class="empty-state">${incidents.length ? t("noMatches") : t("noData")}</td></tr>`; return; }
     body.innerHTML = rows.slice().sort((a,b) => b.date.localeCompare(a.date)).map((r) =>
-      `<tr data-row-id="${text(r.id)}"><td>${text(r.id)}<br><strong>${text(r.title)}</strong></td><td>${text(r.date)} ${text(r.time)}</td><td>${text(provinceName(r.province))}</td><td>${text(r.district)}</td><td>${text(categoryName(r.category))}</td><td>${text(t(r.severity))}</td><td>${text(statusName(r.status))}</td><td class="row-actions"><button type="button" data-action="view">${t("view")}</button><button type="button" data-action="edit">${t("edit")}</button><button type="button" data-action="delete">${t("remove")}</button></td></tr>`).join("");
+      `<tr data-row-id="${text(r.id)}"><td>${text(r.id)}<br><strong>${text(r.title)}</strong></td><td>${text(r.date)} ${text(r.time||"")}</td><td>${text(provinceName(r.province||"بغداد"))}</td><td>${text(r.district)}</td><td>${text(categoryName(r.category))}</td><td>${text(t(r.severity))}</td><td>${text(statusName(r.status||"open"))}</td><td class="row-actions"><button type="button" data-action="view">${t("view")}</button><button type="button" data-action="locate">${t("locate")}</button><button type="button" data-action="edit">${t("edit")}</button><button type="button" data-action="delete">${t("remove")}</button></td></tr>`).join("");
   }
   function renderSummary(rows) {
     const count = (field, value) => rows.filter((r) => r[field] === value).length;
@@ -225,50 +252,108 @@
       const humanitarian=L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap contributors, Tiles style by Humanitarian OpenStreetMap Team"});
       mapLayers={street:osm,humanitarian}; osm.addTo(map); L.control.layers({"OpenStreetMap":osm,"Humanitarian":humanitarian}).addTo(map);
       markers=typeof L.markerClusterGroup==="function"?L.markerClusterGroup():L.layerGroup(); map.addLayer(markers);
+      map.on("mousemove",(event)=>updateMapPointerReadout(event.latlng));
+      map.on("mouseout",resetMapPointerReadout);
       map.on("tileerror",()=>{ $("map-status-label").textContent=t("mapError"); });
       setTimeout(()=>map.invalidateSize(),200);
     } catch(error) { console.error("Leaflet initialization failed",error); $("map-fallback").hidden=false; }
   }
+  function resetMapPointerReadout() {
+    const output=$("map-coordinate-readout");
+    if(output)output.textContent=t("mapMoveHint");
+  }
+  function updateMapPointerReadout(latlng) {
+    const output=$("map-coordinate-readout");
+    if(!output)return;
+    const x=Number(latlng.lng).toFixed(6), y=Number(latlng.lat).toFixed(6);
+    let grid="";
+    if(typeof mgrs!=="undefined"&&typeof mgrs.forward==="function"){
+      try{grid=` · ${t("mapMgrs")}: ${mgrs.forward([Number(latlng.lng),Number(latlng.lat)],5)}`;}catch(error){console.warn("MGRS display conversion failed",error);}
+    }
+    output.textContent=`${t("mapXY")}: ${x} · ${t("mapY")}: ${y}${grid}`;
+  }
   function renderMap(rows) {
-    if (!map || !markers) return;
+    if (!map || !markers || typeof L==="undefined") return;
     markers.clearLayers();
-    rows.filter(r=>Number.isFinite(r.latitude)&&Number.isFinite(r.longitude)).forEach((r) => {
-      const fillColor={high:"#f27d72",medium:"#efb765",low:"#72d7b0"}[r.severity]||"#73aee6";
-      const marker=L.circleMarker([r.latitude,r.longitude],{radius:8,color:categoryColor(r.category),fillColor,fillOpacity:.8,weight:3});
-      marker.bindPopup(`<strong>${text(r.title)}</strong><br>${text(r.date)} ${text(r.time)}<br>${text(r.district)} · ${text(categoryName(r.category))}<br>${text(t(r.severity))}`);
-      marker.on("click",()=>showDetails(r.id)); markers.addLayer(marker);
+    markersById.clear();
+    rows.filter(r=>isValidCoordinates(r.latitude,r.longitude)).forEach((r) => {
+      const marker=createMarker(r);
+      markers.addLayer(marker); markersById.set(r.id,marker);
     });
   }
+  function createMarker(record) {
+    const fillColor={high:"#f27d72",medium:"#efb765",low:"#72d7b0"}[record.severity]||"#73aee6";
+    const marker=L.circleMarker([Number(record.latitude),Number(record.longitude)],{radius:8,color:categoryColor(record.category),fillColor,fillOpacity:.8,weight:3});
+    marker.bindPopup(`<strong>${text(record.title)}</strong><br>${text(categoryName(record.category))}<br>${text(record.date)}<br>${text(record.district)}`);
+    marker.on("click",()=>showDetails(record.id));
+    return marker;
+  }
+  function isValidCoordinates(latitude,longitude) {
+    return latitude!==null&&latitude!==""&&longitude!==null&&longitude!==""&&Number.isFinite(Number(latitude))&&Number.isFinite(Number(longitude))&&Number(latitude)>=-90&&Number(latitude)<=90&&Number(longitude)>=-180&&Number(longitude)<=180;
+  }
+  function parseEnteredCoordinates(xyValue,mgrsValue) {
+    const xy=xyValue.trim(), grid=mgrsValue.trim();
+    if(xy&&grid)return{error:t("chooseOneCoordinates")};
+    if(xy){
+      const values=xy.split(/[,;\s]+/).filter(Boolean);
+      if(values.length!==2)return{error:t("invalidXY")};
+      const longitude=Number(values[0]),latitude=Number(values[1]);
+      if(!isValidCoordinates(latitude,longitude))return{error:t("invalidXY")};
+      return{latitude,longitude,coordinateSystem:"xy",mgrs:null};
+    }
+    if(!grid)return{error:t("coordinatesMissing")};
+    if(typeof mgrs==="undefined"||typeof mgrs.toPoint!=="function")return{error:t("mgrsUnavailable")};
+    try{
+      const [longitude,latitude]=mgrs.toPoint(grid);
+      if(!isValidCoordinates(latitude,longitude))return{error:t("invalidMGRS")};
+      return{latitude,longitude,coordinateSystem:"mgrs",mgrs:grid.toUpperCase()};
+    }catch(error){return{error:t("invalidMGRS")};}
+  }
+  function locateIncident(id) {
+    const record=incidents.find(item=>item.id===id);
+    if(!record||!isValidCoordinates(record.latitude,record.longitude)){toast(t("noCoordinates"));return;}
+    if(!map){toast(t("mapError"));return;}
+    if(!map.hasLayer(markers)){map.addLayer(markers);const checkbox=document.querySelector('[data-layer="incidents"]');if(checkbox)checkbox.checked=true;}
+    let marker=markersById.get(id);
+    if(!marker){marker=createMarker(record);markers.addLayer(marker);markersById.set(id,marker);}
+    const focusAndOpen=()=>{map.setView([Number(record.latitude),Number(record.longitude)],Math.max(16,map.getZoom()),{animate:false});marker.openPopup();};
+    if(typeof markers.zoomToShowLayer==="function")markers.zoomToShowLayer(marker,focusAndOpen);
+    else focusAndOpen();
+  }
   function validate(r) {
-    if (!r.title || !r.category || !r.province || !r.district || !r.description || !r.date || !r.time || !r.severity || !r.status) return t("invalid");
-    if (!categories.some(c=>c[0]===r.category) || !["low","medium","high"].includes(r.severity) || !["open","investigating","resolved","closed"].includes(r.status)) return t("invalid");
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(r.date) || Number.isNaN(Date.parse(`${r.date}T00:00:00Z`)) || new Date(`${r.date}T00:00:00Z`).toISOString().slice(0,10)!==r.date || !/^([01]\d|2[0-3]):[0-5]\d$/.test(r.time)) return t("invalid");
-    const lat=r.latitude, lon=r.longitude;
-    if ((lat===null)!==(lon===null) || (lat!==null&&(!Number.isFinite(lat)||lat < -90 || lat > 90 || !Number.isFinite(lon)||lon < -180 || lon > 180))) return t("coords");
+    if(!r.title)return t("titleRequired");
+    if(!r.category||!categories.some(c=>c[0]===r.category))return t("categoryRequired");
+    if(!r.district||!r.date||!["low","medium","high"].includes(r.severity))return t("invalid");
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(r.date)||Number.isNaN(Date.parse(`${r.date}T00:00:00Z`))||new Date(`${r.date}T00:00:00Z`).toISOString().slice(0,10)!==r.date)return t("invalid");
+    if(!isValidCoordinates(r.latitude,r.longitude))return t("coordinatesMissing");
     return "";
   }
   async function save(event) {
     event.preventDefault();
-    const id=$("incident-edit-id").value||$("incident-id-display").value;
+    const editId=$("incident-edit-id").value;
+    const id=editId||createIncidentId();
     const old=incidents.find(r=>r.id===id);
-    const lat=$("incident-latitude").value, lon=$("incident-longitude").value;
-    const record={id,title:$("incident-title").value.trim(),category:$("incident-category").value,province:$("incident-province").value,district:$("incident-district").value.trim(),address:$("incident-address").value.trim(),latitude:lat===""?null:Number(lat),longitude:lon===""?null:Number(lon),date:$("incident-date").value,time:$("incident-time").value,severity:$("incident-severity").value,status:$("incident-status").value,description:$("incident-description").value.trim(),notes:$("incident-notes").value.trim(),photo:photoBlob||old?.photo||null,updatedAt:new Date().toISOString()};
-    const error=validate(record); if(error){toast(error);return;}
-    const file=$("incident-photo").files[0]; if(file&&file.size>2*1024*1024){toast(t("photoLimit"));return;}
-    if(file) record.photo=file;
+    const coordinates=parseEnteredCoordinates($("incident-xy").value,$("incident-mgrs").value);
+    if(coordinates.error){$("incident-form-message").textContent=coordinates.error;toast(coordinates.error);return;}
+    const record={id,title:$("incident-title").value.trim(),category:$("incident-category").value,province:old?.province||"بغداد",district:$("incident-district").value.trim(),address:$("incident-address").value.trim(),latitude:coordinates.latitude,longitude:coordinates.longitude,coordinateSystem:coordinates.coordinateSystem,mgrs:coordinates.mgrs,date:$("incident-date").value,time:$("incident-time").value||old?.time||new Intl.DateTimeFormat("en-GB",{hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date()),severity:$("incident-severity").value,status:old?.status||"open",description:$("incident-description").value.trim(),notes:$("incident-notes").value.trim(),photo:photoBlob||old?.photo||null,updatedAt:new Date().toISOString()};
+    const error=validate(record); if(error){$("incident-form-message").textContent=error;toast(error);return;}
+    const file=$("incident-photo").files[0]; if(file&&file.size>2*1024*1024){toast(t("photoLimit"));return;} if(file)record.photo=file;
     try { await transaction("incidents","readwrite",(store)=>store.put(record)); await loadRecords(); clearForm(); render(); toast(t("saved")); }
     catch(error){console.error("Incident could not be stored",error);toast(t("fail")+error.message);}
   }
   function clearForm() {
-    $("incident-form").reset(); $("incident-edit-id").value=""; $("incident-id-display").value=`INC-${new Date().getFullYear()}-${String(Date.now()).slice(-6)}`;
-    photoBlob=null; $("incident-photo-preview").hidden=true; $("incident-photo-preview").removeAttribute("src"); $("cancel-edit").hidden=true;
+    $("incident-form").reset(); $("incident-edit-id").value=""; const now=new Date(); $("incident-date").value=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")}`;
+    photoBlob=null; $("incident-photo-preview").hidden=true; $("incident-photo-preview").removeAttribute("src"); $("incident-extra-details").open=false;
+    $("incident-form-message").textContent=""; $("cancel-edit").hidden=true;
     $("incident-form").querySelector('[type="submit"]').textContent=t("add");
   }
   function edit(id) {
     const r=incidents.find(x=>x.id===id); if(!r)return;
-    $("incident-photo-preview").hidden=true; $("incident-photo-preview").removeAttribute("src");
-    $("incident-edit-id").value=r.id; $("incident-id-display").value=r.id; $("incident-title").value=r.title; $("incident-category").value=r.category; $("incident-province").value=r.province; $("incident-district").value=r.district; $("incident-address").value=r.address||""; $("incident-date").value=r.date; $("incident-time").value=r.time; $("incident-latitude").value=r.latitude??""; $("incident-longitude").value=r.longitude??""; $("incident-severity").value=r.severity; $("incident-status").value=r.status; $("incident-description").value=r.description; $("incident-notes").value=r.notes||""; photoBlob=r.photo||null;
-    if(r.photo){ $("incident-photo-preview").src=URL.createObjectURL(r.photo); $("incident-photo-preview").hidden=false; }
+    $("incident-edit-id").value=r.id; $("incident-title").value=r.title; $("incident-category").value=r.category; $("incident-district").value=r.district; $("incident-date").value=r.date;
+    $("incident-xy").value=r.coordinateSystem==="mgrs"?"":`${Number(r.longitude)}, ${Number(r.latitude)}`;
+    $("incident-mgrs").value=r.coordinateSystem==="mgrs"?(r.mgrs||""):"";
+    $("incident-severity").value=r.severity; $("incident-address").value=r.address||""; $("incident-time").value=r.time||""; $("incident-description").value=r.description||""; $("incident-notes").value=r.notes||""; photoBlob=r.photo||null; $("incident-form-message").textContent="";
+    if(r.photo){$("incident-extra-details").open=true;$("incident-photo-preview").src=URL.createObjectURL(r.photo);$("incident-photo-preview").hidden=false;}
     $("cancel-edit").hidden=false; $("incident-form").querySelector('[type="submit"]').textContent=t("update"); $("incident-management").scrollIntoView({behavior:"smooth"});
   }
   async function remove(id) {
@@ -278,8 +363,7 @@
   }
   function showDetails(id) {
     const r=incidents.find(x=>x.id===id), box=$("incident-details"); if(!r)return;
-    selectedId=id;
-    box.innerHTML=`<h3>${text(t("details"))}: ${text(r.title)}</h3><dl>${[[t("id"),r.id],[t("province"),r.province],[t("district"),r.district],[t("type"),categoryName(r.category)],[t("date"),`${r.date} ${r.time}`],[t("severity"),t(r.severity)],[t("status"),t(r.status)],[t("address"),r.address],[t("description"),r.description],[t("notes"),r.notes],[t("lat"),r.latitude],[t("lon"),r.longitude]].map(([k,v])=>`<div><dt>${text(k)}</dt><dd>${text(v||"—")}</dd></div>`).join("")}</dl>${r.photo?`<img class="incident-photo-preview" src="${URL.createObjectURL(r.photo)}" alt="${text(t("photo"))}">`:""}`;
+    box.innerHTML=`<h3>${text(t("details"))}: ${text(r.title)}</h3><dl>${[[t("id"),r.id],[t("province"),r.province],[t("district"),r.district],[t("type"),categoryName(r.category)],[t("date"),`${r.date} ${r.time}`],[t("severity"),t(r.severity)],[t("status"),t(r.status)],[t("address"),r.address],[t("description"),r.description],[t("notes"),r.notes],[t("xyCoordinates"),`${r.longitude}, ${r.latitude}`],[t("mgrsCoordinates"),r.mgrs]].map(([k,v])=>`<div><dt>${text(k)}</dt><dd>${text(v||"—")}</dd></div>`).join("")}</dl>${r.photo?`<img class="incident-photo-preview" src="${URL.createObjectURL(r.photo)}" alt="${text(t("photo"))}">`:""}`;
     box.hidden=false;
   }
   function blobToDataUrl(blob) {
@@ -292,7 +376,7 @@
   }
   function download(blob,name) { const url=URL.createObjectURL(blob), a=document.createElement("a"); a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000); }
   function exportCsv() {
-    const cols=["id","title","category","province","district","address","latitude","longitude","date","time","severity","status","description","notes"];
+    const cols=["id","title","category","province","district","address","latitude","longitude","coordinateSystem","mgrs","date","time","severity","status","description","notes"];
     const quote=(x)=>`"${String(x??"").replace(/"/g,'""')}"`;
     download(new Blob([`\uFEFF${[cols.join(","),...incidents.map(r=>cols.map(c=>quote(r[c])).join(","))].join("\r\n")}`],{type:"text/csv;charset=utf-8"}),`gis-incidents-${new Date().toISOString().slice(0,10)}.csv`);
   }
@@ -302,7 +386,7 @@
       if(!Array.isArray(incoming)||incoming.some(r=>!r||!r.id||validate({...r,latitude:r.latitude===""?null:r.latitude,longitude:r.longitude===""?null:r.longitude}))) throw new Error(t("badJson"));
       const current=new Set(incidents.map(r=>r.id)), seen=new Set();
       if(incoming.some(r=>current.has(String(r.id))||seen.has(String(r.id))||!seen.add(String(r.id)))) throw new Error(t("badJson"));
-      const normalized=await Promise.all(incoming.map(async (r)=>({...r,id:String(r.id),photo:typeof r.photo==="string"&&r.photo.startsWith("data:")?await (await fetch(r.photo)).blob():r.photo||null})));
+      const normalized=await Promise.all(incoming.map(async (r)=>({...r,id:String(r.id),latitude:Number(r.latitude),longitude:Number(r.longitude),photo:typeof r.photo==="string"&&r.photo.startsWith("data:")?await (await fetch(r.photo)).blob():r.photo||null})));
       const tx=db.transaction("incidents","readwrite"), store=tx.objectStore("incidents"); normalized.forEach(r=>store.add(r));
       await new Promise((resolve,reject)=>{tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error);});
       await loadRecords();render();toast(t("jsonDone"));
@@ -310,8 +394,17 @@
   }
   function bind() {
     initFormOptions(); renderCategoryEditor(); $("incident-form").addEventListener("submit",save); $("cancel-edit").addEventListener("click",clearForm); $("clear-form").addEventListener("click",clearForm);
-    $("incident-photo").addEventListener("change",(e)=>{const file=e.target.files[0];if(!file)return;if(file.size>2*1024*1024){e.target.value="";toast(t("photoLimit"));return;}photoBlob=file;const preview=$("incident-photo-preview");preview.src=URL.createObjectURL(file);preview.hidden=false;});
-    $("incidents-table").addEventListener("click",(e)=>{const btn=e.target.closest("[data-action]");if(!btn)return;const id=btn.closest("[data-row-id]").dataset.rowId;({view:()=>showDetails(id),edit:()=>edit(id),delete:()=>remove(id)})[btn.dataset.action]?.();});
+    $("incident-form").addEventListener("input",()=>{$("incident-form-message").textContent="";});
+    $("incident-form").addEventListener("invalid",(event)=>{
+      if(event.target.id==="incident-title")$("incident-form-message").textContent=t("titleRequired");
+      else if(event.target.id==="incident-category")$("incident-form-message").textContent=t("categoryRequired");
+    },true);
+    $("incident-photo").addEventListener("change",(event)=>{
+      const file=event.target.files[0]; if(!file)return;
+      if(file.size>2*1024*1024){event.target.value="";toast(t("photoLimit"));return;}
+      photoBlob=file; $("incident-photo-preview").src=URL.createObjectURL(file); $("incident-photo-preview").hidden=false;
+    });
+    $("incidents-table").addEventListener("click",(e)=>{const btn=e.target.closest("[data-action]");if(!btn)return;const id=btn.closest("[data-row-id]").dataset.rowId;({view:()=>showDetails(id),locate:()=>locateIncident(id),edit:()=>edit(id),delete:()=>remove(id)})[btn.dataset.action]?.();});
     $("district-table").addEventListener("click",(e)=>{const row=e.target.closest("[data-district]");if(!row)return;$("district-filter").value=row.dataset.district;render();const record=incidents.find(x=>x.district===row.dataset.district&&Number.isFinite(x.latitude));if(record)map?.setView([record.latitude,record.longitude],13);});
     ["incident-search","incident-category-filter","incident-district-filter","incident-from-filter","incident-to-filter","incident-status-filter","incident-severity-filter","district-filter","category-filter","severity-filter","district-search","sort-select"].forEach(id=>$(id)?.addEventListener("input",render));
     document.querySelector('[data-layer="incidents"]')?.addEventListener("change",(e)=>{if(!markers)return;if(e.target.checked)map.addLayer(markers);else map.removeLayer(markers);});
@@ -331,7 +424,7 @@
       if(Array.isArray(savedCategories?.value)&&savedCategories.value.every(c=>Array.isArray(c)&&c.length===3))categories=savedCategories.value;
       const savedLanguage=await transaction("settings","readonly",store=>store.get("language"));
       if(savedLanguage?.value==="ar"||savedLanguage?.value==="en")lang=savedLanguage.value;
-      await loadRecords(); initMap(); bind(); updateLanguage();
+      await loadRecords(); initMap(); bind(); clearForm(); updateLanguage();
       $("today-label").textContent=new Intl.DateTimeFormat(lang==="ar"?"ar-IQ":"en-IQ",{dateStyle:"medium"}).format(new Date());
     } catch(error) {
       console.error("Local database initialization failed",error);
