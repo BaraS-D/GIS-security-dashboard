@@ -26,6 +26,14 @@ A static bilingual (English / Arabic RTL) dashboard built with HTML, CSS, JavaSc
 
 Use the web server instead of double-clicking `index.html`: the browser needs HTTP to load the local JSON data. The map tiles, Leaflet, marker clustering, and Chart.js are loaded from public services, so those features need an internet connection.
 
+### Troubleshooting: blank map or data entry not responding
+
+- If the browser shows `localhost refused to connect`, the local web server is not running. Open PowerShell in the project folder and run `python -m http.server 8000` (or `py -m http.server 8000`), then reload `http://localhost:8000/`. Keep the PowerShell window open while using the dashboard.
+- Do not open `index.html` directly as a `file://` page; the dashboard loads its fictional JSON data over HTTP.
+- Map tiles and libraries require internet access. If the map area appears without its background tiles, check the connection and reload; the fictional district outlines and markers can still be shown when Leaflet loaded successfully.
+- If an imported or newly added incident is not visible under the current dashboard filters, save/confirm it and the dashboard clears those filters so the updated records are visible.
+- Browser storage belongs to the current site and browser profile. Use **Reset simulated data** to restore the fictional demonstration records.
+
 ## Publish on GitHub Pages
 
 The project has a root-level `index.html`, relative paths for local assets, and a `.nojekyll` file. This means it can be hosted as a static site without a build or server-side component.

@@ -571,6 +571,18 @@
     form.scrollIntoView({behavior:"smooth",block:"center"});
   }
 
+  function clearDashboardFilters() {
+    state.selectedDistrict="all";
+    state.period="all";
+    state.category="all";
+    state.severity="all";
+    state.from="";
+    state.to="";
+    el("date-from").value="";
+    el("date-to").value="";
+    fillFilters();
+  }
+
   function saveIncident(event) {
     event.preventDefault();
     const editingId=el("incident-edit-id").value;
@@ -589,6 +601,7 @@
       else state.data.incidents[index]=incident;
       state.loadedSource="imported";
       const stored=persistIncidents();
+      clearDashboardFilters();
       populateIncidentForm();
       render();
       if(stored) showToast(tr(index<0?"incidentSaved":"incidentUpdated"));
@@ -740,6 +753,7 @@
     state.data.incidents=[...base,...validated];
     state.loadedSource="imported";
     const stored=persistIncidents();
+    clearDashboardFilters();
     state.importPreview=null;
     renderImportPreview();
     el("data-file").value="";
