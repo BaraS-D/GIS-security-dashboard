@@ -11,13 +11,14 @@
   <link rel="preconnect" href="https://tile.openstreetmap.org">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261026">
 </head>
 <body>
   <div class="app-shell">
     <aside class="sidebar">
       <a class="brand ministry-brand" href="#overview" aria-label="وزارة الداخلية العراقية">
-        <img class="ministry-logo" src="./data/ministry-of-interior-iraq.png" alt="شعار وزارة الداخلية العراقية" width="68" height="68" loading="eager" decoding="async">
+        <img class="ministry-logo" src="./data/ministry-of-interior-iraq.png?v=20261026" alt="شعار وزارة الداخلية العراقية" width="68" height="68" loading="eager" decoding="async" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+        <span class="ministry-logo-fallback" hidden role="img" aria-label="تعذر تحميل شعار وزارة الداخلية">تعذر تحميل الشعار</span>
         <span class="ministry-brand-copy"><strong lang="ar" dir="rtl">وزارة الداخلية العراقية</strong><small lang="ar" dir="rtl" data-i18n="brandSub">جمهورية العراق · بغداد</small><small class="unofficial-brand-note" lang="ar" dir="rtl" data-i18n="unofficialBrand">لوحة توضيحية غير رسمية</small></span>
       </a>
       <div class="side-caption" data-i18n="workspace">مساحة العمل</div>
@@ -215,8 +216,11 @@
             <button id="export-json" type="button" class="secondary-button" data-i18n="exportJson">تنزيل نسخة JSON</button>
             <button id="export-csv" type="button" class="secondary-button" data-i18n="exportCsv">تصدير CSV</button>
             <label class="file-picker"><span data-i18n="importJson">استيراد نسخة JSON</span><input id="import-json" type="file" accept=".json,application/json"></label>
+            <label class="file-picker"><span data-i18n="importSpreadsheet">استيراد Excel أو CSV</span><input id="import-spreadsheet" type="file" accept=".xlsx,.xls,.csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,text/csv"></label>
+            <button id="download-spreadsheet-template" type="button" class="secondary-button" data-i18n="spreadsheetTemplate">تنزيل قالب Excel</button>
           </div>
           <div id="import-preview" class="import-preview" hidden></div>
+          <button id="confirm-spreadsheet-import" type="button" class="action-button spreadsheet-confirm" hidden data-i18n="confirmImport">تأكيد إضافة السجلات الصالحة</button>
           <div id="import-status" class="import-status" role="status" aria-live="polite">تأكد من حفظ نسخة احتياطية في مكان آمن. البيانات محلية لهذا المتصفح.</div>
           <p class="privacy-note" data-i18n="privacyNote">لا تستورد معرّفات شخصية أو تفاصيل تشغيلية حساسة أو مواقع انتشار دقيقة أو سجلات سرية. لا يحتوي هذا التطبيق الثابت على مصادقة أو سجل تدقيق أو تخزين آمن.</p>
         </div>
@@ -243,6 +247,7 @@
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mgrs@1.0.0/dist/mgrs.min.js"></script>
-  <script src="app-local.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="app-local.js?v=20261026"></script>
 </body>
 </html>

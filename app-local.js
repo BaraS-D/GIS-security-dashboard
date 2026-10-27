@@ -24,6 +24,7 @@
     chooseOneCoordinates:"Enter either X,Y or MGRS, not both.",
     invalidXY:"Enter X,Y as longitude, latitude; for example 44.3661, 33.3152.",
     invalidMGRS:"Enter a valid MGRS reference.",mgrsUnavailable:"MGRS conversion could not load. Enter X,Y coordinates instead.",
+    districtRequired:"Enter the district.",dateRequired:"Enter an incident date.",dateInvalid:"Enter a valid date.",severityRequired:"Choose an importance level.",
     mapMoveHint:"Move the pointer over the map to view coordinates.",mapXY:"X (longitude)",mapY:"Y (latitude)",mapMgrs:"MGRS",
     titleRequired:"Enter an incident title.",
     categoryRequired:"Choose an incident type.",locate:"Locate on map",noCoordinates:"This incident has no valid coordinates."
@@ -35,6 +36,7 @@
     chooseOneCoordinates:"أدخل XY أو MGRS فقط، وليس الاثنين معاً.",
     invalidXY:"أدخل X,Y بهذا الترتيب: خط الطول ثم خط العرض، مثال: 44.3661, 33.3152.",
     invalidMGRS:"أدخل مرجع MGRS صحيحاً.",mgrsUnavailable:"تعذر تحميل تحويل MGRS. أدخل X,Y بدلاً منه.",
+    districtRequired:"أدخل المنطقة.",dateRequired:"أدخل تاريخ الحادث.",dateInvalid:"أدخل تاريخاً صحيحاً.",severityRequired:"اختر مستوى الأهمية.",
     mapMoveHint:"حرّك المؤشر فوق الخريطة لعرض الإحداثيات.",mapXY:"X (خط الطول)",mapY:"Y (خط العرض)",mapMgrs:"MGRS"
   });
   const labels = {
@@ -42,6 +44,9 @@
     ar: {workspace:"مساحة العمل",overview:"نظرة عامة",mapNav:"خريطة الحوادث",districts:"تحليل المناطق",dataNav:"أدوات البيانات",cityBriefing:"تحليل السجلات",title:"لوحة الحوادث في بغداد",localTime:"التوقيت المحلي في بغداد",sampleIncidents:"إجمالي الحوادث",filteredRecords:"ضمن عوامل التصفية",highSeverity:"أهمية مرتفعة",mediumSeverity:"أهمية متوسطة",lowSeverity:"أهمية منخفضة",filteredSeverity:"السجلات المحددة",highestDistrict:"الأكثر تسجيلاً",lowestDistrict:"الأقل تسجيلاً",sampleOnly:"ضمن السجلات المحددة",openRecords:"مفتوحة أو قيد المراجعة",resolvedRecords:"تمت المعالجة أو الإغلاق",statusNote:"من السجلات المحفوظة",geospatialView:"عرض جغرافي",cityActivity:"خريطة الحوادث",district:"المنطقة",period:"الفترة",fromDate:"من التاريخ",toDate:"إلى التاريخ",category:"النوع",severity:"الأهمية",allDistricts:"كل المناطق",allDates:"كل التواريخ",allTypes:"كل الأنواع",allLevels:"كل المستويات",mapLegend:"مفتاح الخريطة",incidents:"الحوادث",incidentCategories:"فئات الحوادث",patternWatch:"التحليلات",weeklyTrend:"الحوادث حسب الشهر",distribution:"توزيع الأنواع",incidentsByCategory:"الحوادث حسب النوع",districtComparison:"مقارنة المناطق",incidentsByDistrict:"الحوادث حسب المنطقة",importanceStats:"حسب الأهمية",statusStats:"حسب الحالة",incidentManagement:"سجل الحوادث",addIncidentTitle:"إضافة حادث",incidentIdLabel:"رقم الحادث",titleLabel:"عنوان الحادث",typeLabel:"نوع الحادث",provinceLabel:"المحافظة",districtLabel:"المنطقة أو القضاء",addressLabel:"العنوان أو الموقع النصي",dateLabel:"تاريخ الحادث",timeLabel:"وقت الحادث",severityLabel:"الأهمية",statusLabel:"الحالة",descriptionLabel:"وصف الحادث",notesLabel:"ملاحظات إضافية",photoLabel:"صورة اختيارية (حد ٢ ميغابايت)",latitudeLabel:"خط العرض (اختياري)",longitudeLabel:"خط الطول (اختياري)",searchIncidents:"بحث في السجلات",incident:"الحادث",actions:"الإجراءات",cancelEdit:"إلغاء",saveIncident:"إضافة الحادث",clearForm:"مسح النموذج",searchPlaceholder:"ابحث عن منطقة…",thDistrict:"المنطقة",thSampleCount:"السجلات",thHigh:"مرتفعة",thMedium:"متوسطة",thLow:"منخفضة",thTrend:"التغير",thPriority:"التقييم",planningContext:"دعم القرار",assessmentTitle:"سياق التقييم",notOperational:"غير تشغيلي",dataTools:"حوكمة البيانات",importTitle:"البيانات والنسخ الاحتياطي",importHelp:"تبقى السجلات في هذا المتصفح. احفظ نسخة احتياطية ولا تُدخل بيانات شخصية أو سرية.",exportJson:"تنزيل نسخة JSON",exportCsv:"تصدير CSV",importJson:"استيراد نسخة JSON",noCoverage:"لم تُقدّم بيانات مجمعة عن تغطية الخدمات.",relativeOnly:"تعكس المقارنات السجلات المدخلة فقط، وليست معدلات أو مقياساً للسلامة.",demoFooter:"سجلات محفوظة محلياً",footerNote:"OpenStreetMap · بيانات محفوظة محلياً",noRecords:"لا توجد سجلات مطابقة.",statusOpen:"مفتوحة",statusInvestigating:"قيد المراجعة",statusResolved:"تمت المعالجة",statusClosed:"مغلقة",allStatuses:"كل الحالات",mapType:"طبقة الخريطة",mapUnavailable:"الخريطة غير متاحة",mapFallback:"تحقق من الاتصال بالإنترنت ثم أعد تحميل الصفحة.",mapStreetLegend:"تظهر العلامات عند إدخال إحداثيات.",privacyNote:"تُخزن السجلات والمرفقات في هذا المتصفح على هذا الجهاز فقط ولا تتم مزامنتها. لا تُدخل بيانات شخصية أو سرية.",sampleMap:"سجلات محلية",chooseLevel:"اختر الأهمية",chooseStatus:"اختر الحالة"}
   };
   Object.assign(labels.en, {
+    importSpreadsheet:"Import Excel or CSV",spreadsheetTemplate:"Download Excel template",confirmImport:"Add valid rows",
+    spreadsheetHelp:"Choose an Excel or CSV file to preview and import records into this browser's local IndexedDB.",
+    importHelp:"Import Excel/CSV records into this browser's local IndexedDB, or create a JSON backup. Imported data is not shared with other users or devices.",
     xyCoordinates:"Geographic coordinates (X, Y)",mgrsCoordinates:"Military grid reference (MGRS)",
     coordinateHint:"Enter X,Y with X as longitude and Y as latitude, or enter an MGRS reference. Either format is enough.",
     mapMoveHint:"Move the pointer over the map to view coordinates.",
@@ -57,6 +62,9 @@
     optionalDetails:"Optional details",addressLabel:"Text address",timeLabel:"Time",descriptionLabel:"Description",notesLabel:"Notes",photoLabel:"Optional image (max 2 MB)"
   });
   Object.assign(labels.ar, {
+    importSpreadsheet:"استيراد Excel أو CSV",spreadsheetTemplate:"تنزيل قالب Excel",confirmImport:"إضافة السجلات الصالحة",
+    spreadsheetHelp:"اختر ملف Excel أو CSV لمعاينة السجلات ثم إضافتها إلى IndexedDB المحلي في هذا المتصفح.",
+    importHelp:"استورد سجلات Excel/CSV إلى IndexedDB المحلي في هذا المتصفح أو أنشئ نسخة JSON احتياطية. لا تتم مشاركة البيانات تلقائياً مع مستخدمين أو أجهزة أخرى.",
     xyCoordinates:"الإحداثيات الجغرافية (X, Y)",mgrsCoordinates:"الإحداثيات العسكرية (MGRS)",
     coordinateHint:"أدخل X, Y بحيث X هو خط الطول وY خط العرض، أو أدخل إحداثيات MGRS. يكفي إدخال أحد الخيارين.",
     mapMoveHint:"حرّك المؤشر فوق الخريطة لعرض الإحداثيات.",
@@ -71,14 +79,10 @@
     optionalDetails:"تفاصيل إضافية اختيارية",addressLabel:"العنوان النصي",timeLabel:"الوقت",descriptionLabel:"الوصف",notesLabel:"ملاحظات",photoLabel:"صورة اختيارية (حتى ٢ ميغابايت)"
   });
   let lang = "ar";
-  let db, map, markers, charts = {}, incidents = [], photoBlob = null, mapLayers = {}, markersById = new Map();
-  const normalizeLanguage = (value) => (value === "ar" || value === "en" ? value : "ar");
-  const t = (key) => {
-    const active = normalizeLanguage(lang);
-    return words[active][key] || words.ar[key] || words.en[key] || key;
-  };
+  let db, map, markers, charts = {}, incidents = [], photoBlob = null, mapLayers = {}, markersById = new Map(), spreadsheetDraft = [];
+  const t = (key) => words[lang][key] || words.ar[key] || key;
   const text = (value) => String(value ?? "").replace(/[&<>"']/g, (ch) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
-  const categoryName = (id) => { const c = categories.find((item) => item[0] === id); return c ? c[normalizeLanguage(lang) === "ar" ? 1 : 2] : id; };
+  const categoryName = (id) => { const c = categories.find((item) => item[0] === id); return c ? c[lang === "ar" ? 1 : 2] : id; };
   const provinceName = (value) => {
     if(lang==="ar")return value;
     return ({ "بغداد":"Baghdad", "الأنبار":"Al Anbar", "بابل":"Babylon", "البصرة":"Basra", "القادسية":"Al-Qadisiyyah", "ديالى":"Diyala", "ذي قار":"Dhi Qar", "دهوك":"Duhok", "أربيل":"Erbil", "كربلاء":"Karbala", "كركوك":"Kirkuk", "ميسان":"Maysan", "المثنى":"Muthanna", "النجف":"Najaf", "نينوى":"Nineveh", "صلاح الدين":"Saladin", "السليمانية":"Sulaymaniyah", "واسط":"Wasit" })[value] || value;
@@ -112,25 +116,17 @@
   }
   async function loadRecords() { incidents = await transaction("incidents", "readonly", (store) => store.getAll()); }
   function updateLanguage() {
-    lang = normalizeLanguage(lang);
     document.documentElement.lang = lang; document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
     document.body.dir = document.documentElement.dir;
     const button = $("language-toggle");
-    const activeLabels = labels[lang] || labels.ar;
     if (button) { button.innerHTML = lang === "ar" ? "English <span>↗</span>" : "العربية <span>↗</span>"; button.setAttribute("aria-label", lang === "ar" ? "Switch to English" : "التبديل إلى العربية"); }
     document.querySelectorAll("[data-i18n]").forEach((node) => {
       const key = node.dataset.i18n;
-      const value = activeLabels[key] || labels.ar[key] || labels.en[key] || node.textContent.trim();
-      if (value) node.textContent = value;
+      if (labels[lang][key]) node.textContent = labels[lang][key];
       if (key === "localOnly") node.textContent = t("local");
       if (key === "localStorageNote") node.textContent = lang === "ar" ? "البيانات لا تتزامن بين الأجهزة." : "Data is not synced between devices.";
       if (key === "privacyNote") node.textContent = lang === "ar" ? "تُخزّن البيانات محلياً على هذا الجهاز والمتصفح فقط ولا تتم مزامنتها تلقائياً. لا تُدخل بيانات شخصية أو معلومات سرية." : "Data is stored in this browser only and is not synced. Do not enter personal or confidential information.";
       if (key === "subtitle") node.textContent = lang === "ar" ? "سجلاتك المحلية وتحليلاتها، دون بيانات جاهزة." : "Your locally stored records and analysis; no preloaded records.";
-    });
-    document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
-      const key = node.dataset.i18nPlaceholder;
-      const value = activeLabels[key] || labels.ar[key] || labels.en[key] || node.placeholder;
-      if (value) node.setAttribute("placeholder", value);
     });
     if ($("dataset-badge")) $("dataset-badge").textContent=t("local");
     $("map-type-filter").innerHTML=`<option value="street">OpenStreetMap</option><option value="humanitarian">${lang==="ar"?"خريطة إنسانية":"Humanitarian map"}</option>`;
@@ -304,7 +300,8 @@
     return latitude!==null&&latitude!==""&&longitude!==null&&longitude!==""&&Number.isFinite(Number(latitude))&&Number.isFinite(Number(longitude))&&Number(latitude)>=-90&&Number(latitude)<=90&&Number(longitude)>=-180&&Number(longitude)<=180;
   }
   function parseEnteredCoordinates(xyValue,mgrsValue) {
-    const xy=xyValue.trim(), grid=mgrsValue.trim();
+    const normalizeDigits=value=>String(value).replace(/[٠-٩۰-۹]/g,d=>String(d.charCodeAt(0)>=0x06f0?d.charCodeAt(0)-0x06f0:d.charCodeAt(0)-0x0660)).replace(/[٫]/g,".").replace(/[٬،]/g,",");
+    const xy=normalizeDigits(xyValue).trim().replace(/[()[\]]/g,""), grid=normalizeDigits(mgrsValue).trim();
     if(xy&&grid)return{error:t("chooseOneCoordinates")};
     if(xy){
       const values=xy.split(/[,;\s]+/).filter(Boolean);
@@ -335,8 +332,10 @@
   function validate(r) {
     if(!r.title)return t("titleRequired");
     if(!r.category||!categories.some(c=>c[0]===r.category))return t("categoryRequired");
-    if(!r.district||!r.date||!["low","medium","high"].includes(r.severity))return t("invalid");
-    if(!/^\d{4}-\d{2}-\d{2}$/.test(r.date)||Number.isNaN(Date.parse(`${r.date}T00:00:00Z`))||new Date(`${r.date}T00:00:00Z`).toISOString().slice(0,10)!==r.date)return t("invalid");
+    if(!r.district)return t("districtRequired");
+    if(!r.date)return t("dateRequired");
+    if(!["low","medium","high"].includes(r.severity))return t("severityRequired");
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(r.date)||Number.isNaN(Date.parse(`${r.date}T00:00:00Z`))||new Date(`${r.date}T00:00:00Z`).toISOString().slice(0,10)!==r.date)return t("dateInvalid");
     if(!isValidCoordinates(r.latitude,r.longitude))return t("coordinatesMissing");
     return "";
   }
@@ -351,7 +350,7 @@
     const error=validate(record); if(error){$("incident-form-message").textContent=error;toast(error);return;}
     const file=$("incident-photo").files[0]; if(file&&file.size>2*1024*1024){toast(t("photoLimit"));return;} if(file)record.photo=file;
     try { await transaction("incidents","readwrite",(store)=>store.put(record)); await loadRecords(); clearForm(); render(); toast(t("saved")); }
-    catch(error){console.error("Incident could not be stored",error);toast(t("fail")+error.message);}
+    catch(error){console.error("Incident could not be stored",error);$("incident-form-message").textContent=t("fail")+error.message;toast(t("fail")+error.message);}
   }
   function clearForm() {
     $("incident-form").reset(); $("incident-edit-id").value=""; const now=new Date(); $("incident-date").value=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")}`;
@@ -404,12 +403,173 @@
       await loadRecords();render();toast(t("jsonDone"));
     } catch(error){console.error("Backup import failed",error);toast(t("fail")+error.message);}
   }
+  function setImportStatus(message,kind="") {
+    const status=$("import-status");
+    status.textContent=message;
+    status.classList.remove("error","success");
+    if(kind)status.classList.add(kind);
+  }
+  function normalizedHeader(value) {
+    return String(value??"").trim().toLocaleLowerCase().replace(/[\u064B-\u065F\u0670]/g,"").replace(/[\s_\-()[\]{}:/\\.,]+/g,"");
+  }
+  const spreadsheetAliases={
+    id:["id","incidentid","رقمالحادث","المعرف"],
+    title:["title","incidenttitle","العنوان","عنوانالحادث"],
+    category:["category","type","incidenttype","نوعالحادث","الفئة","النوع"],
+    province:["province","governorate","المحافظة"],
+    district:["district","area","region","المنطقة","القضاء","المنطقةاوالقضاء"],
+    date:["date","incidentdate","التاريخ","تاريخالحادث"],
+    severity:["severity","importance","priority","level","الأهمية","مستوىالأهمية","الاهمية","الشدة"],
+    status:["status","الحالة"],
+    xy:["xy","xycoordinates","coordinates","coordinate","الإحداثيات","الاحداثيات","الإحداثياتالجغرافية","الاحداثياتالجغرافية"],
+    mgrs:["mgrs","mgrscoordinates","militarygridreference","militarycoordinates","الإحداثياتالعسكرية","الاحداثياتالعسكرية","مرجعمجرس"],
+    latitude:["latitude","lat","y","ycoordinate","ylatitude","خطالعرض"],
+    longitude:["longitude","lon","lng","x","xcoordinate","xlongitude","خطالطول"],
+    address:["address","location","العنوانالنصي","الموقع"],
+    time:["time","وقتالحادث","الوقت"],
+    description:["description","الوصف"]
+  };
+  function columnIndex(headers,key) {
+    const aliases=spreadsheetAliases[key].map(normalizedHeader);
+    return headers.findIndex(header=>aliases.includes(normalizedHeader(header)));
+  }
+  function cell(row,index) { return index<0?"":row[index]??""; }
+  function spreadsheetDate(value) {
+    if(value instanceof Date&&!Number.isNaN(value.getTime()))return value.toISOString().slice(0,10);
+    if(typeof value==="number"&&typeof XLSX!=="undefined"){
+      const parts=XLSX.SSF.parse_date_code(value);
+      if(parts)return`${String(parts.y).padStart(4,"0")}-${String(parts.m).padStart(2,"0")}-${String(parts.d).padStart(2,"0")}`;
+      return"";
+    }
+    const input=String(value??"").trim();
+    let match=input.match(/^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})/);
+    if(match)return`${match[1]}-${match[2].padStart(2,"0")}-${match[3].padStart(2,"0")}`;
+    match=input.match(/^(\d{1,2})[-/.](\d{1,2})[-/.](\d{4})$/);
+    if(match)return`${match[3]}-${match[2].padStart(2,"0")}-${match[1].padStart(2,"0")}`;
+    return"";
+  }
+  function normalizedSeverity(value) {
+    const key=normalizedHeader(value);
+    if(["high","urgent","critical","مرتفعة","عالية","عاجلة","حرجة"].map(normalizedHeader).includes(key))return"high";
+    if(["medium","moderate","متوسطة","متوسط"].map(normalizedHeader).includes(key))return"medium";
+    if(["low","minor","منخفضة","منخفض"].map(normalizedHeader).includes(key))return"low";
+    return"";
+  }
+  function normalizedStatus(value) {
+    const key=normalizedHeader(value);
+    if(!key)return"open";
+    const values={
+      open:["open","مفتوحة","مفتوح"],
+      investigating:["investigating","underreview","reviewing","قيدالمراجعة","قيدالتدقيق"],
+      resolved:["resolved","تمتالمعالجة","معالجة"],
+      closed:["closed","مغلقة","مغلق"]
+    };
+    for(const [status,aliases] of Object.entries(values))if(aliases.map(normalizedHeader).includes(key))return status;
+    return"";
+  }
+  function normalizedCategory(value) {
+    const key=normalizedHeader(value);
+    const category=categories.find(item=>[item[0],item[1],item[2]].some(alias=>normalizedHeader(alias)===key));
+    if(category)return category[0];
+    const aliases={
+      theft:["robbery","stealing","سرقة","سلب"],
+      assault:["violentcrime","اعتداء","عنف"],
+      burglary:["propertycrime","سطو"],
+      suspicious:["suspiciousactivityreport","نشاطمريب"],
+      disturbance:["publicdisturbance","اضطرابعام"],
+      vandalism:["propertydamage","تخريب"],
+      missing:["missingpersonreport","مفقود"],
+      traffic:["trafficaccident","accident","حادثمروري","مروري"],
+      fire:["fireandemergency","emergency","حريق"],
+      other:["otherreportedincident","أخرى"]
+    };
+    return Object.entries(aliases).find(([,values])=>values.map(normalizedHeader).includes(key))?.[0]||"";
+  }
+  function previewSpreadsheet(validRows,invalidRows,fileName) {
+    spreadsheetDraft=validRows;
+    const preview=$("import-preview"), confirmButton=$("confirm-spreadsheet-import");
+    const invalidList=invalidRows.slice(0,8).map(item=>`<li>${text(item)}</li>`).join("");
+    preview.innerHTML=`<strong>${text(fileName)}</strong><p>${text(lang==="ar"?`سجلات صالحة: ${validRows.length} · صفوف مرفوضة: ${invalidRows.length}`:`Valid rows: ${validRows.length} · Rejected rows: ${invalidRows.length}`)}</p>${invalidList?`<p>${text(lang==="ar"?"تفاصيل الصفوف المرفوضة:":"Rejected rows:")}</p><ul>${invalidList}</ul>`:""}`;
+    preview.hidden=false;
+    confirmButton.hidden=validRows.length===0;
+    setImportStatus(validRows.length?(lang==="ar"?"راجع المعاينة ثم أكد الإضافة. لن تُحفظ أي سجلات قبل التأكيد.":"Review the preview and confirm. No records are saved until you confirm."):(lang==="ar"?"لا توجد صفوف صالحة للاستيراد.":"There are no valid rows to import."),validRows.length?"":"error");
+  }
+  async function previewSpreadsheetFile(file) {
+    spreadsheetDraft=[];
+    $("confirm-spreadsheet-import").hidden=true;
+    $("import-preview").hidden=true;
+    if(typeof XLSX==="undefined")throw new Error(lang==="ar"?"مكتبة قراءة Excel غير متاحة. تحقق من اتصال الإنترنت ثم أعد تحميل الصفحة.":"Excel reader unavailable. Check your internet connection and reload.");
+    const workbook=XLSX.read(await file.arrayBuffer(),{type:"array",cellDates:true});
+    const sheet=workbook.Sheets[workbook.SheetNames[0]];
+    if(!sheet)throw new Error(lang==="ar"?"الملف لا يحتوي ورقة بيانات.":"The file has no worksheet.");
+    const rows=XLSX.utils.sheet_to_json(sheet,{header:1,defval:"",raw:true,blankrows:false});
+    if(rows.length<2)throw new Error(lang==="ar"?"أضف صف العناوين ثم سجلاً واحداً على الأقل.":"Add a header row and at least one incident row.");
+    const headers=rows[0], indexes=Object.fromEntries(Object.keys(spreadsheetAliases).map(key=>[key,columnIndex(headers,key)]));
+    if(indexes.title<0||indexes.category<0||indexes.district<0||indexes.date<0||indexes.severity<0)throw new Error(lang==="ar"?"الأعمدة المطلوبة: title, category, district, date, severity (أو عناوينها العربية).":"Required columns: title, category, district, date, severity (or their Arabic labels).");
+    const incomingIds=new Set(), existingIds=new Set(incidents.map(record=>String(record.id)));
+    const validRows=[], invalidRows=[];
+    rows.slice(1).forEach((row,index)=>{
+      if(row.every(value=>String(value??"").trim()===""))return;
+      const line=index+2;
+      const providedId=String(cell(row,indexes.id)).trim();
+      const title=String(cell(row,indexes.title)).trim();
+      const category=normalizedCategory(cell(row,indexes.category));
+      const district=String(cell(row,indexes.district)).trim();
+      const date=spreadsheetDate(cell(row,indexes.date));
+      const severity=normalizedSeverity(cell(row,indexes.severity));
+      const status=normalizedStatus(cell(row,indexes.status));
+      let point=null;
+      const xyValue=String(cell(row,indexes.xy)).trim(), mgrsValue=String(cell(row,indexes.mgrs)).trim();
+      if(xyValue&&mgrsValue){invalidRows.push(`${lang==="ar"?"الصف":"Row"} ${line}: ${lang==="ar"?"أدخل XY أو MGRS فقط.":"enter either XY or MGRS, not both."}`);return;}
+      if(xyValue)point=parseEnteredCoordinates(xyValue,"");
+      else if(mgrsValue)point=parseEnteredCoordinates("",mgrsValue);
+      else {
+        const lat=cell(row,indexes.latitude),lon=cell(row,indexes.longitude);
+        if(String(lat).trim()!==""&&String(lon).trim()!==""){
+          const latitude=Number(lat),longitude=Number(lon);
+          point=isValidCoordinates(latitude,longitude)?{latitude,longitude,coordinateSystem:"xy",mgrs:null}:{error:t("invalidXY")};
+        } else point={error:t("coordinatesMissing")};
+      }
+      const record={id:providedId||createIncidentId(),title,category,province:String(cell(row,indexes.province)).trim()||"بغداد",district,date,severity,status,latitude:point?.latitude,longitude:point?.longitude,coordinateSystem:point?.coordinateSystem,mgrs:point?.mgrs,address:String(cell(row,indexes.address)).trim(),time:String(cell(row,indexes.time)).trim(),description:String(cell(row,indexes.description)).trim(),notes:"",photo:null,updatedAt:new Date().toISOString()};
+      const error=validate({...record,latitude:point?.latitude??0,longitude:point?.longitude??0})||(!["open","investigating","resolved","closed"].includes(record.status)?(lang==="ar"?"الحالة غير معروفة.":"Unknown status."):point?.error);
+      if(error){invalidRows.push(`${lang==="ar"?"الصف":"Row"} ${line}: ${error}`);return;}
+      if(existingIds.has(record.id)||incomingIds.has(record.id)){invalidRows.push(`${lang==="ar"?"الصف":"Row"} ${line}: ${lang==="ar"?"رقم مكرر":"duplicate ID"} ${record.id}`);return;}
+      incomingIds.add(record.id);validRows.push(record);
+    });
+    previewSpreadsheet(validRows,invalidRows,file.name);
+  }
+  async function confirmSpreadsheetImport() {
+    if(!spreadsheetDraft.length)return;
+    const records=spreadsheetDraft.slice();
+    try{
+      const tx=db.transaction("incidents","readwrite"),store=tx.objectStore("incidents");
+      records.forEach(record=>store.add(record));
+      await new Promise((resolve,reject)=>{tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error||new Error("Import transaction aborted"));});
+      spreadsheetDraft=[];$("import-preview").hidden=true;$("confirm-spreadsheet-import").hidden=true;
+      await loadRecords();render();
+      setImportStatus(lang==="ar"?`تم استيراد ${records.length} حادث إلى التخزين المحلي لهذا المتصفح.`:`Imported ${records.length} incidents into this browser's local storage.`,"success");
+    }catch(error){
+      console.error("Spreadsheet import failed",error);
+      setImportStatus(t("fail")+error.message,"error");
+    }
+  }
+  function downloadSpreadsheetTemplate() {
+    if(typeof XLSX==="undefined"){setImportStatus(lang==="ar"?"مكتبة Excel غير متاحة. تحقق من الإنترنت.":"Excel library unavailable. Check your internet connection.","error");return;}
+    const headers=["رقم الحادث","عنوان الحادث","نوع الحادث","المحافظة","المنطقة","التاريخ","الأهمية","الحالة","XY","MGRS","latitude","longitude","العنوان النصي","الوقت","الوصف"];
+    const worksheet=XLSX.utils.aoa_to_sheet([headers]);
+    worksheet["!cols"]=headers.map(header=>({wch:header==="description"?32:18}));
+    const workbook=XLSX.utils.book_new();XLSX.utils.book_append_sheet(workbook,worksheet,"Incidents");
+    XLSX.writeFile(workbook,"incident-import-template.xlsx");
+  }
   function bind() {
     initFormOptions(); renderCategoryEditor(); $("incident-form").addEventListener("submit",save); $("cancel-edit").addEventListener("click",clearForm); $("clear-form").addEventListener("click",clearForm);
     $("incident-form").addEventListener("input",()=>{$("incident-form-message").textContent="";});
     $("incident-form").addEventListener("invalid",(event)=>{
       if(event.target.id==="incident-title")$("incident-form-message").textContent=t("titleRequired");
       else if(event.target.id==="incident-category")$("incident-form-message").textContent=t("categoryRequired");
+      else if(event.target.id==="incident-district")$("incident-form-message").textContent=lang==="ar"?"أدخل المنطقة.":"Enter the district.";
+      else if(event.target.id==="incident-date")$("incident-form-message").textContent=lang==="ar"?"أدخل تاريخاً صحيحاً.":"Enter a valid date.";
+      else if(event.target.id==="incident-severity")$("incident-form-message").textContent=lang==="ar"?"اختر مستوى الأهمية.":"Choose an importance level.";
     },true);
     $("incident-photo").addEventListener("change",(event)=>{
       const file=event.target.files[0]; if(!file)return;
@@ -427,6 +587,15 @@
     $("export-json").addEventListener("click",()=>exportJson().catch(error=>{console.error("JSON backup export failed",error);toast(t("fail")+error.message);}));
     $("export-csv").addEventListener("click",()=>{try{exportCsv();}catch(error){console.error("CSV export failed",error);toast(t("fail")+error.message);}});
     $("import-json").addEventListener("change",(e)=>{if(e.target.files[0])importJson(e.target.files[0]);e.target.value="";});
+    $("import-spreadsheet").addEventListener("change",async(event)=>{
+      const file=event.target.files[0];
+      event.target.value="";
+      if(!file)return;
+      try{await previewSpreadsheetFile(file);}
+      catch(error){console.error("Spreadsheet preview failed",error);setImportStatus(error.message,"error");}
+    });
+    $("confirm-spreadsheet-import").addEventListener("click",confirmSpreadsheetImport);
+    $("download-spreadsheet-template").addEventListener("click",downloadSpreadsheetTemplate);
     $("add-category-form").addEventListener("submit",addCategory);
   }
   async function start() {
@@ -435,7 +604,7 @@
       const savedCategories=await transaction("settings","readonly",store=>store.get("categories"));
       if(Array.isArray(savedCategories?.value)&&savedCategories.value.every(c=>Array.isArray(c)&&c.length===3))categories=savedCategories.value;
       const savedLanguage=await transaction("settings","readonly",store=>store.get("language"));
-      lang = normalizeLanguage(savedLanguage?.value);
+      if(savedLanguage?.value==="ar"||savedLanguage?.value==="en")lang=savedLanguage.value;
       await loadRecords(); initMap(); bind(); clearForm(); updateLanguage();
       $("today-label").textContent=new Intl.DateTimeFormat(lang==="ar"?"ar-IQ":"en-IQ",{dateStyle:"medium"}).format(new Date());
     } catch(error) {
