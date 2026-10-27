@@ -72,9 +72,13 @@
   });
   let lang = "ar";
   let db, map, markers, charts = {}, incidents = [], photoBlob = null, mapLayers = {}, markersById = new Map();
-  const t = (key) => words[lang][key] || words.ar[key] || key;
+  const normalizeLanguage = (value) => (value === "ar" || value === "en" ? value : "ar");
+  const t = (key) => {
+    const active = normalizeLanguage(lang);
+    return words[active][key] || words.ar[key] || words.en[key] || key;
+  };
   const text = (value) => String(value ?? "").replace(/[&<>"']/g, (ch) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
-  const categoryName = (id) => { const c = categories.find((item) => item[0] === id); return c ? c[lang === "ar" ? 1 : 2] : id; };
+  const categoryName = (id) => { const c = categories.find((item) => item[0] === id); return c ? c[normalizeLanguage(lang) === "ar" ? 1 : 2] : id; };
   const provinceName = (value) => {
     if(lang==="ar")return value;
     return ({ "بغداد":"Baghdad", "الأنبار":"Al Anbar", "بابل":"Babylon", "البصرة":"Basra", "القادسية":"Al-Qadisiyyah", "ديالى":"Diyala", "ذي قار":"Dhi Qar", "دهوك":"Duhok", "أربيل":"Erbil", "كربلاء":"Karbala", "كركوك":"Kirkuk", "ميسان":"Maysan", "المثنى":"Muthanna", "النجف":"Najaf", "نينوى":"Nineveh", "صلاح الدين":"Saladin", "السليمانية":"Sulaymaniyah", "واسط":"Wasit" })[value] || value;
@@ -108,17 +112,25 @@
   }
   async function loadRecords() { incidents = await transaction("incidents", "readonly", (store) => store.getAll()); }
   function updateLanguage() {
+    lang = normalizeLanguage(lang);
     document.documentElement.lang = lang; document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
     document.body.dir = document.documentElement.dir;
     const button = $("language-toggle");
+    const activeLabels = labels[lang] || labels.ar;
     if (button) { button.innerHTML = lang === "ar" ? "English <span>↗</span>" : "العربية <span>↗</span>"; button.setAttribute("aria-label", lang === "ar" ? "Switch to English" : "التبديل إلى العربية"); }
     document.querySelectorAll("[data-i18n]").forEach((node) => {
       const key = node.dataset.i18n;
-      if (labels[lang][key]) node.textContent = labels[lang][key];
+      const value = activeLabels[key] || labels.ar[key] || labels.en[key] || node.textContent.trim();
+      if (value) node.textContent = value;
       if (key === "localOnly") node.textContent = t("local");
       if (key === "localStorageNote") node.textContent = lang === "ar" ? "البيانات لا تتزامن بين الأجهزة." : "Data is not synced between devices.";
       if (key === "privacyNote") node.textContent = lang === "ar" ? "تُخزّن البيانات محلياً على هذا الجهاز والمتصفح فقط ولا تتم مزامنتها تلقائياً. لا تُدخل بيانات شخصية أو معلومات سرية." : "Data is stored in this browser only and is not synced. Do not enter personal or confidential information.";
       if (key === "subtitle") node.textContent = lang === "ar" ? "سجلاتك المحلية وتحليلاتها، دون بيانات جاهزة." : "Your locally stored records and analysis; no preloaded records.";
+    });
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
+      const key = node.dataset.i18nPlaceholder;
+      const value = activeLabels[key] || labels.ar[key] || labels.en[key] || node.placeholder;
+      if (value) node.setAttribute("placeholder", value);
     });
     if ($("dataset-badge")) $("dataset-badge").textContent=t("local");
     $("map-type-filter").innerHTML=`<option value="street">OpenStreetMap</option><option value="humanitarian">${lang==="ar"?"خريطة إنسانية":"Humanitarian map"}</option>`;
@@ -423,7 +435,7 @@
       const savedCategories=await transaction("settings","readonly",store=>store.get("categories"));
       if(Array.isArray(savedCategories?.value)&&savedCategories.value.every(c=>Array.isArray(c)&&c.length===3))categories=savedCategories.value;
       const savedLanguage=await transaction("settings","readonly",store=>store.get("language"));
-      if(savedLanguage?.value==="ar"||savedLanguage?.value==="en")lang=savedLanguage.value;
+      lang = normalizeLanguage(savedLanguage?.value);
       await loadRecords(); initMap(); bind(); clearForm(); updateLanguage();
       $("today-label").textContent=new Intl.DateTimeFormat(lang==="ar"?"ar-IQ":"en-IQ",{dateStyle:"medium"}).format(new Date());
     } catch(error) {
